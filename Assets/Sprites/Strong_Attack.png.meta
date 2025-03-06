@@ -1,0 +1,476 @@
+fileFormatVersion: 2
+guid: c603fb2547fe4c24fa4d319d31cfb255
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Strong_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 890
+        width: 45
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c7276763417574386d64c07fe3390d
+      internalID: 1196242758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 890
+        width: 68
+        height: 124
+      alignment: 9
+      pivot: {x: 0.46405837, y: 0.500001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43a8c73c22d4eb74493ce8b9635af14f
+      internalID: -327017052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 891
+        width: 82
+        height: 125
+      alignment: 9
+      pivot: {x: 0.54470754, y: 0.48044825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e41cb3742d8a442b1bb5a9fb30a9e5
+      internalID: 564973153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 881
+        width: 90
+        height: 126
+      alignment: 9
+      pivot: {x: 0.58146834, y: 0.49030268}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c8fcf7b3f447346abec3e6901580a2
+      internalID: 1678227107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 641
+        width: 91
+        height: 141
+      alignment: 9
+      pivot: {x: 0.6208572, y: 0.45666808}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7098a00d49982584e8a53dfb6d4be03e
+      internalID: -1409549569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 635
+        width: 92
+        height: 143
+      alignment: 9
+      pivot: {x: 0.61954266, y: 0.44018212}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dde76cbd9612d6409c6d4ce8c37c07e
+      internalID: -1028423358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 633
+        width: 101
+        height: 145
+      alignment: 9
+      pivot: {x: 0.58469504, y: 0.43258014}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeefee80b74559141a2cbd87e5b65960
+      internalID: 478413770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 641
+        width: 109
+        height: 125
+      alignment: 9
+      pivot: {x: 0.67937726, y: 0.4511211}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242b37bda7555324d94ab6c0e2c2c0b0
+      internalID: -439078729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 389
+        width: 132
+        height: 128
+      alignment: 9
+      pivot: {x: 0.30559158, y: 0.5000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc07c0762b9c13148ae4160c26407d41
+      internalID: -1384376636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 389
+        width: 159
+        height: 129
+      alignment: 9
+      pivot: {x: 0.20026518, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1dcad7cb192be44d9461c7e6efb81f3
+      internalID: 135486259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 390
+        width: 198
+        height: 127
+      alignment: 9
+      pivot: {x: 0.16672893, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d516afe4118e040869c587cc045a07
+      internalID: 899237340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 389
+        width: 220
+        height: 127
+      alignment: 9
+      pivot: {x: 0.15561967, y: 0.48075613}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a51d11f5034b30c47816b5cfc308ee81
+      internalID: -1957825755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 141
+        width: 238
+        height: 127
+      alignment: 9
+      pivot: {x: 0.13545509, y: 0.48075637}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4275a24affe3bfc4bbe8bae6eb5eb339
+      internalID: 2133613242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 146
+        width: 67
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb083aec0d71464fb5eacc413b890e1
+      internalID: 255484156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strong_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 6
+        width: 1761
+        height: 1036
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b10efd6a69c7e4abfa54d3d6ab4eee
+      internalID: -443845219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Strong_Attack_0: 1196242758
+      Strong_Attack_1: -327017052
+      Strong_Attack_10: -1384376636
+      Strong_Attack_11: 2094074432
+      Strong_Attack_12: 135486259
+      Strong_Attack_13: 1740642008
+      Strong_Attack_14: 899237340
+      Strong_Attack_15: -640995586
+      Strong_Attack_16: -1957825755
+      Strong_Attack_17: 1538575484
+      Strong_Attack_18: 2133613242
+      Strong_Attack_19: -195480120
+      Strong_Attack_2: 564973153
+      Strong_Attack_20: 255484156
+      Strong_Attack_3: 1678227107
+      Strong_Attack_4: -1409549569
+      Strong_Attack_5: -443845219
+      Strong_Attack_6: -1028423358
+      Strong_Attack_7: 478413770
+      Strong_Attack_8: 757090295
+      Strong_Attack_9: -439078729
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
