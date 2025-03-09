@@ -184,7 +184,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1133767236, guid: e5a43f9b3b6271344874395719f6f1fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba1a12d8a2547764e9e9ddc44ba0c7bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -263,8 +263,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024416924, y: 0.056972623}
-  m_Size: {x: 0.3977182, y: 1.2023835}
+  m_Offset: {x: 0.0711239, y: 0.11302018}
+  m_Size: {x: 0.5658623, y: 2.4354322}
   m_Direction: 0
 --- !u!50 &41008366
 Rigidbody2D:
@@ -281,7 +281,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -305,11 +305,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f297edf8bb418a54ead688dc40e6423a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 6
   _asset: {fileID: -944628639613478452, guid: 985cb7d0aa9182f4b8409978e7461b9a, type: 3}
   _rig: {fileID: 0}
   _axis: 0
   _grounded: 1
+  _sprite: {fileID: 0}
+  timer: 0
 --- !u!1 &77095680
 GameObject:
   m_ObjectHideFlags: 0

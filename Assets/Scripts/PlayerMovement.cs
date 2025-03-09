@@ -11,20 +11,51 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D _rig;
     public float _axis;
     public bool _grounded = false;
+    public SpriteRenderer _sprite;
+    public float timer = 0f;
     // Start is called before the first frame update
     void Start()
     {
         _rig = this.GetComponent<Rigidbody2D>();
+        _sprite = this.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         _rig.position += new Vector2(_axis * speed * Time.deltaTime, 0f);
+        if(_axis<0)
+        {
+            _sprite.flipX = true;
+        }
+        else if(_axis>0)
+        {
+            _sprite.flipX = false;
+        }
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                timer = 0;
+            }
+        }
+        if (timer > 0 && _grounded == true && Input.GetKey(KeyCode.Space))
+        {
+            _rig.AddForce(new Vector2(0f, 13f), ForceMode2D.Impulse);
+            timer = 0f;
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        if(collision.gameObject.CompareTag("Ground")&&_rig.velocity.y == 0)
+        {
+            _grounded = true;
+        }
+    }  
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Ground")&&_rig.velocity.y == 0)
         {
             _grounded = true;
         }
@@ -66,12 +97,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_grounded)
         {
-            _rig.AddForce(new Vector2(0f, 150f));
-
+            _rig.AddForce(new Vector2(0f, 7f), ForceMode2D.Impulse);
+            timer = 0f;
         }
+        else
+        {
+            timer = 0.2f;
+        }
+
+        //if (ctx.ReadValue<float>() > 0.5f && _grounded && timer > 0)
+        //{
+        //   _rig.AddForce(new Vector2(0f, 7f), ForceMode2D.Impulse);
+        //   timer = 0;
+        //}
     }
     public void HandleJumpDown(InputAction.CallbackContext ctx)
     {
-        _rig.AddForce(new Vector2(0f, -200f));
+        _rig.AddForce(new Vector2(0f, -7f), ForceMode2D.Impulse);
     }
 }
