@@ -15,9 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public bool _grounded = false;
     public SpriteRenderer _sprite;
     public float timer = 0f;
+    public float timerDash = 0f;
     public float jumpForce;
     private bool _hasDashed = false;
     private bool _falling = false;
+    private bool _landTriggered = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _animator.SetFloat("Walking", _axisx);
+        _animator.SetBool("Grounded", _grounded);
         _rig.position += new Vector2(_axisx * speed * Time.deltaTime, 0f);
         if (_axisx < 0)
         {
@@ -44,6 +48,18 @@ public class PlayerMovement : MonoBehaviour
             if (timer <= 0)
             {
                 timer = 0;
+            }
+        }
+        if (timerDash > 0)
+        {
+            timerDash -= Time.deltaTime;
+            if (timerDash <= 0)
+            {
+                if (_hasDashed)
+                {
+                _rig.velocity = new Vector2(0,0);
+                }
+                timerDash = 0;
             }
         }
         if (timer > 0 && _grounded == true)
@@ -63,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
             _animator.Play("Jump land");
             _grounded = true;
             _falling = false;
+            _landTriggered = false;
         }
     }
     private void OnCollisionStay2D(Collision2D collision)
@@ -135,9 +152,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_grounded)
         {
-            if (_falling == false)
+            if (_falling == false && !_landTriggered)
             {
                 _animator.Play("Jump up");
+                _landTriggered = true;
             }
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             timer = 0f;
@@ -155,12 +173,28 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleDash(InputAction.CallbackContext ctx)
     {
-        if ((_axisx != 0 || _axisy != 0) && !_hasDashed)
+        if ((_axisx != 0 || _axisy != 0) && !_hasDashed && _grounded)
         {
             _animator.Play("Dash");
             _rig.velocity = Vector2.zero;
-            _rig.AddForce(new Vector2(7f * _axisx, 10f * _axisy), ForceMode2D.Impulse);
+            _rig.AddForce(new Vector2(11f * _axisx, 7f * _axisy), ForceMode2D.Impulse);
             _hasDashed = true;
+            if(!ctx.canceled)
+            {
+                timerDash = 0.4f;
+            }
+        }
+        else if ((_axisx != 0 || _axisy != 0) && !_hasDashed && !_grounded)
+        {
+            _animator.Play("Dash");
+            _rig.velocity = Vector2.zero;
+            _rig.AddForce(new Vector2(8f * _axisx, 10f * _axisy), ForceMode2D.Impulse);
+            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y,-9f, 9f));
+            _hasDashed = true;
+            if(!ctx.canceled)
+            {
+                timerDash = 0.4f;
+            }
         }
     }
     public void HandleDashCancel(InputAction.CallbackContext ctx)
@@ -170,7 +204,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleJumpDown(InputAction.CallbackContext ctx)
     {
-        if (!_hasDashed)
+        if (!_hasDashed && !_grounded)
         {
             _animator.Play("Jump down");
             _rig.AddForce(new Vector2(0f, -7f), ForceMode2D.Impulse);
