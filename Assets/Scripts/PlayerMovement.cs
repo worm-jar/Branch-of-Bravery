@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
     public float _axisx;
     public float _axisy;
     public bool _grounded = false;
-    public SpriteRenderer _sprite;
     public float timer = 0f;
     public float timerDash = 0f;
     public float jumpForce;
@@ -24,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rig = this.GetComponent<Rigidbody2D>();
-        _sprite = this.GetComponent<SpriteRenderer>();
         _animator = this.GetComponent<Animator>();
     }
 
@@ -33,14 +31,18 @@ public class PlayerMovement : MonoBehaviour
     {
         _animator.SetFloat("Walking", _axisx);
         _animator.SetBool("Grounded", _grounded);
-        _rig.position += new Vector2(_axisx * speed * Time.deltaTime, 0f);
+        if (PlayerAttack.isStrongAttacking == false)
+        {
+           _rig.position += new Vector2(_axisx * speed * Time.deltaTime, 0f);
+        }
+
         if (_axisx < 0)
         {
-            _sprite.flipX = true;
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else if (_axisx > 0)
         {
-            _sprite.flipX = false;
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
         if (timer > 0)
         {
@@ -64,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (timer > 0 && _grounded == true)
         {
-            if (_falling == false)
+            if (_falling == false && PlayerAttack.isStrongAttacking == false)
             {
                 _animator.Play("Jump up");
             }
@@ -76,7 +78,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") && _rig.velocity.y == 0)
         {
-            _animator.Play("Jump land");
+            if(PlayerAttack.isStrongAttacking == false)
+            {
+                _animator.Play("Jump land");
+            }
             _grounded = true;
             _falling = false;
             _landTriggered = false;
@@ -136,12 +141,18 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleMove(InputAction.CallbackContext ctx)
     {
+        if (PlayerAttack.isStrongAttacking == false)
+        { 
         _animator.Play("Walk");
+        }
         _axisx = ctx.ReadValue<float>();
     } 
     public void HandleMoveStop(InputAction.CallbackContext ctx)
     {
-        _animator.Play("Idle");
+        if (PlayerAttack.isStrongAttacking == false)
+        {
+            _animator.Play("Idle");
+        }
         _axisx = ctx.ReadValue<float>();
     } 
     public void HandleUp(InputAction.CallbackContext ctx)
@@ -154,7 +165,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_falling == false && !_landTriggered)
             {
-                _animator.Play("Jump up");
+                if (PlayerAttack.isStrongAttacking == false)
+                {
+                    _animator.Play("Jump up");
+                }
                 _landTriggered = true;
             }
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -175,9 +189,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if ((_axisx != 0 || _axisy != 0) && !_hasDashed && _grounded)
         {
-            _animator.Play("Dash");
-            _rig.velocity = Vector2.zero;
-            _rig.AddForce(new Vector2(11f * _axisx, 7f * _axisy), ForceMode2D.Impulse);
+            if (PlayerAttack.isStrongAttacking == false)
+            {
+                _animator.Play("Dash");
+                _rig.velocity = Vector2.zero;
+                _rig.AddForce(new Vector2(11f * _axisx, 7f * _axisy), ForceMode2D.Impulse);
+            }
             _hasDashed = true;
             if(!ctx.canceled)
             {
@@ -186,11 +203,15 @@ public class PlayerMovement : MonoBehaviour
         }
         else if ((_axisx != 0 || _axisy != 0) && !_hasDashed && !_grounded)
         {
-            _animator.Play("Dash");
-            _rig.velocity = Vector2.zero;
-            _rig.AddForce(new Vector2(8f * _axisx, 10f * _axisy), ForceMode2D.Impulse);
-            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y,-9f, 9f));
-            _hasDashed = true;
+            if (PlayerAttack.isStrongAttacking == false)
+            {
+                _animator.Play("Dash");
+                _rig.velocity = Vector2.zero;
+
+                _rig.AddForce(new Vector2(8f * _axisx, 10f * _axisy), ForceMode2D.Impulse);
+                _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 9f));
+                _hasDashed = true;
+            }
             if(!ctx.canceled)
             {
                 timerDash = 0.4f;
@@ -206,7 +227,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_hasDashed && !_grounded)
         {
-            _animator.Play("Jump down");
+            if (PlayerAttack.isStrongAttacking == false)
+            {
+                _animator.Play("Jump down");
+            }
             _rig.AddForce(new Vector2(0f, -7f), ForceMode2D.Impulse);
         }
     }
