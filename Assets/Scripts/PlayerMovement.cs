@@ -31,11 +31,18 @@ public class PlayerMovement : MonoBehaviour
     {
         _animator.SetFloat("Walking", _axisx);
         _animator.SetBool("Grounded", _grounded);
+        if (PlayerAttack.isLightAttacking)
+        {
+            speed = 0.5f;
+        }
+        else
+        {
+            speed = 4;
+        }
         if (PlayerAttack.isStrongAttacking == false)
         {
-           _rig.position += new Vector2(_axisx * speed * Time.deltaTime, 0f);
+            _rig.position += new Vector2(_axisx * speed * Time.deltaTime, 0f);
         }
-
         if (_axisx < 0)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
