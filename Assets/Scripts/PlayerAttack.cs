@@ -67,8 +67,11 @@ public class PlayerAttack : MonoBehaviour
     }
     public void HandleHeavyAttack(InputAction.CallbackContext ctx)
     {
-        isStrongAttacking = true;
-        _animator.Play("Heavy Attack");
-        timerStrongAttack = 0.6f;
+        if (PlayerHealth.health > 50)
+        {
+            isStrongAttacking = true;
+            _animator.Play("Heavy Attack");
+            timerStrongAttack = 0.6f;
+        }
     }
 }

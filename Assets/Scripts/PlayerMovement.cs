@@ -19,11 +19,13 @@ public class PlayerMovement : MonoBehaviour
     private bool _hasDashed = false;
     private bool _falling = false;
     private bool _landTriggered = false;
+    public TrailRenderer _trail;
     // Start is called before the first frame update
     void Start()
     {
         _rig = this.GetComponent<Rigidbody2D>();
         _animator = this.GetComponent<Animator>();
+        _trail = this.GetComponent<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -68,15 +70,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                 _rig.velocity = new Vector2(0,0);
                 }
+                _trail.enabled = false;
                 timerDash = 0;
             }
         }
         if (timer > 0 && _grounded == true)
         {
-            if (_falling == false && PlayerAttack.isStrongAttacking == false)
-            {
-                _animator.Play("Jump up");
-            }
             _rig.AddForce(new Vector2(0f, jumpForce*2f), ForceMode2D.Impulse);
             timer = 0f;
         }
@@ -183,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!ctx.canceled)
         {
-            timer = 0.1f;
+            timer = 0.15f;
         }
 
         //if (ctx.ReadValue<float>() > 0.5f && _grounded && timer > 0)
@@ -198,6 +197,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (PlayerAttack.isStrongAttacking == false)
             {
+                _trail.enabled = true;
                 _animator.Play("Dash");
                 _rig.velocity = Vector2.zero;
                 _rig.AddForce(new Vector2(11f * _axisx, 7f * _axisy), ForceMode2D.Impulse);
@@ -212,6 +212,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (PlayerAttack.isStrongAttacking == false)
             {
+                _trail.enabled = true;
                 _animator.Play("Dash");
                 _rig.velocity = Vector2.zero;
 
@@ -227,6 +228,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleDashCancel(InputAction.CallbackContext ctx)
     {
+        _trail.enabled = false;
         _rig.velocity = new Vector2(0f,0f);
         _hasDashed = false;
     }
