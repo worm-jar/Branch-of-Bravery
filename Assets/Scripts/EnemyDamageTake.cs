@@ -34,20 +34,22 @@ public class EnemyDamageTake : MonoBehaviour
         {
             if (PlayerAttack.isLightAttacking)
             {
-                PlayerHealth.health += 3;
+                PlayerHealth.health += 8;
                 EnemyHealth.health -= 2.5f;
+                float relativePos = transform.position.x - _player.transform.position.x;
+                _rig.AddForce(new Vector2(relativePos * knockBack, 2f), ForceMode2D.Impulse);
+                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -3.5f, 3.5f), _rig.velocity.y);
             }
             else if (PlayerAttack.isStrongAttacking)
             {
-                PlayerHealth.health -= 20;
                 EnemyHealth.health -= 12;
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 50, 100);
+                float relativePos = transform.position.x - _player.transform.position.x;
+                _rig.AddForce(new Vector2(relativePos * knockBack * 2.5f, 2f), ForceMode2D.Impulse);
+                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
             }
                 this.gameObject.layer = LayerMask.NameToLayer("Invincible");
-            float relativePos = transform.position.x - _player.transform.position.x;
-            _rig.AddForce(new Vector2(relativePos * knockBack, 2f), ForceMode2D.Impulse);
-            _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -3.5f, 3.5f), _rig.velocity.y);
-            timerIFrames = 0.5f;
+            timerIFrames = 0.3f;
         }
     }
 }

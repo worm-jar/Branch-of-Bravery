@@ -69,6 +69,8 @@ public class PlayerAttack : MonoBehaviour
     {
         if (PlayerHealth.health > 50)
         {
+            PlayerHealth.health -= 18;
+            PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 50, 100);
             isStrongAttacking = true;
             _animator.Play("Heavy Attack");
             timerStrongAttack = 0.6f;

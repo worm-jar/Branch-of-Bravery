@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 3291422478178781034}
   - component: {fileID: 4172693831701210362}
   - component: {fileID: 6480188126605736876}
+  - component: {fileID: 9078432261051567605}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -582,6 +583,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthSlider: {fileID: 0}
+--- !u!114 &9078432261051567605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199960841011164563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c0fef35bd095649bb23251017ba3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rig: {fileID: 0}
+  _annabeth: {fileID: 0}
+  _fakeAnnabeth: {fileID: 0}
+  knockBack: 2.5
+  timerIFrames: 0
 --- !u!1 &8000645156608182049
 GameObject:
   m_ObjectHideFlags: 0

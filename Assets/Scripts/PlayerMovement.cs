@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
         _animator = this.GetComponent<Animator>();
         _trail = this.GetComponent<TrailRenderer>();
     }
-
     // Update is called once per frame
     void Update()
     {
