@@ -8,11 +8,13 @@ public class EnemyDamageTake : MonoBehaviour
     public Rigidbody2D _rig;
     public GameObject _player;
     public float timerIFrames;
+    public SpriteRenderer _sprite;
     // Start is called before the first frame update
     void Start()
     {
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
+        _sprite = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class EnemyDamageTake : MonoBehaviour
             if (timerIFrames <= 0)
             {
                 this.gameObject.layer = LayerMask.NameToLayer("Enemy");
+                _sprite.color = Color.white;
                 timerIFrames = 0;
             }
         }
@@ -35,20 +38,23 @@ public class EnemyDamageTake : MonoBehaviour
             if (PlayerAttack.isLightAttacking)
             {
                 PlayerHealth.health += 8;
-                EnemyHealth.health -= 2.5f;
+                PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 50, 100);
+                EnemyHealth.health -= 1f;
                 float relativePos = transform.position.x - _player.transform.position.x;
                 _rig.AddForce(new Vector2(relativePos * knockBack, 2f), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -3.5f, 3.5f), _rig.velocity.y);
+
             }
             else if (PlayerAttack.isStrongAttacking)
             {
-                EnemyHealth.health -= 12;
+                EnemyHealth.health -= 20;
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 50, 100);
                 float relativePos = transform.position.x - _player.transform.position.x;
                 _rig.AddForce(new Vector2(relativePos * knockBack * 2.5f, 2f), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
             }
-                this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+            this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+            _sprite.color = Color.black;
             timerIFrames = 0.3f;
         }
     }

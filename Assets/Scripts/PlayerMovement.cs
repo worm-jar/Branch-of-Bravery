@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") && _rig.velocity.y == 0)
         {
-            if(PlayerAttack.isStrongAttacking == false)
+            if (PlayerAttack.isStrongAttacking == false)
             {
                 _animator.Play("Jump land");
             }

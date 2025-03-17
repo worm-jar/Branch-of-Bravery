@@ -140,7 +140,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1.15
   m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -206,15 +206,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondPhase: 0
   isAttacking: 0
-  isBehavior: 0
+  forceOnce: 0
+  behavioring: 0
   _animator: {fileID: 0}
   _rig: {fileID: 0}
   _player: {fileID: 0}
   randomBehavior: 0
-  speed: 0.5
+  speed: 2.5
   _projectile: {fileID: 9082775863669702749, guid: 4a8d136fa42727f4291d1094ba359c7d, type: 3}
   attackTimer: 0
   attackTimerBeforeDone: 0
+  launchTimer: 0
   _bow: {fileID: 4869722592580231123}
 --- !u!1 &4505342160217548566
 GameObject:

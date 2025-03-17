@@ -10,6 +10,7 @@ public class PlayerTakeDamage : MonoBehaviour
     public GameObject _fakeAnnabeth;
     public float knockBack;
     public float timerIFrames;
+    public CameraShake Camera;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerTakeDamage : MonoBehaviour
             timerIFrames -= Time.deltaTime;
             if (timerIFrames <= 0)
             {
+                Camera.amount = 0f;
                 this.gameObject.layer = LayerMask.NameToLayer("Player");
                 timerIFrames = 0;
             }
@@ -44,6 +46,7 @@ public class PlayerTakeDamage : MonoBehaviour
         if (collision2D.gameObject.CompareTag("EnemyAttack"))
         {
             PlayerHealth.health -= 18f;
+            Camera.amount = 0.5f;
             if (_fakeAnnabeth == null)
             {
                 this.gameObject.layer = LayerMask.NameToLayer("Invincible");
