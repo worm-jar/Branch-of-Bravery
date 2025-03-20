@@ -19,8 +19,13 @@ public class PlayerMovement : MonoBehaviour
     private bool _hasDashed = false;
     private bool _falling = false;
     private bool _landTriggered = false;
+    private bool _isDead;
     public TrailRenderer _trail;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        _isDead = false;
+    }
     void Start()
     {
         _rig = this.GetComponent<Rigidbody2D>();
@@ -32,6 +37,15 @@ public class PlayerMovement : MonoBehaviour
     {
         _animator.SetFloat("Walking", _axisx);
         _animator.SetBool("Grounded", _grounded);
+        _animator.SetBool("IsDashing", _hasDashed);
+        _animator.SetBool("IsDead", _isDead);
+        _animator.SetBool("IsInvincible", PlayerTakeDamage._isInvincible);
+        _animator.SetBool("IsLAttacking", PlayerAttack.isLightAttacking);
+        _animator.SetBool("IsHAttacking", PlayerAttack.isStrongAttacking);
+        if (PlayerHealth.health <= 0)
+        {
+            _isDead = true;
+        }
         if (PlayerAttack.isLightAttacking)
         {
             speed = 0.5f;
@@ -40,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         {
             speed = 4;
         }
-        if (PlayerAttack.isStrongAttacking == false)
+        if (PlayerAttack.isStrongAttacking == false && !_isDead)
         {
             _rig.position += new Vector2(_axisx * speed * Time.deltaTime, 0f);
         }
@@ -83,9 +97,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground") && _rig.velocity.y == 0)
         {
-            if (PlayerAttack.isStrongAttacking == false)
+            if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {
-                _animator.Play("Jump land");
+                //_animator.Play("Jump land");
             }
             _grounded = true;
             _falling = false;
@@ -146,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleMove(InputAction.CallbackContext ctx)
     {
-        if (PlayerAttack.isStrongAttacking == false)
+        if (PlayerAttack.isStrongAttacking == false && !_isDead)
         { 
         _animator.Play("Walk");
         }
@@ -154,9 +168,9 @@ public class PlayerMovement : MonoBehaviour
     } 
     public void HandleMoveStop(InputAction.CallbackContext ctx)
     {
-        if (PlayerAttack.isStrongAttacking == false)
+        if (PlayerAttack.isStrongAttacking == false && !_isDead)
         {
-            _animator.Play("Idle");
+            //_animator.Play("Idle");
         }
         _axisx = ctx.ReadValue<float>();
     } 
@@ -170,9 +184,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_falling == false && !_landTriggered)
             {
-                if (PlayerAttack.isStrongAttacking == false)
+                if (PlayerAttack.isStrongAttacking == false && !_isDead)
                 {
-                    _animator.Play("Jump up");
+                    //_animator.Play("Jump up");
                 }
                 _landTriggered = true;
             }
@@ -194,10 +208,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if ((_axisx != 0 || _axisy != 0) && !_hasDashed && _grounded)
         {
-            if (PlayerAttack.isStrongAttacking == false)
+            if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {
                 _trail.enabled = true;
-                _animator.Play("Dash");
+                //_animator.Play("Dash");
                 _rig.velocity = Vector2.zero;
                 _rig.AddForce(new Vector2(11f * _axisx, 7f * _axisy), ForceMode2D.Impulse);
             }
@@ -209,10 +223,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else if ((_axisx != 0 || _axisy != 0) && !_hasDashed && !_grounded)
         {
-            if (PlayerAttack.isStrongAttacking == false)
+            if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {
                 _trail.enabled = true;
-                _animator.Play("Dash");
+                //_animator.Play("Dash");
                 _rig.velocity = Vector2.zero;
 
                 _rig.AddForce(new Vector2(8f * _axisx, 10f * _axisy), ForceMode2D.Impulse);
@@ -233,11 +247,11 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleJumpDown(InputAction.CallbackContext ctx)
     {
-        if (!_hasDashed && !_grounded)
+        if (!_hasDashed && !_grounded && !_isDead)
         {
             if (PlayerAttack.isStrongAttacking == false)
             {
-                _animator.Play("Jump down");
+                //_animator.Play("Jump down");
             }
             _rig.AddForce(new Vector2(0f, -7f), ForceMode2D.Impulse);
         }

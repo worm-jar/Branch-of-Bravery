@@ -6,8 +6,10 @@ public class EnemyAI : MonoBehaviour
 {
     public bool secondPhase = false;
     public bool isAttacking = false;
+    public bool isJumpBack = false;
     public bool forceOnce = false;
     public bool behavioring = false;
+    public bool transitionSecondPhase = true;
     public Animator _animator;
     public Rigidbody2D _rig;
     public GameObject _player;
@@ -16,11 +18,14 @@ public class EnemyAI : MonoBehaviour
     private float normDirectionStore;
     public int randomBehavior;
     public float speed;
+    public float speedSecond;
     public GameObject _projectile;
+    public GameObject _projectileSecond;
     public float attackTimer;
     public float attackTimerBeforeDone;
     public float launchTimer;
     public GameObject _bow;
+    public GameObject _sword;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +37,15 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _animator.SetBool("IsAttacking", isAttacking);
+        _animator.SetBool("IsJumpBack", isJumpBack);
         direction = (_player.transform.position.x - transform.position.x);
+        if(EnemyHealth.health <= 100)
+        {
+            Transition();
+            secondPhase = true;
+            transitionSecondPhase = false;
+        }
         if (attackTimer > 0)
         {
             attackTimer -= Time.deltaTime;
@@ -42,6 +55,7 @@ public class EnemyAI : MonoBehaviour
                 randomBehavior = 0;
                 forceOnce = false;
                 behavioring = false;
+                isJumpBack = false;
                 attackTimer = 0;
             }
         }
@@ -87,13 +101,27 @@ public class EnemyAI : MonoBehaviour
                 _bow.SetActive(false);
             }
         }
-        if (randomBehavior == 0)
+        if (secondPhase == false)
         {
-            MeleeAttack();
+            if (randomBehavior == 0)
+            {
+                MeleeAttack();
+            }
+            if (randomBehavior == 1)
+            {
+                RangedAttack();
+            }
         }
-        if (randomBehavior == 1)
+        else if (secondPhase == true && transitionSecondPhase == false)
         {
-            RangedAttack();
+            if (randomBehavior == 0)
+            {
+                MeleeAttackSecond();
+            }
+            if (randomBehavior == 1)
+            {
+                RangedAttackSecond();
+            }
         }
     }
     public void MeleeAttack()
@@ -103,13 +131,14 @@ public class EnemyAI : MonoBehaviour
             normDirectionStore = normDirection;
             if (!isAttacking)
             {
+                //_animator.Play("WalkAnnabeth");
                 _rig.position += new Vector2(speed * normDirection * Time.deltaTime, 0f);
             }
             if (direction < 2 && direction > -2)
             {
                 _rig.velocity = new Vector2(0, 0);
                 isAttacking = true;
-                _animator.Play("AttackAnna");
+                //_animator.Play("AttackAnna");
                 launchTimer = 0.6f;
                 attackTimerBeforeDone = 1f;
                 behavioring = true;
@@ -120,7 +149,8 @@ public class EnemyAI : MonoBehaviour
     {
         if (behavioring == false)
         {
-            _animator.Play("Jump Back");
+            //_animator.Play("Jump Back");
+            isJumpBack = true;
             if (!forceOnce)
             {
                 attackTimer = 1.25f;
@@ -134,5 +164,49 @@ public class EnemyAI : MonoBehaviour
     {
         isAttacking = false;
         Instantiate(_projectile, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.5f, -3.3f), Quaternion.identity);
+    }
+    public void MeleeAttackSecond()
+    {
+        if (behavioring == false)
+        {
+            normDirectionStore = normDirection;
+            if (!isAttacking)
+            {
+                //_animator.Play("WalkAnnabeth");
+                _rig.position += new Vector2(speedSecond * normDirection * Time.deltaTime, 0f);
+            }
+            if (direction < 2 && direction > -2)
+            {
+                _rig.velocity = new Vector2(0, 0);
+                isAttacking = true;
+                //_animator.Play("AttackAnna");
+                launchTimer = 0.6f;
+                attackTimerBeforeDone = 0.75f;
+                behavioring = true;
+            }
+        }
+    }
+    public void RangedAttackSecond()
+    {
+        if (behavioring == false)
+        {
+            //_animator.Play("Jump Back");
+            if (!forceOnce)
+            {
+                attackTimer = 0.5f;
+                _rig.AddForce(new Vector2(-normDirection * 5, 3.5f), ForceMode2D.Impulse);
+                forceOnce = true;
+            }
+            behavioring = true;
+        }
+    }
+    public void ProjectileSpawnSecond()
+    {
+        isAttacking = false;
+        Instantiate(_projectileSecond, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.5f, -3.3f), Quaternion.identity);
+    }
+    public void Transition()
+    {
+
     }
 }

@@ -11,6 +11,7 @@ public class PlayerTakeDamage : MonoBehaviour
     public float knockBack;
     public float timerIFrames;
     public CameraShake Camera;
+    public static bool _isInvincible = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,12 @@ public class PlayerTakeDamage : MonoBehaviour
             if (timerIFrames <= 0)
             {
                 Camera.amount = 0f;
-                this.gameObject.layer = LayerMask.NameToLayer("Player");
+                if (PlayerHealth.health > 0)
+                {
+                    this.gameObject.layer = LayerMask.NameToLayer("Player");
+                    _isInvincible = false;
+                }
+                PlayerAttack.lightAttackWait = false;
                 timerIFrames = 0;
             }
         }
@@ -50,11 +56,17 @@ public class PlayerTakeDamage : MonoBehaviour
             if (_fakeAnnabeth == null)
             {
                 this.gameObject.layer = LayerMask.NameToLayer("Invincible");
-                _animator.Play("Invincible");
+                _isInvincible = true;
                 float relativePos = transform.position.x - _annabeth.transform.position.x;
                 _rig.AddForce(new Vector2(relativePos * knockBack, 3.5f), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
+                if(PlayerHealth.health <= 0)
+                {
+                    _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);
+                }
+                PlayerAttack.lightAttackWait = true;
                 timerIFrames = 0.35f;
+                PlayerAttack.timerLightAttackWait = 0.6f;
             }
         }
     }
