@@ -105,6 +105,12 @@ public class PlayerMovement : MonoBehaviour
             _falling = false;
             _landTriggered = false;
         }
+        if(collision.gameObject.CompareTag("Bridge"))
+        {
+            _grounded = true;
+            _falling = false;
+            _landTriggered = false;
+        }
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
