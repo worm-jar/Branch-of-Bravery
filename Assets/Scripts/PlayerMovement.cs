@@ -58,11 +58,11 @@ public class PlayerMovement : MonoBehaviour
         {
             _rig.position += new Vector2(_axisx * speed * Time.deltaTime, 0f);
         }
-        if (_axisx < 0)
+        if (PlayerAttack.isStrongAttacking == false && PlayerAttack.isLightAttacking == false && _axisx < 0 && !_isDead)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
-        else if (_axisx > 0)
+        else if (PlayerAttack.isStrongAttacking == false && PlayerAttack.isLightAttacking == false && _axisx > 0 && !_isDead)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
@@ -186,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleJump(InputAction.CallbackContext ctx)
     {
-        if (_grounded)
+        if (_grounded && !_isDead)
         {
             if (_falling == false && !_landTriggered)
             {
@@ -199,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             timer = 0f;
         }
-        else if (!ctx.canceled)
+        else if (!ctx.canceled && !_isDead)
         {
             timer = 0.15f;
         }

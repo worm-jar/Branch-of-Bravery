@@ -22,6 +22,8 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _animator.SetBool("IsLAttacking", isLightAttacking);
+        _animator.SetBool("IsHAttacking", isStrongAttacking);
         if (timerStrongAttack > 0)
         {
             timerStrongAttack -= Time.deltaTime;
@@ -36,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
             timerLightAttack -= Time.deltaTime;
             if (timerLightAttack <= 0)
             {
-                _animator.SetBool("Follow up", false);
+                //_animator.SetBool("Follow up", false);
                 isLightAttacking = false;
                 timerLightAttack = 0;
             }
@@ -48,7 +50,6 @@ public class PlayerAttack : MonoBehaviour
             {
                 lightAttackWait = false;
                 //_animator.SetBool("Follow up", false);
-                isLightAttacking = false;
                 timerLightAttackWait = 0;
             }
         }
@@ -73,12 +74,12 @@ public class PlayerAttack : MonoBehaviour
     }
     public void HandleLightAttack(InputAction.CallbackContext ctx)
     {
-        if (lightAttackWait == false)
+        if (lightAttackWait == false && PlayerTakeDamage.timerIFrames == 0)
         {
             isLightAttacking = true;
             //_animator.Play("Light Attack Follow");
-            _animator.SetBool("Follow up", true);
-            timerLightAttack = 0.15f;
+            //_animator.SetBool("Follow up", true);
+            timerLightAttack = 0.4f;
             timerLightAttackWait = 0.6f;
             lightAttackWait = true;
         }
@@ -87,11 +88,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if (PlayerHealth.health > 50)
         {
-            PlayerHealth.health -= 18;
+            PlayerHealth.health -= 13.5f;
             PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 32, 100);
             isStrongAttacking = true;
             //_animator.Play("Heavy Attack");
-            timerStrongAttack = 0.6f;
+            timerStrongAttack = 0.85f;
         }
     }
 }

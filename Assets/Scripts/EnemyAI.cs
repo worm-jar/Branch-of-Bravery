@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     public bool isJumpBack = false;
     public bool forceOnce = false;
     public bool behavioring = false;
-    public bool transitionSecondPhase = true;
+    public static bool transitionSecondPhase = true;
     public Animator _animator;
     public Rigidbody2D _rig;
     public GameObject _player;
@@ -22,10 +22,12 @@ public class EnemyAI : MonoBehaviour
     public GameObject _projectile;
     public GameObject _projectileSecond;
     public float attackTimer;
+    public float attackTimerSecond;
     public float attackTimerBeforeDone;
     public float launchTimer;
     public GameObject _bow;
     public GameObject _sword;
+    public RuntimeAnimatorController anim2;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,19 @@ public class EnemyAI : MonoBehaviour
                 behavioring = false;
                 isJumpBack = false;
                 attackTimer = 0;
+            }
+        }
+        if (attackTimerSecond > 0)
+        {
+            attackTimerSecond -= Time.deltaTime;
+            if (attackTimerSecond <= 0)
+            {
+                ProjectileSpawnSecond();
+                randomBehavior = 0;
+                forceOnce = false;
+                behavioring = false;
+                isJumpBack = false;
+                attackTimerSecond = 0;
             }
         }
         if (launchTimer > 0)
@@ -175,12 +190,12 @@ public class EnemyAI : MonoBehaviour
                 //_animator.Play("WalkAnnabeth");
                 _rig.position += new Vector2(speedSecond * normDirection * Time.deltaTime, 0f);
             }
-            if (direction < 2 && direction > -2)
+            if (direction < 1.5f && direction > -1.5f)
             {
                 _rig.velocity = new Vector2(0, 0);
                 isAttacking = true;
                 //_animator.Play("AttackAnna");
-                launchTimer = 0.6f;
+                launchTimer = 0.05f;
                 attackTimerBeforeDone = 0.75f;
                 behavioring = true;
             }
@@ -191,9 +206,10 @@ public class EnemyAI : MonoBehaviour
         if (behavioring == false)
         {
             //_animator.Play("Jump Back");
+            isJumpBack = true;
             if (!forceOnce)
             {
-                attackTimer = 0.5f;
+                attackTimerSecond = 0.75f;
                 _rig.AddForce(new Vector2(-normDirection * 5, 3.5f), ForceMode2D.Impulse);
                 forceOnce = true;
             }
@@ -203,10 +219,13 @@ public class EnemyAI : MonoBehaviour
     public void ProjectileSpawnSecond()
     {
         isAttacking = false;
-        Instantiate(_projectileSecond, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.5f, -3.3f), Quaternion.identity);
+        Instantiate(_projectileSecond, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, -3.3f), Quaternion.identity);
     }
     public void Transition()
     {
-
+        _animator.runtimeAnimatorController = anim2 as RuntimeAnimatorController;
+        _animator.SetBool("IsTransition", true);
+        //throw sword here
+        _animator.SetBool("IsTransition", false);
     }
 }
