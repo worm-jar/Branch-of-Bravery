@@ -20,6 +20,10 @@ public class EnemyDamageTake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (EnemyHealth.health <= 0)
+        {
+            //Instantiate dead annabeth and Destroy Annabeth
+        }
         if (timerIFrames > 0)
         {
             timerIFrames -= Time.deltaTime;

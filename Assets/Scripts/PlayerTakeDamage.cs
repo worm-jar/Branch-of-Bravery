@@ -17,8 +17,6 @@ public class PlayerTakeDamage : MonoBehaviour
     void Start()
     {
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
-        _annabeth = GameObject.Find("Annabeth");
-        _fakeAnnabeth = GameObject.Find("Fake Annabeth");
         _animator = this.gameObject.GetComponent<Animator>();
         _renderer = this.gameObject.GetComponent<SpriteRenderer>();
     }
@@ -26,6 +24,8 @@ public class PlayerTakeDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _annabeth = GameObject.Find("Annabeth");
+        _fakeAnnabeth = GameObject.Find("Fake Annabeth");
         _animator.SetBool("IsInvincible", _isInvincible);
         if (timerIFrames > 0)
         {

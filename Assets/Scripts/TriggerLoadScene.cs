@@ -14,7 +14,10 @@ public class TriggerLoadScene : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        sceneName = other.name;
-        SceneLoader.Load();
+        if (other.CompareTag("Teleporter"))
+        {
+            sceneName = other.name;
+            SceneLoader.Load();
+        }
     }
 }

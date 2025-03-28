@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 714998951579674849}
   - component: {fileID: 1697132768020122754}
-  - component: {fileID: 3890210757019352236}
+  - component: {fileID: 4305141719806390335}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,7 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
---- !u!114 &3890210757019352236
+  _canvas: {fileID: 0}
+  _image: {fileID: 0}
+  FadeTrans: {fileID: 0}
+--- !u!114 &4305141719806390335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,6 +58,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6436436552620640474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f648f1de3bda5d14b934a14623eca2ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 79cbb776fac2d9b4bb628875a93c6395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

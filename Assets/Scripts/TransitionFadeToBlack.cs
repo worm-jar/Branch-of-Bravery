@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class TransitionFadeToBlack : MonoBehaviour
 {
     public Animator _animator;
+    public GameObject _image;
     // Start is called before the first frame update
     void Start()
     {
-        _animator = GetComponent<Animator>();
+        _image = this.gameObject;
+        _animator = _image.GetComponent<Animator>();
     }
 
     public void Fade()

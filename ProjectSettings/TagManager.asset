@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - EnemyAttack
   - Bridge
+  - Teleporter
   layers:
   - Default
   - TransparentFX

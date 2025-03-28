@@ -5,18 +5,20 @@ using Cinemachine;
 
 public class FindBound : MonoBehaviour
 {
-    public PolygonCollider2D closeToHome;
+    public GameObject bound;
+    public PolygonCollider2D polyCollider;
     public CinemachineConfiner2D confiner;
     // Start is called before the first frame update
     void Start()
     {
         confiner = GetComponent<CinemachineConfiner2D>();
-        closeToHome = GameObject.Find("Bound").GetComponent<PolygonCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        confiner.m_BoundingShape2D = closeToHome;
+        bound = GameObject.Find("Bound");
+        polyCollider = bound.GetComponent<PolygonCollider2D>();
+        confiner.m_BoundingShape2D = polyCollider;
     }
 }
