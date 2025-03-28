@@ -86,9 +86,9 @@ public class PlayerAttack : MonoBehaviour
     }
     public void HandleHeavyAttack(InputAction.CallbackContext ctx)
     {
-        if (PlayerHealth.health > 50)
+        if (PlayerHealth.health > 50 && isStrongAttacking == false)
         {
-            PlayerHealth.health -= 13.5f;
+            PlayerHealth.health -= 20f;
             PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 32, 100);
             isStrongAttacking = true;
             //_animator.Play("Heavy Attack");

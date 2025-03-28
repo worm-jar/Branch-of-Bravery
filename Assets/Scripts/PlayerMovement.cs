@@ -20,11 +20,13 @@ public class PlayerMovement : MonoBehaviour
     private bool _falling = false;
     private bool _landTriggered = false;
     private bool _isDead;
+    private bool _dashAir;
     public TrailRenderer _trail;
     // Start is called before the first frame update
     private void Awake()
     {
         _isDead = false;
+        _dashAir = true;
     }
     void Start()
     {
@@ -102,11 +104,13 @@ public class PlayerMovement : MonoBehaviour
                 //_animator.Play("Jump land");
             }
             _grounded = true;
+            _dashAir = true;
             _falling = false;
             _landTriggered = false;
         }
         if(collision.gameObject.CompareTag("Bridge"))
         {
+            _dashAir = true;
             _grounded = true;
             _falling = false;
             _landTriggered = false;
@@ -117,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground") && _rig.velocity.y == 0)
         {
             _grounded = true;
+            _dashAir = true;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -212,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleDash(InputAction.CallbackContext ctx)
     {
-        if ((_axisx != 0 || _axisy != 0) && !_hasDashed && _grounded)
+        if ((_axisx != 0 || _axisy != 0) && !_hasDashed && _grounded && _dashAir == true)
         {
             if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {
@@ -226,8 +231,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 timerDash = 0.4f;
             }
+            _dashAir = false;
         }
-        else if ((_axisx != 0 || _axisy != 0) && !_hasDashed && !_grounded)
+        else if ((_axisx != 0 || _axisy != 0) && !_hasDashed && !_grounded && _dashAir == true)
         {
             if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {
@@ -243,6 +249,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 timerDash = 0.4f;
             }
+            _dashAir = false;
         }
     }
     public void HandleDashCancel(InputAction.CallbackContext ctx)
