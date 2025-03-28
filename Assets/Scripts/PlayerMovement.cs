@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _isDead;
     private bool _dashAir;
     public TrailRenderer _trail;
+    public float deathTimer;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -47,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         if (PlayerHealth.health <= 0)
         {
             _isDead = true;
+            deathTimer = 0.5f;
         }
         if (PlayerAttack.isLightAttacking)
         {
@@ -74,6 +76,16 @@ public class PlayerMovement : MonoBehaviour
             if (timer <= 0)
             {
                 timer = 0;
+            }
+        }
+        if (deathTimer > 0)
+        {
+            deathTimer -= Time.deltaTime;
+            if (deathTimer <= 0)
+            {
+                PlayerTakeDamage.timerIFrames = 0.2f;
+                _isDead = false;
+                deathTimer = 0;
             }
         }
         if (timerDash > 0)
@@ -149,6 +161,10 @@ public class PlayerMovement : MonoBehaviour
         _asset.FindAction("Player/Vertical").started += HandleUp;
         _asset.FindAction("Player/Vertical").performed += HandleUp;
         _asset.FindAction("Player/Vertical").canceled += HandleUp;
+        
+        _asset.FindAction("Player/Interact").started += HandleInteract;
+        _asset.FindAction("Player/Interact").performed += HandleInteract;
+        _asset.FindAction("Player/Interact").canceled += HandleInteract;
     }
     private void OnDisable()
     {
@@ -168,6 +184,10 @@ public class PlayerMovement : MonoBehaviour
         _asset.FindAction("Player/Vertical").started -= HandleUp;
         _asset.FindAction("Player/Vertical").performed -= HandleUp;
         _asset.FindAction("Player/Vertical").canceled -= HandleUp;
+
+        _asset.FindAction("Player/Interact").started -= HandleInteract;
+        _asset.FindAction("Player/Interact").performed -= HandleInteract;
+        _asset.FindAction("Player/Interact").canceled -= HandleInteract;
     }
     public void HandleMove(InputAction.CallbackContext ctx)
     {
@@ -267,6 +287,17 @@ public class PlayerMovement : MonoBehaviour
                 //_animator.Play("Jump down");
             }
             _rig.AddForce(new Vector2(0f, -7f), ForceMode2D.Impulse);
+        }
+    }
+    public void HandleInteract(InputAction.CallbackContext ctx)
+    {
+        if(RespawnPoint.touchingInteract)
+        {
+            if (RespawnPoint.interactName == "RespawnTrigger")
+            {
+                PlayerHealth.health = 100f;
+                RespawnPoint.hasCheckpoint = true;
+            }
         }
     }
 }

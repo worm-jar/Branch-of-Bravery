@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 9078432261051567605}
   - component: {fileID: -1390891264793049888}
   - component: {fileID: 6637505184638908032}
+  - component: {fileID: 3103252606069438511}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -634,6 +635,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameManager: {fileID: 0}
   SceneLoader: {fileID: 0}
+--- !u!114 &3103252606069438511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199960841011164563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb4c9f0d6274494182cc22413b78042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnTimer: 0
 --- !u!1 &8000645156608182049
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d106ebf6b27fa747beae2f880e8935c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bound: {fileID: 0}
   polyCollider: {fileID: 0}
   confiner: {fileID: 0}
 --- !u!4 &6588257934357535884 stripped

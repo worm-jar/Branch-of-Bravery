@@ -190,7 +190,7 @@ public class EnemyAI : MonoBehaviour
                 //_animator.Play("WalkAnnabeth");
                 _rig.position += new Vector2(speedSecond * normDirection * Time.deltaTime, 0f);
             }
-            if (direction < 1.5f && direction > -1.5f)
+            if (direction < 1.1f && direction > -1.1f)
             {
                 _rig.velocity = new Vector2(0, 0);
                 isAttacking = true;

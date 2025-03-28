@@ -18,6 +18,11 @@ public class DoorDestroy : MonoBehaviour
         {
             //playParticles
             Destroy(this.gameObject);
+            DoorHasBeenDestroyed.destroyed = true;
+        }
+        if (DoorHasBeenDestroyed.destroyed)
+        {
+            Destroy(this.gameObject);
         }
     }
     public void OnTriggerEnter2D(Collider2D other)

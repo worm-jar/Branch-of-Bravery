@@ -36,5 +36,19 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene("Fight");
             _player.transform.position = new Vector2(-9.4f, -4.48f);
         }
+        else if (TriggerLoadScene.sceneName == "Respawn Bridge")
+        {
+            PlayerHealth.health = 100f;
+            FadeTrans.Fade();
+            SceneManager.LoadScene("Bridge");
+            _player.transform.position = new Vector2(-16.76f, -0.4f);
+        }
+        else if (TriggerLoadScene.sceneName == "Respawn Pre Fight")
+        {
+            PlayerHealth.health = 100f;
+            FadeTrans.Fade();
+            SceneManager.LoadScene("Prefight");
+            _player.transform.position = new Vector2(-18.28f, -2.03f);
+        }
     }
 }

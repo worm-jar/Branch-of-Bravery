@@ -60,10 +60,8 @@ public class PlayerTakeDamage : MonoBehaviour
             }
             else
             {
-                PlayerHealth.health -= 8.5f;
-
+                PlayerHealth.health -= 10f;
             }
-            Camera.amount = 0.5f;
             if (_fakeAnnabeth == null)
             {
                 this.gameObject.layer = LayerMask.NameToLayer("Invincible");
@@ -78,6 +76,22 @@ public class PlayerTakeDamage : MonoBehaviour
                     _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);
                 }
                 timerIFrames = 0.25f;
+                Camera.amount = 0.5f;
+            }
+            else
+            {
+                this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+                _isInvincible = true;
+                _renderer.color = Color.black;
+                float relativePos = transform.position.x - _fakeAnnabeth.transform.position.x;
+                _rig.AddForce(new Vector2(relativePos * knockBack, 3.5f), ForceMode2D.Impulse);
+                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
+                if (PlayerHealth.health <= 0)
+                {
+                    _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);
+                }
+                timerIFrames = 0.25f;
+                Camera.amount = 0.5f;
             }
         }
     }
