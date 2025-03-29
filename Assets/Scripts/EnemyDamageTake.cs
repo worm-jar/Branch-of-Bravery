@@ -59,7 +59,7 @@ public class EnemyDamageTake : MonoBehaviour
             }
             this.gameObject.layer = LayerMask.NameToLayer("Invincible");
             _sprite.color = Color.black;
-            timerIFrames = 0.3f;
+            timerIFrames = 0.4f;
         }
     }
 }

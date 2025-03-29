@@ -60,11 +60,12 @@ public class PlayerTakeDamage : MonoBehaviour
             }
             else
             {
-                PlayerHealth.health -= 10f;
+                PlayerHealth.health -= 10.5f;
             }
             if (_fakeAnnabeth == null)
             {
                 this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+                PlayerAttack.timerLightAttackWait = 1f;
                 _isInvincible = true;
                 _renderer.color = Color.black;
                 //_animator.Play("Invincible");
