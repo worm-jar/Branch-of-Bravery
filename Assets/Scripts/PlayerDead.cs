@@ -28,9 +28,11 @@ public class PlayerDead : MonoBehaviour
                 {
                     TriggerLoadScene.sceneName = "Respawn Pre Fight";
                     SceneLoader.Load();
+                    this.gameObject.layer = LayerMask.NameToLayer("Player");
                 }
                 else
                 {
+                    this.gameObject.layer = LayerMask.NameToLayer("Player");
                     TriggerLoadScene.sceneName = "Respawn Bridge";
                     SceneLoader.Load();
                 }
@@ -40,6 +42,7 @@ public class PlayerDead : MonoBehaviour
         }
         if (PlayerHealth.health <= 0 && deadOnce == true) 
         {
+            this.gameObject.layer = LayerMask.NameToLayer("Dead");
             respawnTimer = 2f;
             deadOnce = false;
         }

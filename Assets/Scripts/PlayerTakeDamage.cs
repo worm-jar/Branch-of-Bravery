@@ -13,6 +13,7 @@ public class PlayerTakeDamage : MonoBehaviour
     public static float timerIFrames;
     public CameraShake Camera;
     public static bool _isInvincible = false;
+    public bool strongInterruptable;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,9 +79,14 @@ public class PlayerTakeDamage : MonoBehaviour
                 }
                 timerIFrames = 0.25f;
                 Camera.amount = 0.5f;
+                if(strongInterruptable)
+                {
+                    _animator.Play("KnockBack");
+                }
             }
             else
             {
+                FakeAnnaAI.autoRunTimer = 8f;
                 this.gameObject.layer = LayerMask.NameToLayer("Invincible");
                 _isInvincible = true;
                 _renderer.color = Color.black;
@@ -93,6 +99,10 @@ public class PlayerTakeDamage : MonoBehaviour
                 }
                 timerIFrames = 0.25f;
                 Camera.amount = 0.5f;
+                if (strongInterruptable)
+                {
+                    _animator.Play("KnockBack");
+                }
             }
         }
     }

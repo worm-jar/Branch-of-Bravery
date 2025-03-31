@@ -6163,6 +6163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7199960841011164563, guid: 200f1b6f8c1e65640a9baa20dd5f3eee, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7274436423000421745, guid: 200f1b6f8c1e65640a9baa20dd5f3eee, type: 3}
       propertyPath: m_ClearFlags
       value: 2
@@ -6586,7 +6590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2066742511}
   - component: {fileID: 2066742510}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bridge Right
   m_TagString: Teleporter
   m_Icon: {fileID: 0}

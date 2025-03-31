@@ -13,9 +13,12 @@ public class FakeAnnaAI : MonoBehaviour
     public bool waitAttack;
     public bool hasComeClose;
     public GameObject _projectile;
+    public static float autoRunTimer;
+    public bool timerStart;
     // Start is called before the first frame update
     void Start()
     {
+        timerStart = false;
         waitAttack = false;
         hasComeClose = false;
         _player = GameObject.Find("Player");
@@ -31,6 +34,15 @@ public class FakeAnnaAI : MonoBehaviour
         if (FakeAnnabethGone.gone == true)
         {
             Destroy(this.gameObject);
+        }
+        if (autoRunTimer > 0)
+        {
+            autoRunTimer -= Time.deltaTime;
+            if (autoRunTimer <= 0)
+            {
+                Run();
+                autoRunTimer = 0;
+            }
         }
         if (attackTimer > 0)
         {
@@ -66,6 +78,11 @@ public class FakeAnnaAI : MonoBehaviour
     }
     public void Attack()
     {
+        if(timerStart == false)
+        {
+            autoRunTimer = 5f;
+            timerStart = true;
+        }
         if (waitAttack == false)
         {
             _animator.Play("AttackFakeAnna");

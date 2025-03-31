@@ -16,10 +16,10 @@ public class PlayerMovement : MonoBehaviour
     public float timer = 0f;
     public float timerDash = 0f;
     public float jumpForce;
-    private bool _hasDashed = false;
+    public static bool _hasDashed = false;
     private bool _falling = false;
     private bool _landTriggered = false;
-    private bool _isDead;
+    public static bool _isDead;
     private bool _dashAir;
     public TrailRenderer _trail;
     public float deathTimer;

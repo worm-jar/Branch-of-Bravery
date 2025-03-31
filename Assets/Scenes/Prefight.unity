@@ -368,7 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 457766997}
   - component: {fileID: 457766996}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pre Fight Left
   m_TagString: Teleporter
   m_Icon: {fileID: 0}
@@ -888,7 +888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1661137155}
   - component: {fileID: 1661137154}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pre Fight Right
   m_TagString: Teleporter
   m_Icon: {fileID: 0}
