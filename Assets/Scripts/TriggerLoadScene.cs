@@ -8,8 +8,9 @@ public class TriggerLoadScene : MonoBehaviour
     public GameObject GameManager;
     public SceneLoader SceneLoader;
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
+        GameManager = GameObject.Find("GameManager");
         SceneLoader = GameManager.GetComponent<SceneLoader>();
     }
     public void OnTriggerEnter2D(Collider2D other)

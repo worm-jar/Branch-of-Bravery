@@ -261,7 +261,8 @@ GameObject:
   - component: {fileID: -1390891264793049888}
   - component: {fileID: 6637505184638908032}
   - component: {fileID: 3103252606069438511}
-  m_Layer: 0
+  - component: {fileID: 3525047248081904787}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -447,6 +448,7 @@ MonoBehaviour:
   timerDash: 0
   jumpForce: 5
   _trail: {fileID: 0}
+  deathTimer: 0
 --- !u!114 &3291422478178781034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,6 +611,7 @@ MonoBehaviour:
   _fakeAnnabeth: {fileID: 0}
   knockBack: 1.8
   Camera: {fileID: 3806652017788971409}
+  strongInterruptable: 0
 --- !u!114 &-1390891264793049888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,6 +651,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnTimer: 0
+  GameManager: {fileID: 0}
+  SceneLoader: {fileID: 0}
+  deadOnce: 0
+--- !u!114 &3525047248081904787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199960841011164563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9388e06807eae3b42ab16dc96fe7953f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactAbovePlayer: {fileID: 1329483750583508828, guid: b8e0d1e9c764ff649a983786a9c12d48, type: 3}
 --- !u!1 &8000645156608182049
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,6 +876,18 @@ PrefabInstance:
     - target: {fileID: 1385218776427377025, guid: b5d7445d874b578449d78d304c18121b, type: 3}
       propertyPath: m_Name
       value: Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795722185266874754, guid: b5d7445d874b578449d78d304c18121b, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.16981131
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795722185266874754, guid: b5d7445d874b578449d78d304c18121b, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.16981131
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795722185266874754, guid: b5d7445d874b578449d78d304c18121b, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.16981131
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

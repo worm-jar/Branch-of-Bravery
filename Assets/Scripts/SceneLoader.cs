@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
     public GameObject _canvas;
     public Transform _image;
     public TransitionFadeToBlack FadeTrans;
-    public void Start()
+    public void Update()
     {
         _canvas = GameObject.Find("CanvasHealth");
         _player = GameObject.Find("Player");

@@ -62,11 +62,11 @@ public class PlayerMovement : MonoBehaviour
         {
             _rig.position += new Vector2(_axisx * speed * Time.deltaTime, 0f);
         }
-        if (PlayerAttack.isStrongAttacking == false && PlayerAttack.isLightAttacking == false && _axisx < 0 && !_isDead)
+        if (PlayerAttack.isStrongAttacking == false && PlayerAttack.isLightAttacking == false && _axisx < 0 && !_isDead && !Pause.paused)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
-        else if (PlayerAttack.isStrongAttacking == false && PlayerAttack.isLightAttacking == false && _axisx > 0 && !_isDead)
+        else if (PlayerAttack.isStrongAttacking == false && PlayerAttack.isLightAttacking == false && _axisx > 0 && !_isDead && !Pause.paused)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
