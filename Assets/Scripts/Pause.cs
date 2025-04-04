@@ -7,9 +7,14 @@ public class Pause : MonoBehaviour
 {
     public InputActionAsset _asset;
     public static bool paused;
+    public GameObject _player;
+    public PlayerMovement PlayerMovement;
+    public bool once;
     // Start is called before the first frame update
     public void Start()
     {
+        _player = GameObject.Find("Player");
+        PlayerMovement = _player.GetComponent<PlayerMovement>();
         this.gameObject.SetActive(false);
     }
     private void OnEnable()
@@ -21,17 +26,34 @@ public class Pause : MonoBehaviour
     }
     public void HandlePause(InputAction.CallbackContext ctx)
     {
-        if (this.gameObject.activeInHierarchy == true)
+        if (once)
         {
-            Time.timeScale = 1f;
-            paused = false;
-            this.gameObject.SetActive(false);
+
+            if (this.gameObject.activeInHierarchy == true && PlayerMovement.isInteracting == false)
+            {
+                Time.timeScale = 1f;
+                paused = false;
+                this.gameObject.SetActive(false);
+                once = false;
+            }
+            else if (this.gameObject.activeInHierarchy == false && PlayerMovement.isInteracting == false)
+            {
+                Time.timeScale = 0f;
+                paused = true;
+                this.gameObject.SetActive(true);
+                once = false;
+            }
+            else if (PlayerMovement.isInteracting == true)
+            {
+                PlayerMovement._interact.SetActive(false);
+                PlayerMovement._text.text = "";
+                PlayerMovement.isInteracting = false;
+                once = false;
+            }
         }
-        else
+        if(ctx.canceled)
         {
-            Time.timeScale = 0f;
-            paused = true;
-            this.gameObject.SetActive(true);
+            once = true;
         }
     }
 }

@@ -14,13 +14,6 @@ public class MoveHills : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerMovement._hasDashed == false)
-        {
-            this.transform.position = new Vector3(Mathf.Clamp((_player.transform.position.x / 2f) - 5.75f, -10f, 5f), (_player.transform.position.y / 25), 2f);
-        }
-        else
-        {
-            this.transform.position = new Vector3(Mathf.Clamp((_player.transform.position.x / 2f) - 6f, -10f, 5f), (_player.transform.position.y / 25), 2f);
-        }
+        this.transform.position = new Vector3(Mathf.Clamp((_player.transform.position.x / 2f) - 5.75f, -10f, 5f), (_player.transform.position.y / 25), 2f);
     }
 }

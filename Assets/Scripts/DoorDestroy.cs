@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DoorDestroy : MonoBehaviour
 {
-    public int health = 2;
+    public int health = 3;
     // Start is called before the first frame update
     void Start()
     {
-        health = 2;
+        health = 3;
     }
 
     // Update is called once per frame
@@ -30,7 +30,11 @@ public class DoorDestroy : MonoBehaviour
         if (other.gameObject.CompareTag("Player Attack") && PlayerAttack.isStrongAttacking)
         {
             health -= 1;
-            //playAnim
+        }
+        if (other.gameObject.CompareTag("Player Attack") && PlayerAttack.isStrongAttacking)
+        {
+            PlayerHealth.health += 8f;
+            PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 0, 100);
         }
     }
 }

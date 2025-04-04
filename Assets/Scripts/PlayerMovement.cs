@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     private bool _dashAir;
     public TrailRenderer _trail;
     public float deathTimer;
+    public GameObject _interact;
+    public TextMeshProUGUI _text;
+    public static bool isInteracting;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -297,6 +301,30 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlayerHealth.health = 100f;
                 RespawnPoint.hasCheckpoint = true;
+            }
+            if (RespawnPoint.interactName == "RespawnText")
+            {
+                isInteracting = true;
+                _interact.SetActive(true);
+                _text.text = "Interact with sewers to set spawn and refill health";
+            }
+            if (RespawnPoint.interactName == "Jump")
+            {
+                isInteracting = true;
+                _interact.SetActive(true);
+                _text.text = "Space or A to Jump";
+            }
+            if (RespawnPoint.interactName == "Attack")
+            {
+                isInteracting = true;
+                _interact.SetActive(true);
+                _text.text = "Light Attack with left click or right bumper, and Heavy Attack with Right click or Right Trigger. Landing light attacks refills health, and heavy attacks consume health";
+            }
+            if (RespawnPoint.interactName == "Dash")
+            {
+                isInteracting = true;
+                _interact.SetActive(true);
+                _text.text = "Shift or Left Trigger to Dash in any direction";
             }
         }
     }

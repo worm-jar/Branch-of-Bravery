@@ -14,6 +14,6 @@ public class InteractFollowPlayer : MonoBehaviour
     void Update()
     {
         GameObject _player = GameObject.Find("Player");
-        transform.position = new Vector2 (_player.transform.position.x, _player.transform.position.y + 2.3f);
+        transform.position = new Vector2 (_player.transform.position.x, (_player.transform.position.y + 2.8f)+(Mathf.Sin(Time.time*2)/4));
     }
 }

@@ -667,6 +667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactAbovePlayer: {fileID: 1329483750583508828, guid: b8e0d1e9c764ff649a983786a9c12d48, type: 3}
+  existingInteract: {fileID: 0}
 --- !u!1 &8000645156608182049
 GameObject:
   m_ObjectHideFlags: 0
