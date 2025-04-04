@@ -31,7 +31,7 @@ public class DoorDestroy : MonoBehaviour
         {
             health -= 1;
         }
-        if (other.gameObject.CompareTag("Player Attack") && PlayerAttack.isStrongAttacking)
+        if (other.gameObject.CompareTag("Player Attack") && PlayerAttack.isLightAttacking)
         {
             PlayerHealth.health += 8f;
             PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 0, 100);

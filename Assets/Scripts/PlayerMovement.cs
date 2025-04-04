@@ -215,7 +215,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleJump(InputAction.CallbackContext ctx)
     {
-        if (_grounded && !_isDead)
+        if (_grounded && !_isDead && !Pause.paused)
         {
             if (_falling == false && !_landTriggered)
             {
@@ -228,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             timer = 0f;
         }
-        else if (!ctx.canceled && !_isDead)
+        else if (!ctx.canceled && !_isDead && !Pause.paused)
         {
             timer = 0.15f;
         }

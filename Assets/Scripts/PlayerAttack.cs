@@ -38,7 +38,6 @@ public class PlayerAttack : MonoBehaviour
             timerLightAttack -= Time.deltaTime;
             if (timerLightAttack <= 0)
             {
-                //_animator.SetBool("Follow up", false);
                 isLightAttacking = false;
                 timerLightAttack = 0;
             }
@@ -49,7 +48,6 @@ public class PlayerAttack : MonoBehaviour
             if (timerLightAttackWait <= 0)
             {
                 lightAttackWait = false;
-                //_animator.SetBool("Follow up", false);
                 timerLightAttackWait = 0;
             }
         }

@@ -14,6 +14,6 @@ public class MoveHills : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = new Vector3(Mathf.Clamp((_player.transform.position.x / 2f) - 5.75f, -10f, 5f), (_player.transform.position.y / 25), 2f);
+        this.transform.position = new Vector3(Mathf.Clamp((_player.transform.position.x / 2f) - 6.75f, -13f, 5f), (_player.transform.position.y / 25)-1.5f, 2f);
     }
 }

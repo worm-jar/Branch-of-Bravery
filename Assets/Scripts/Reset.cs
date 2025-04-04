@@ -18,7 +18,7 @@ public class Reset : MonoBehaviour
     public void ResetNow()
     {
         _player = GameObject.Find("Player");
-        _player.transform.position = new Vector3(-18.33f, -0.52f, -5.81f);
+        _player.transform.position = new Vector3(-21.78f, -0.84f, -5.81f);
         Time.timeScale = 1f;
         Pause.paused = false;
         DoorHasBeenDestroyed.destroyed = false;
