@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject _projectile;
     public GameObject _projectileSecond;
     public float attackTimer;
+    public float attackTimerBeforeMove;
     public float attackTimerSecond;
     public float attackTimerBeforeDone;
     public float launchTimer;
@@ -53,12 +54,21 @@ public class EnemyAI : MonoBehaviour
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0)
             {
+                attackTimerBeforeMove = 1f;
                 ProjectileSpawn();
                 randomBehavior = 0;
                 forceOnce = false;
-                behavioring = false;
                 isJumpBack = false;
                 attackTimer = 0;
+            }
+        }
+        if (attackTimerBeforeMove > 0)
+        {
+            attackTimerBeforeMove -= Time.deltaTime;
+            if (attackTimerBeforeMove <= 0)
+            {
+                behavioring = false;
+                attackTimerBeforeMove = 0;
             }
         }
         if (attackTimerSecond > 0)

@@ -50,8 +50,7 @@ public class FakeAnnaAI : MonoBehaviour
             if (attackTimer <= 0)
             {
                 ProjectileSpawn();
-                waitAttack = false;
-                attackTimer = 1.25f;
+                attackTimer = 1.4f;
             }
         }
         if (runTimer > 0)
@@ -60,9 +59,10 @@ public class FakeAnnaAI : MonoBehaviour
             if (runTimer <= 0)
             {
                 FakeAnnabethGone.gone = true;
+                runTimer = 0;
             }
         }
-        if (distance <= 12f)
+        if (distance <= 9.5f)
         {
             hasComeClose = true;
             Attack();
@@ -86,7 +86,7 @@ public class FakeAnnaAI : MonoBehaviour
         if (waitAttack == false)
         {
             _animator.Play("AttackFakeAnna");
-            attackTimer = 1.4f;
+            attackTimer = 0.8f;
             waitAttack = true;
         }
     }

@@ -1815,6 +1815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Annabeth
       objectReference: {fileID: 0}
+    - target: {fileID: 7639768827956858327, guid: f7b9dc6828c5b9549a8cb327811247f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7891718824909715973, guid: f7b9dc6828c5b9549a8cb327811247f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.98767

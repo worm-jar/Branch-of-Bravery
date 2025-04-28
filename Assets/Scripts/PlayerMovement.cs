@@ -146,6 +146,10 @@ public class PlayerMovement : MonoBehaviour
         {
             _grounded = false;
         }
+        if (collision.gameObject.CompareTag("Bridge"))
+        {
+            _grounded = false;
+        }
     }
     private void OnEnable()
     {
@@ -168,7 +172,6 @@ public class PlayerMovement : MonoBehaviour
         
         _asset.FindAction("Player/Interact").started += HandleInteract;
         _asset.FindAction("Player/Interact").performed += HandleInteract;
-        _asset.FindAction("Player/Interact").canceled += HandleInteract;
     }
     private void OnDisable()
     {
@@ -191,7 +194,6 @@ public class PlayerMovement : MonoBehaviour
 
         _asset.FindAction("Player/Interact").started -= HandleInteract;
         _asset.FindAction("Player/Interact").performed -= HandleInteract;
-        _asset.FindAction("Player/Interact").canceled -= HandleInteract;
     }
     public void HandleMove(InputAction.CallbackContext ctx)
     {
@@ -226,6 +228,7 @@ public class PlayerMovement : MonoBehaviour
                 _landTriggered = true;
             }
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 9f));
             timer = 0f;
         }
         else if (!ctx.canceled && !_isDead && !Pause.paused)
@@ -249,6 +252,7 @@ public class PlayerMovement : MonoBehaviour
                 //_animator.Play("Dash");
                 _rig.velocity = Vector2.zero;
                 _rig.AddForce(new Vector2(11f * _axisx, 7f * _axisy), ForceMode2D.Impulse);
+                _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 9f));
             }
             _hasDashed = true;
             if(!ctx.canceled)
