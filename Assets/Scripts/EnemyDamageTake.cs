@@ -41,6 +41,7 @@ public class EnemyDamageTake : MonoBehaviour
         {
             if (PlayerAttack.isLightAttacking)
             {
+                this.gameObject.layer = LayerMask.NameToLayer("Invincible");
                 PlayerHealth.health += 8;
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 0, 100);
                 EnemyHealth.health -= 1f;
@@ -51,13 +52,13 @@ public class EnemyDamageTake : MonoBehaviour
             }
             else if (PlayerAttack.isStrongAttacking)
             {
+                this.gameObject.layer = LayerMask.NameToLayer("Invincible");
                 EnemyHealth.health -= 20;
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 32, 100);
                 float relativePos = transform.position.x - _player.transform.position.x;
                 _rig.AddForce(new Vector2(relativePos * knockBack * 2.5f, 2f), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
             }
-            this.gameObject.layer = LayerMask.NameToLayer("Invincible");
             _sprite.color = Color.black;
             timerIFrames = 0.6f;
         }

@@ -77,7 +77,7 @@ public class PlayerAttack : MonoBehaviour
             isLightAttacking = true;
             //_animator.Play("Light Attack Follow");
             //_animator.SetBool("Follow up", true);
-            timerLightAttack = 0.4f;
+            timerLightAttack = 0.45f;
             timerLightAttackWait = 0.65f;
             lightAttackWait = true;
         }

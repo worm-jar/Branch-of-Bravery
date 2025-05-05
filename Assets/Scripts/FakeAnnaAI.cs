@@ -50,7 +50,7 @@ public class FakeAnnaAI : MonoBehaviour
             if (attackTimer <= 0)
             {
                 ProjectileSpawn();
-                attackTimer = 1.4f;
+                attackTimer = 1.47f;
             }
         }
         if (runTimer > 0)

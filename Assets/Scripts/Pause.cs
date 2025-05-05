@@ -20,6 +20,7 @@ public class Pause : MonoBehaviour
     private void OnEnable()
     {
         _asset.Enable();
+        once = true;
         _asset.FindAction("Player/Pause").started += HandlePause;
         _asset.FindAction("Player/Pause").performed += HandlePause;
         _asset.FindAction("Player/Pause").canceled += HandlePause;
@@ -28,7 +29,6 @@ public class Pause : MonoBehaviour
     {
         if (once)
         {
-
             if (this.gameObject.activeInHierarchy == true && PlayerMovement.isInteracting == false)
             {
                 Time.timeScale = 1f;

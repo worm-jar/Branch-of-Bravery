@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &7747908129573964836
@@ -359,6 +359,8 @@ MonoBehaviour:
   _bow: {fileID: 4869722592580231123}
   _sword: {fileID: 0}
   anim2: {fileID: 9100000, guid: 413c6a13808d39342905f986c4d925f3, type: 2}
+  dead: 0
+  _deadAnna: {fileID: 5921493188175433654, guid: 485eb26d0e680294395e63051dac4231, type: 3}
 --- !u!114 &8987268994485108894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,7 +678,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -1.0974905, y: 0.6157105}

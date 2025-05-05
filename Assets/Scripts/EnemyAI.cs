@@ -29,9 +29,12 @@ public class EnemyAI : MonoBehaviour
     public GameObject _bow;
     public GameObject _sword;
     public RuntimeAnimatorController anim2;
+    public bool dead;
+    public GameObject _deadAnna;
     // Start is called before the first frame update
     void Start()
     {
+        dead = false;
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
         _animator = this.gameObject.GetComponent<Animator>();
         _player = GameObject.Find("Player");
@@ -40,9 +43,19 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _animator.SetBool("Dead", dead);
         _animator.SetBool("IsAttacking", isAttacking);
         _animator.SetBool("IsJumpBack", isJumpBack);
         direction = (_player.transform.position.x - transform.position.x);
+        if(EnemyHealth.health <= 0)
+        {
+            dead = true;
+        }
+        if (dead == true)
+        {
+            Instantiate(_deadAnna, this.gameObject.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
         if(EnemyHealth.health <= 100)
         {
             Transition();
@@ -206,7 +219,7 @@ public class EnemyAI : MonoBehaviour
                 isAttacking = true;
                 //_animator.Play("AttackAnna");
                 launchTimer = 0.05f;
-                attackTimerBeforeDone = 0.75f;
+                attackTimerBeforeDone = 0.6f;
                 behavioring = true;
             }
         }
@@ -219,7 +232,7 @@ public class EnemyAI : MonoBehaviour
             isJumpBack = true;
             if (!forceOnce)
             {
-                attackTimerSecond = 0.75f;
+                attackTimerSecond = 0.95f;
                 _rig.AddForce(new Vector2(-normDirection * 5, 3.5f), ForceMode2D.Impulse);
                 forceOnce = true;
             }
