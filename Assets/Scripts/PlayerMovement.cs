@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
+        jumpForce = 18f;
         _rig = this.GetComponent<Rigidbody2D>();
         _animator = this.GetComponent<Animator>();
         _trail = this.GetComponent<TrailRenderer>();

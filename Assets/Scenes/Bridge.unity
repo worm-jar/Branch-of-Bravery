@@ -6118,7 +6118,7 @@ GameObject:
   - component: {fileID: 1862661944}
   - component: {fileID: 1862661943}
   m_Layer: 0
-  m_Name: Mountain bg (1)
+  m_Name: Mountain bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6137,6 +6137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
+  _camera: {fileID: 0}
+  speedx: 2
+  speedy: 25
+  offsetx: 6.75
+  offsety: 1.5
 --- !u!212 &1862661944
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6178,7 +6183,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2ea4e2ee9617de444b0624dc4e42b0a9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9652a96080dafcb4fa8097cfdc8d497d, type: 3}
   m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6709,6 +6714,10 @@ PrefabInstance:
       propertyPath: _interact
       value: 
       objectReference: {fileID: 1276989395}
+    - target: {fileID: 4121662355232590342, guid: 200f1b6f8c1e65640a9baa20dd5f3eee, type: 3}
+      propertyPath: jumpForce
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6480188126605736876, guid: 200f1b6f8c1e65640a9baa20dd5f3eee, type: 3}
       propertyPath: _healthSlider
       value: 

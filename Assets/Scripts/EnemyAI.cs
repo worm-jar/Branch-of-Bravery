@@ -34,6 +34,7 @@ public class EnemyAI : MonoBehaviour
     public bool transOnce;
     public bool transitioning;
     public float transitionTimer;
+    public ParticleSystem _particleSystem;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +42,7 @@ public class EnemyAI : MonoBehaviour
         dead = false;
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
         _animator = this.gameObject.GetComponent<Animator>();
+        _particleSystem = this.gameObject.GetComponent<ParticleSystem>();
         _player = GameObject.Find("Player");
         randomBehavior = 0;
     }
@@ -205,6 +207,7 @@ public class EnemyAI : MonoBehaviour
             isJumpBack = true;
             if (!forceOnce)
             {
+                _particleSystem.Play();
                 attackTimer = 1.25f;
                 _rig.AddForce(new Vector2(-normDirection * 5, 3.5f), ForceMode2D.Impulse);
                 forceOnce = true;
@@ -246,6 +249,7 @@ public class EnemyAI : MonoBehaviour
             isJumpBack = true;
             if (!forceOnce)
             {
+                _particleSystem.Play();
                 attackTimerSecond = 0.95f;
                 _rig.AddForce(new Vector2(-normDirection * 5, 3.5f), ForceMode2D.Impulse);
                 forceOnce = true;
@@ -263,8 +267,8 @@ public class EnemyAI : MonoBehaviour
         if(transOnce == true)
         {
             transitioning = true;
-            _animator.runtimeAnimatorController = anim2 as RuntimeAnimatorController;
             _animator.SetBool("IsTransition", true);
+            _animator.runtimeAnimatorController = anim2 as RuntimeAnimatorController;
             Instantiate(_sword, transform.position, Quaternion.Euler(0, 0, 35));
             transOnce = false;
             transitionTimer = 1.78f;

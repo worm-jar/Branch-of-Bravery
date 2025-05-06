@@ -8,14 +8,25 @@ public class AnnaDeath : MonoBehaviour
     public Rigidbody2D _rig;
     public bool once;
     public float normDirection;
+    public SpriteRenderer _spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _player = GameObject.Find("Player");
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
         once = true;
     }
-
+    private void Awake()
+    {
+        foreach (Canvas canvas in FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            if(canvas.name == "DeathCanvas")
+            {
+                canvas.gameObject.SetActive(true);
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -30,6 +41,10 @@ public class AnnaDeath : MonoBehaviour
         }
         if(once)
         {
+            if (normDirection < 0)
+            {
+                _spriteRenderer.flipX = true;
+            }
             _rig.AddForce(new Vector2(-normDirection * 5f, 3f), ForceMode2D.Impulse);
             once = false;
         }

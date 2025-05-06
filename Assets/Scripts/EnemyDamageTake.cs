@@ -30,7 +30,7 @@ public class EnemyDamageTake : MonoBehaviour
             if (timerIFrames <= 0)
             {
                 _sprite.color = Color.white;
-                this.gameObject.layer = 8;
+                this.gameObject.layer = LayerMask.NameToLayer("Enemy");
                 timerIFrames = 0;
             }
         }
@@ -39,7 +39,7 @@ public class EnemyDamageTake : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player Attack"))
         {
-            this.gameObject.layer = 10;
+            this.gameObject.layer = LayerMask.NameToLayer("Invincible");
             if (PlayerAttack.isLightAttacking)
             {
                 PlayerHealth.health += 8;

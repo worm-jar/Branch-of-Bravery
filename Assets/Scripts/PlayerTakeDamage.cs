@@ -36,7 +36,7 @@ public class PlayerTakeDamage : MonoBehaviour
                 Camera.amount = 0f;
                 if (PlayerHealth.health > 0)
                 {
-                    this.gameObject.layer = 6;
+                    this.gameObject.layer = LayerMask.NameToLayer("Player");
                     _renderer.color = Color.white;
                     _isInvincible = false;
                 }
@@ -65,7 +65,7 @@ public class PlayerTakeDamage : MonoBehaviour
             }
             if (_fakeAnnabeth == null)
             {
-                this.gameObject.layer = 10;
+                this.gameObject.layer = LayerMask.NameToLayer("Invincible");
                 PlayerAttack.timerLightAttackWait = 1f;
                 _isInvincible = true;
                 _renderer.color = Color.black;
@@ -87,7 +87,7 @@ public class PlayerTakeDamage : MonoBehaviour
             else
             {
                 FakeAnnaAI.autoRunTimer = 8f;
-                this.gameObject.layer = 10;
+                this.gameObject.layer = LayerMask.NameToLayer("Invincible");
                 _isInvincible = true;
                 _renderer.color = Color.black;
                 float relativePos = transform.position.x - _fakeAnnabeth.transform.position.x;

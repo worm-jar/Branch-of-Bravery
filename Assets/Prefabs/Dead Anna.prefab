@@ -259,6 +259,7 @@ MonoBehaviour:
   _rig: {fileID: 0}
   once: 0
   normDirection: 0
+  _deathCanvas: {fileID: 8706514611051199024, guid: 1d2f1ef1bf0912043b09fe5dedb9fc67, type: 3}
 --- !u!95 &-3718779586761529973
 Animator:
   serializedVersion: 5
