@@ -244,7 +244,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleDash(InputAction.CallbackContext ctx)
     {
-        if ((_axisx != 0 || _axisy != 0) && !_hasDashed && _grounded && _dashAir == true)
+        if ((_axisx != 0 || _axisy != 0) && !_hasDashed && _grounded && _dashAir)
         {
             if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {
@@ -253,15 +253,15 @@ public class PlayerMovement : MonoBehaviour
                 _rig.velocity = Vector2.zero;
                 _rig.AddForce(new Vector2(11f * _axisx, 7f * _axisy), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 9f));
+                _hasDashed = true;
             }
-            _hasDashed = true;
             if(!ctx.canceled)
             {
                 timerDash = 0.4f;
             }
             _dashAir = false;
         }
-        else if ((_axisx != 0 || _axisy != 0) && !_hasDashed && !_grounded && _dashAir == true)
+        else if ((_axisx != 0 || _axisy != 0) && !_hasDashed && !_grounded && _dashAir)
         {
             if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {

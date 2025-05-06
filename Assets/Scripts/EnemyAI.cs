@@ -31,9 +31,13 @@ public class EnemyAI : MonoBehaviour
     public RuntimeAnimatorController anim2;
     public bool dead;
     public GameObject _deadAnna;
+    public bool transOnce;
+    public bool transitioning;
+    public float transitionTimer;
     // Start is called before the first frame update
     void Start()
     {
+        transOnce = true;
         dead = false;
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
         _animator = this.gameObject.GetComponent<Animator>();
@@ -118,6 +122,16 @@ public class EnemyAI : MonoBehaviour
                 attackTimerBeforeDone = 0;
             }
         }
+        if (transitionTimer > 0)
+        {
+            transitionTimer -= Time.deltaTime;
+            if (transitionTimer <= 0)
+            {
+                _animator.SetBool("IsTransition", false);
+                transitioning = false;
+                transitionTimer = 0;
+            }
+        }
         if (direction < 0)
         {
             normDirection = -1;
@@ -167,7 +181,7 @@ public class EnemyAI : MonoBehaviour
         if (behavioring == false)
         {
             normDirectionStore = normDirection;
-            if (!isAttacking)
+            if (!isAttacking && transitioning == false)
             {
                 //_animator.Play("WalkAnnabeth");
                 _rig.position += new Vector2(speed * normDirection * Time.deltaTime, 0f);
@@ -208,7 +222,7 @@ public class EnemyAI : MonoBehaviour
         if (behavioring == false)
         {
             normDirectionStore = normDirection;
-            if (!isAttacking)
+            if (!isAttacking && transitioning == false)
             {
                 //_animator.Play("WalkAnnabeth");
                 _rig.position += new Vector2(speedSecond * normDirection * Time.deltaTime, 0f);
@@ -246,9 +260,14 @@ public class EnemyAI : MonoBehaviour
     }
     public void Transition()
     {
-        _animator.runtimeAnimatorController = anim2 as RuntimeAnimatorController;
-        _animator.SetBool("IsTransition", true);
-        //throw sword here
-        _animator.SetBool("IsTransition", false);
+        if(transOnce == true)
+        {
+            transitioning = true;
+            _animator.runtimeAnimatorController = anim2 as RuntimeAnimatorController;
+            _animator.SetBool("IsTransition", true);
+            Instantiate(_sword, transform.position, Quaternion.Euler(0, 0, 35));
+            transOnce = false;
+            transitionTimer = 1.78f;
+        }
     }
 }

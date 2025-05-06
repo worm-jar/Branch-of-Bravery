@@ -29,8 +29,8 @@ public class EnemyDamageTake : MonoBehaviour
             timerIFrames -= Time.deltaTime;
             if (timerIFrames <= 0)
             {
-                this.gameObject.layer = LayerMask.NameToLayer("Enemy");
                 _sprite.color = Color.white;
+                this.gameObject.layer = 8;
                 timerIFrames = 0;
             }
         }
@@ -39,9 +39,9 @@ public class EnemyDamageTake : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player Attack"))
         {
+            this.gameObject.layer = 10;
             if (PlayerAttack.isLightAttacking)
             {
-                this.gameObject.layer = LayerMask.NameToLayer("Invincible");
                 PlayerHealth.health += 8;
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 0, 100);
                 EnemyHealth.health -= 1f;
@@ -52,7 +52,6 @@ public class EnemyDamageTake : MonoBehaviour
             }
             else if (PlayerAttack.isStrongAttacking)
             {
-                this.gameObject.layer = LayerMask.NameToLayer("Invincible");
                 EnemyHealth.health -= 20;
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 32, 100);
                 float relativePos = transform.position.x - _player.transform.position.x;

@@ -1095,10 +1095,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2282,6 +2282,18 @@ PrefabInstance:
     - target: {fileID: 2129805317497895647, guid: 667f0f7a047df014996f3fc4b3d5b140, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858989755183707648, guid: 667f0f7a047df014996f3fc4b3d5b140, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858989755183707648, guid: 667f0f7a047df014996f3fc4b3d5b140, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858989755183707648, guid: 667f0f7a047df014996f3fc4b3d5b140, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 6314982752251453119, guid: 667f0f7a047df014996f3fc4b3d5b140, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5983,6 +5995,18 @@ PrefabInstance:
     - target: {fileID: 741941219874210504, guid: 6417a230ccf028946b2422dee8f23658, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797110961101245425, guid: 6417a230ccf028946b2422dee8f23658, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797110961101245425, guid: 6417a230ccf028946b2422dee8f23658, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797110961101245425, guid: 6417a230ccf028946b2422dee8f23658, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 7899877981846718699, guid: 6417a230ccf028946b2422dee8f23658, type: 3}
       propertyPath: m_Name

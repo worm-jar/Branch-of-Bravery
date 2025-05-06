@@ -357,7 +357,7 @@ MonoBehaviour:
   attackTimerBeforeDone: 0
   launchTimer: 0
   _bow: {fileID: 4869722592580231123}
-  _sword: {fileID: 0}
+  _sword: {fileID: 5583756371651871063, guid: f9011bcd006a7dd49aa18dad76f1a429, type: 3}
   anim2: {fileID: 9100000, guid: 413c6a13808d39342905f986c4d925f3, type: 2}
   dead: 0
   _deadAnna: {fileID: 5921493188175433654, guid: 485eb26d0e680294395e63051dac4231, type: 3}
