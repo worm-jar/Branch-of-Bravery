@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
-  speed: 4
+  speed: 5.5
   _asset: {fileID: -944628639613478452, guid: 985cb7d0aa9182f4b8409978e7461b9a, type: 3}
   _rig: {fileID: 0}
   _axisx: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
   _grounded: 1
   timer: 0
   timerDash: 0
-  jumpForce: 48.5
+  jumpForce: 1
   _trail: {fileID: 0}
   deathTimer: 0
   _interact: {fileID: 0}
@@ -640,6 +640,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameManager: {fileID: 0}
   SceneLoader: {fileID: 0}
+  _ChangeAudio:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: c8d6b28df9791964ea0e491fe7e6babd, type: 3}
+        m_TargetAssemblyTypeName: GMMusic, Assembly-CSharp
+        m_MethodName: ChangeToAnna
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11500000, guid: c8d6b28df9791964ea0e491fe7e6babd, type: 3}
+        m_TargetAssemblyTypeName: GMMusic, Assembly-CSharp
+        m_MethodName: PlayMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3103252606069438511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,15 +865,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1368262500187169277, guid: b5d7445d874b578449d78d304c18121b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.597293
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1368262500187169277, guid: b5d7445d874b578449d78d304c18121b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.67013127
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1368262500187169277, guid: b5d7445d874b578449d78d304c18121b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.809999
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1368262500187169277, guid: b5d7445d874b578449d78d304c18121b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1016,15 +1043,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8916679744829041258, guid: 7daad804accf055479a94a68c0929db8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.597293
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8916679744829041258, guid: 7daad804accf055479a94a68c0929db8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.67013127
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8916679744829041258, guid: 7daad804accf055479a94a68c0929db8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.809999
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8916679744829041258, guid: 7daad804accf055479a94a68c0929db8, type: 3}
       propertyPath: m_LocalRotation.w

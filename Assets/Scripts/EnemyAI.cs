@@ -35,9 +35,17 @@ public class EnemyAI : MonoBehaviour
     public bool transitioning;
     public float transitionTimer;
     public ParticleSystem _particleSystem;
+    public AudioSource _audioSource;
+    
+    public AudioClip _bellJumpBack;
+    public AudioClip _swordSwing;
+    public AudioClip _walk;
+    public AudioClip _stab;
+    public AudioClip _transition;
     // Start is called before the first frame update
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         transOnce = true;
         dead = false;
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
@@ -129,6 +137,7 @@ public class EnemyAI : MonoBehaviour
             transitionTimer -= Time.deltaTime;
             if (transitionTimer <= 0)
             {
+                _audioSource.PlayOneShot(_transition);
                 _animator.SetBool("IsTransition", false);
                 transitioning = false;
                 transitionTimer = 0;
@@ -186,10 +195,14 @@ public class EnemyAI : MonoBehaviour
             if (!isAttacking && transitioning == false)
             {
                 //_animator.Play("WalkAnnabeth");
+                _audioSource.clip = _walk;
+                _audioSource.Play();
                 _rig.position += new Vector2(speed * normDirection * Time.deltaTime, 0f);
             }
             if (direction < 2 && direction > -2)
             {
+                _audioSource.clip = _swordSwing;
+                _audioSource.PlayDelayed(0.8f);
                 _rig.velocity = new Vector2(0, 0);
                 isAttacking = true;
                 //_animator.Play("AttackAnna");
@@ -207,6 +220,7 @@ public class EnemyAI : MonoBehaviour
             isJumpBack = true;
             if (!forceOnce)
             {
+                _audioSource.PlayOneShot(_bellJumpBack);
                 _particleSystem.Play();
                 attackTimer = 1.25f;
                 _rig.AddForce(new Vector2(-normDirection * 5, 3.5f), ForceMode2D.Impulse);
@@ -228,10 +242,14 @@ public class EnemyAI : MonoBehaviour
             if (!isAttacking && transitioning == false)
             {
                 //_animator.Play("WalkAnnabeth");
+                _audioSource.clip = _walk;
+                _audioSource.Play();
                 _rig.position += new Vector2(speedSecond * normDirection * Time.deltaTime, 0f);
             }
             if (direction < 1.1f && direction > -1.1f)
             {
+                _audioSource.clip = _stab;
+                _audioSource.PlayDelayed(0.5f);
                 _rig.velocity = new Vector2(0, 0);
                 isAttacking = true;
                 //_animator.Play("AttackAnna");
@@ -249,6 +267,7 @@ public class EnemyAI : MonoBehaviour
             isJumpBack = true;
             if (!forceOnce)
             {
+                _audioSource.PlayOneShot(_bellJumpBack);
                 _particleSystem.Play();
                 attackTimerSecond = 0.95f;
                 _rig.AddForce(new Vector2(-normDirection * 5, 3.5f), ForceMode2D.Impulse);

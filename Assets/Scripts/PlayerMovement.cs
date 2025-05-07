@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
-        jumpForce = 18f;
         _rig = this.GetComponent<Rigidbody2D>();
         _animator = this.GetComponent<Animator>();
         _trail = this.GetComponent<TrailRenderer>();
@@ -108,7 +107,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (timer > 0 && _grounded == true)
         {
-            _rig.AddForce(new Vector2(0f, jumpForce*2f), ForceMode2D.Impulse);
+            _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 11.5f));
             timer = 0f;
         }
     }
@@ -222,14 +222,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_falling == false && !_landTriggered)
             {
-                if (PlayerAttack.isStrongAttacking == false && !_isDead)
-                {
-                    //_animator.Play("Jump up");
-                }
                 _landTriggered = true;
             }
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 9f));
+            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 11.5f));
             timer = 0f;
         }
         else if (!ctx.canceled && !_isDead && !Pause.paused)

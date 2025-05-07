@@ -11,11 +11,11 @@ public class DDGameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(base.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(base.gameObject);
+            Destroy(gameObject);
         }
     }
 }
