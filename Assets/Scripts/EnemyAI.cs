@@ -14,7 +14,8 @@ public class EnemyAI : MonoBehaviour
     public Rigidbody2D _rig;
     public GameObject _player;
     private float direction;
-    private float normDirection;
+    public float normDirection;
+    public static float storeNormDir;
     private float normDirectionStore;
     public int randomBehavior;
     public float speed;
@@ -40,7 +41,6 @@ public class EnemyAI : MonoBehaviour
     public AudioClip _bellJumpBack;
     public AudioClip _swordSwing;
     public AudioClip _walk;
-    public AudioClip _stab;
     public AudioClip _transition;
     // Start is called before the first frame update
     void Start()
@@ -81,6 +81,8 @@ public class EnemyAI : MonoBehaviour
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0)
             {
+                _audioSource.clip = _swordSwing;
+                _audioSource.Play();
                 attackTimerBeforeMove = 1f;
                 ProjectileSpawn();
                 randomBehavior = 0;
@@ -103,6 +105,8 @@ public class EnemyAI : MonoBehaviour
             attackTimerSecond -= Time.deltaTime;
             if (attackTimerSecond <= 0)
             {
+                _audioSource.clip = _swordSwing;
+                _audioSource.Play();
                 ProjectileSpawnSecond();
                 randomBehavior = 0;
                 forceOnce = false;
@@ -137,7 +141,6 @@ public class EnemyAI : MonoBehaviour
             transitionTimer -= Time.deltaTime;
             if (transitionTimer <= 0)
             {
-                _audioSource.PlayOneShot(_transition);
                 _animator.SetBool("IsTransition", false);
                 transitioning = false;
                 transitionTimer = 0;
@@ -153,12 +156,12 @@ public class EnemyAI : MonoBehaviour
         }
         if(!isAttacking)
         {
-            if(direction < 0)
+            if(direction < 0 && !behavioring)
             {
                 transform.localScale = new Vector3(1f, 1f, 1f);
                 _bow.SetActive(true);
             }
-            if(direction > 0)
+            if(direction > 0 && !behavioring)
             {
                 transform.localScale = new Vector3(-1f, 1f, 1f);
                 _bow.SetActive(false);
@@ -202,7 +205,7 @@ public class EnemyAI : MonoBehaviour
             if (direction < 2 && direction > -2)
             {
                 _audioSource.clip = _swordSwing;
-                _audioSource.PlayDelayed(0.8f);
+                _audioSource.PlayDelayed(0.5f);
                 _rig.velocity = new Vector2(0, 0);
                 isAttacking = true;
                 //_animator.Play("AttackAnna");
@@ -220,6 +223,7 @@ public class EnemyAI : MonoBehaviour
             isJumpBack = true;
             if (!forceOnce)
             {
+                storeNormDir = normDirection;
                 _audioSource.PlayOneShot(_bellJumpBack);
                 _particleSystem.Play();
                 attackTimer = 1.25f;
@@ -248,8 +252,8 @@ public class EnemyAI : MonoBehaviour
             }
             if (direction < 1.1f && direction > -1.1f)
             {
-                _audioSource.clip = _stab;
-                _audioSource.PlayDelayed(0.5f);
+                _audioSource.clip = _swordSwing;
+                _audioSource.PlayDelayed(0.3f);
                 _rig.velocity = new Vector2(0, 0);
                 isAttacking = true;
                 //_animator.Play("AttackAnna");
@@ -267,6 +271,7 @@ public class EnemyAI : MonoBehaviour
             isJumpBack = true;
             if (!forceOnce)
             {
+                storeNormDir = normDirection;
                 _audioSource.PlayOneShot(_bellJumpBack);
                 _particleSystem.Play();
                 attackTimerSecond = 0.95f;
@@ -285,12 +290,13 @@ public class EnemyAI : MonoBehaviour
     {
         if(transOnce == true)
         {
+            _audioSource.PlayOneShot(_transition);
             transitioning = true;
             _animator.SetBool("IsTransition", true);
             _animator.runtimeAnimatorController = anim2 as RuntimeAnimatorController;
             Instantiate(_sword, transform.position, Quaternion.Euler(0, 0, 35));
             transOnce = false;
-            transitionTimer = 1.78f;
+            transitionTimer = 1.6f;
         }
     }
 }

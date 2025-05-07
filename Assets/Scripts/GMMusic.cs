@@ -16,6 +16,10 @@ public class GMMusic : MonoBehaviour
     public void Update()
 
     {
+        if (AnnaDeath.dead == true)
+        {
+            AudioSource.enabled = false;
+        }
     }
     public void OnEnable()
     {

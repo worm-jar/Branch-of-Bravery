@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _interact;
     public TextMeshProUGUI _text;
     public static bool isInteracting;
+    public bool dashAnimated;
+    public float bridgeTimer;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -44,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _animator.SetFloat("Walking", _axisx);
         _animator.SetBool("Grounded", _grounded);
-        _animator.SetBool("IsDashing", _hasDashed);
+        _animator.SetBool("IsDashing", _hasDashed && !dashAnimated);
         _animator.SetBool("IsDead", _isDead);
         _animator.SetBool("IsInvincible", PlayerTakeDamage._isInvincible);
         _animator.SetBool("IsLAttacking", PlayerAttack.isLightAttacking);
@@ -82,6 +84,15 @@ public class PlayerMovement : MonoBehaviour
                 timer = 0;
             }
         }
+        if (bridgeTimer > 0)
+        {
+            bridgeTimer -= Time.deltaTime;
+            if (bridgeTimer <= 0)
+            {
+                _grounded = false;
+                bridgeTimer = 0;
+            }
+        }
         if (deathTimer > 0)
         {
             deathTimer -= Time.deltaTime;
@@ -97,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
             timerDash -= Time.deltaTime;
             if (timerDash <= 0)
             {
+                dashAnimated = true;
                 if (_hasDashed)
                 {
                 _rig.velocity = new Vector2(0,0);
@@ -127,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if(collision.gameObject.CompareTag("Bridge"))
         {
+            bridgeTimer = 0f;
             _dashAir = true;
             _grounded = true;
             _falling = false;
@@ -149,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Bridge"))
         {
-            _grounded = false;
+            bridgeTimer = 0.6f;
         }
     }
     private void OnEnable()
@@ -226,6 +239,7 @@ public class PlayerMovement : MonoBehaviour
             }
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 11.5f));
+            _grounded = false;
             timer = 0f;
         }
         else if (!ctx.canceled && !_isDead && !Pause.paused)
@@ -266,8 +280,8 @@ public class PlayerMovement : MonoBehaviour
                 //_animator.Play("Dash");
                 _rig.velocity = Vector2.zero;
 
-                _rig.AddForce(new Vector2(8f * _axisx, 10f * _axisy), ForceMode2D.Impulse);
-                _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 9f));
+                _rig.AddForce(new Vector2(8f * _axisx, 12f * _axisy), ForceMode2D.Impulse);
+                _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 11f));
                 _hasDashed = true;
             }
             if(!ctx.canceled)
@@ -279,6 +293,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleDashCancel(InputAction.CallbackContext ctx)
     {
+        dashAnimated = false;
         _trail.enabled = false;
         _rig.velocity = new Vector2(0f,0f);
         _hasDashed = false;

@@ -301,6 +301,17 @@
                 },
                 {
                     "name": "",
+                    "id": "e0db8af2-b91c-41a1-aa71-88e78872735c",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "3be8696d-d320-432c-8738-a897f9eceb63",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",

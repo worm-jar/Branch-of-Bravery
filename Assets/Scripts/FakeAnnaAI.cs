@@ -15,6 +15,10 @@ public class FakeAnnaAI : MonoBehaviour
     public GameObject _projectile;
     public static float autoRunTimer;
     public bool timerStart;
+    public AudioSource _audioSource;
+    public AudioClip _bells;
+    public AudioClip _slash;
+    public bool audioOnce = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +29,7 @@ public class FakeAnnaAI : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rig = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,6 +54,8 @@ public class FakeAnnaAI : MonoBehaviour
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0)
             {
+                _audioSource.clip = _bells;
+                _audioSource.PlayDelayed(0.7f);
                 ProjectileSpawn();
                 attackTimer = 1.47f;
             }
@@ -100,6 +107,7 @@ public class FakeAnnaAI : MonoBehaviour
     }
     public void ProjectileSpawn()
     {
+        _audioSource.PlayOneShot(_slash);
         Instantiate(_projectile, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.5f, -3.3f), Quaternion.identity);
     }
 }

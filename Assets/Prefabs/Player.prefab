@@ -200,7 +200,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.14347532, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -211,7 +211,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.2869506, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &8374242648208081642
 Rigidbody2D:
@@ -451,6 +451,8 @@ MonoBehaviour:
   deathTimer: 0
   _interact: {fileID: 0}
   _text: {fileID: 0}
+  dashAnimated: 0
+  bridgeTimer: 0
 --- !u!114 &3291422478178781034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,33 +642,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameManager: {fileID: 0}
   SceneLoader: {fileID: 0}
-  _ChangeAudio:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: c8d6b28df9791964ea0e491fe7e6babd, type: 3}
-        m_TargetAssemblyTypeName: GMMusic, Assembly-CSharp
-        m_MethodName: ChangeToAnna
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11500000, guid: c8d6b28df9791964ea0e491fe7e6babd, type: 3}
-        m_TargetAssemblyTypeName: GMMusic, Assembly-CSharp
-        m_MethodName: PlayMusic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &3103252606069438511
 MonoBehaviour:
   m_ObjectHideFlags: 0

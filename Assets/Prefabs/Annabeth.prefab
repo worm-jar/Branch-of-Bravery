@@ -308,6 +308,8 @@ MonoBehaviour:
   _player: {fileID: 0}
   timerIFrames: 0
   _sprite: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _hurt: {fileID: 8300000, guid: 0a8a1996d5995f548a4ae88a70551c2f, type: 3}
 --- !u!95 &729709806766398345
 Animator:
   serializedVersion: 5
@@ -368,6 +370,11 @@ MonoBehaviour:
   transitioning: 0
   transitionTimer: 0
   _particleSystem: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _bellJumpBack: {fileID: 8300000, guid: 275d67dd3da45d544b256b022b8651c2, type: 3}
+  _swordSwing: {fileID: 8300000, guid: 45d1486d1e9cb244eb1fc68705a394b9, type: 3}
+  _walk: {fileID: 8300000, guid: 400492e05edcca24aa81d44244c11184, type: 3}
+  _transition: {fileID: 8300000, guid: 2e00eeb1a87736b4aaecdde1561382c7, type: 3}
 --- !u!114 &8987268994485108894
 MonoBehaviour:
   m_ObjectHideFlags: 0

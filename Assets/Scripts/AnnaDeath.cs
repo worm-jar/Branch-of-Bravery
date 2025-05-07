@@ -9,6 +9,7 @@ public class AnnaDeath : MonoBehaviour
     public bool once;
     public float normDirection;
     public SpriteRenderer _spriteRenderer;
+    public static bool dead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class AnnaDeath : MonoBehaviour
     }
     private void Awake()
     {
+        dead = true;
         foreach (Canvas canvas in FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None))
         {
             if(canvas.name == "DeathCanvas")

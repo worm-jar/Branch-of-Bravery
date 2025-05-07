@@ -9,12 +9,15 @@ public class EnemyDamageTake : MonoBehaviour
     public GameObject _player;
     public float timerIFrames;
     public SpriteRenderer _sprite;
+    public AudioSource _audioSource;
+    public AudioClip _hurt;
     // Start is called before the first frame update
     void Start()
     {
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
         _sprite = this.gameObject.GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +42,7 @@ public class EnemyDamageTake : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player Attack"))
         {
+            _audioSource.PlayOneShot(_hurt);
             this.gameObject.layer = LayerMask.NameToLayer("Invincible");
             if (PlayerAttack.isLightAttacking)
             {
