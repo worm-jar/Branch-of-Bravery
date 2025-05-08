@@ -14,7 +14,7 @@ public class FakeAnnaAI : MonoBehaviour
     public bool hasComeClose;
     public GameObject _projectile;
     public static float autoRunTimer;
-    public bool timerStart;
+    public static bool timerStart;
     public AudioSource _audioSource;
     public AudioClip _bells;
     public AudioClip _slash;

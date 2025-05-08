@@ -13,9 +13,14 @@ public class PlayerAttack : MonoBehaviour
     public static bool isStrongAttacking;
     public static bool isLightAttacking;
     public static bool lightAttackWait = false;
+    public AudioSource _audioSource;
+
+    public AudioClip _slash;
+    public AudioClip _stab;
     // Start is called before the first frame update
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _animator = this.GetComponent<Animator>();
     }
 
@@ -29,8 +34,9 @@ public class PlayerAttack : MonoBehaviour
             timerStrongAttack -= Time.deltaTime;
             if (timerStrongAttack <= 0)
             {
-                timerStrongAttack = 0;
+                _audioSource.volume = 0.86f;
                 isStrongAttacking = false;
+                timerStrongAttack = 0;
             }
         }
         if (timerLightAttack > 0)
@@ -38,6 +44,7 @@ public class PlayerAttack : MonoBehaviour
             timerLightAttack -= Time.deltaTime;
             if (timerLightAttack <= 0)
             {
+                _audioSource.volume = 0.86f;
                 isLightAttacking = false;
                 timerLightAttack = 0;
             }
@@ -75,6 +82,8 @@ public class PlayerAttack : MonoBehaviour
         if (lightAttackWait == false && PlayerTakeDamage.timerIFrames == 0)
         {
             isLightAttacking = true;
+            _audioSource.volume = 0.45f;
+            _audioSource.PlayOneShot(_stab);
             //_animator.Play("Light Attack Follow");
             //_animator.SetBool("Follow up", true);
             timerLightAttack = 0.45f;
@@ -86,6 +95,9 @@ public class PlayerAttack : MonoBehaviour
     {
         if (PlayerHealth.health > 50 && isStrongAttacking == false)
         {
+            _audioSource.volume = 0.5f;
+            _audioSource.clip = _slash;
+            _audioSource.PlayDelayed(0.5f);
             PlayerHealth.health -= 20f;
             PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 32, 100);
             isStrongAttacking = true;

@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
+  _audioSource: {fileID: 5395037087591018101}
+  _towers: {fileID: 0}
 --- !u!114 &1697132768020122754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,8 +152,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6f4aa3c5483d734488b589b3998eb9a2, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

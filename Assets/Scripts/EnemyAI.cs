@@ -296,7 +296,7 @@ public class EnemyAI : MonoBehaviour
             _animator.runtimeAnimatorController = anim2 as RuntimeAnimatorController;
             Instantiate(_sword, transform.position, Quaternion.Euler(0, 0, 35));
             transOnce = false;
-            transitionTimer = 1.6f;
+            transitionTimer = 1.2f;
         }
     }
 }

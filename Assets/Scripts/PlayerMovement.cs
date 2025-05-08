@@ -27,8 +27,18 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _interact;
     public TextMeshProUGUI _text;
     public static bool isInteracting;
+    public static bool isRespInteracting;
     public bool dashAnimated;
     public float bridgeTimer;
+    public AudioSource _audioSource;
+    public float _respTimer;
+    public ParticleSystem _particleSystem;
+
+    public AudioClip _walk;
+    public AudioClip _jump;
+    public AudioClip _dash;
+    public AudioClip _paper;
+    public AudioClip _sewer;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -37,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
+        _particleSystem = GetComponent<ParticleSystem>();
+        _audioSource = GetComponent<AudioSource>();
         _rig = this.GetComponent<Rigidbody2D>();
         _animator = this.GetComponent<Animator>();
         _trail = this.GetComponent<TrailRenderer>();
@@ -117,8 +129,18 @@ public class PlayerMovement : MonoBehaviour
                 timerDash = 0;
             }
         }
+        if (_respTimer > 0)
+        {
+            _respTimer -= Time.deltaTime;
+            if (_respTimer <= 0)
+            {
+                isRespInteracting = false;
+                _respTimer = 0;
+            }
+        }
         if (timer > 0 && _grounded == true)
         {
+            _audioSource.PlayOneShot(_jump);
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 11.5f));
             timer = 0f;
@@ -212,16 +234,18 @@ public class PlayerMovement : MonoBehaviour
     public void HandleMove(InputAction.CallbackContext ctx)
     {
         if (PlayerAttack.isStrongAttacking == false && !_isDead)
-        { 
+        {
+            _audioSource.clip = _walk;
+            _audioSource.Play();
         _animator.Play("Walk");
         }
         _axisx = ctx.ReadValue<float>();
     } 
     public void HandleMoveStop(InputAction.CallbackContext ctx)
     {
-        if (PlayerAttack.isStrongAttacking == false && !_isDead)
+        if (PlayerAttack.isStrongAttacking == false && PlayerAttack.isLightAttacking == false && isRespInteracting == false)
         {
-            //_animator.Play("Idle");
+            _audioSource.Stop();
         }
         _axisx = ctx.ReadValue<float>();
     } 
@@ -237,6 +261,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 _landTriggered = true;
             }
+            _audioSource.PlayOneShot(_jump);
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 11.5f));
             _grounded = false;
@@ -259,6 +284,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {
+                _audioSource.PlayOneShot(_dash);
                 _trail.enabled = true;
                 //_animator.Play("Dash");
                 _rig.velocity = Vector2.zero;
@@ -276,10 +302,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {
+                _audioSource.PlayOneShot(_dash);
                 _trail.enabled = true;
                 //_animator.Play("Dash");
                 _rig.velocity = Vector2.zero;
-
                 _rig.AddForce(new Vector2(8f * _axisx, 12f * _axisy), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 11f));
                 _hasDashed = true;
@@ -315,29 +341,37 @@ public class PlayerMovement : MonoBehaviour
         {
             if (RespawnPoint.interactName == "RespawnTrigger")
             {
+                _particleSystem.Play();
+                isRespInteracting = true;
+                _respTimer = 0.35f;
+                _audioSource.PlayOneShot(_sewer);
                 PlayerHealth.health = 100f;
                 RespawnPoint.hasCheckpoint = true;
             }
             if (RespawnPoint.interactName == "RespawnText")
             {
+                _audioSource.PlayOneShot(_paper);
                 isInteracting = true;
                 _interact.SetActive(true);
                 _text.text = "Interact with sewers to set spawn and refill health";
             }
             if (RespawnPoint.interactName == "Jump")
             {
+                _audioSource.PlayOneShot(_paper);
                 isInteracting = true;
                 _interact.SetActive(true);
                 _text.text = "Space or A to Jump";
             }
             if (RespawnPoint.interactName == "Attack")
             {
+                _audioSource.PlayOneShot(_paper);
                 isInteracting = true;
                 _interact.SetActive(true);
                 _text.text = "Light Attack with left click or right bumper, and Heavy Attack with Right click or Right Trigger. Landing light attacks refills health, and heavy attacks consume health";
             }
             if (RespawnPoint.interactName == "Dash")
             {
+                _audioSource.PlayOneShot(_paper);
                 isInteracting = true;
                 _interact.SetActive(true);
                 _text.text = "Shift or Left Trigger to Dash in any direction";

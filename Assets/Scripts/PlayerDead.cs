@@ -42,6 +42,8 @@ public class PlayerDead : MonoBehaviour
         }
         if (PlayerHealth.health <= 0 && deadOnce == true) 
         {
+            FakeAnnaAI.autoRunTimer = 9999f;
+            FakeAnnaAI.timerStart = false;
             this.gameObject.layer = LayerMask.NameToLayer("Dead");
             respawnTimer = 2f;
             deadOnce = false;
