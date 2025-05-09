@@ -449,10 +449,13 @@ MonoBehaviour:
   _grounded: 1
   timer: 0
   timerDash: 0
-  jumpForce: 1
+  jumpForce: 18
   _trail: {fileID: 0}
   deathTimer: 0
-  _interact: {fileID: 0}
+  _interactSewer: {fileID: 0}
+  _interactJump: {fileID: 0}
+  _interactAttack: {fileID: 0}
+  _interactDash: {fileID: 0}
   _text: {fileID: 0}
   dashAnimated: 0
   bridgeTimer: 0

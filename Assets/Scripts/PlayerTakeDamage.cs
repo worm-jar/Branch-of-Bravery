@@ -66,7 +66,7 @@ public class PlayerTakeDamage : MonoBehaviour
             if (_fakeAnnabeth == null)
             {
                 this.gameObject.layer = LayerMask.NameToLayer("Invincible");
-                PlayerAttack.timerLightAttackWait = 1f;
+                PlayerAttack.timerLightAttackWait = 0.85f;
                 _isInvincible = true;
                 _renderer.color = Color.black;
                 //_animator.Play("Invincible");

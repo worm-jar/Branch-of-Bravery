@@ -10,6 +10,7 @@ public class DoorDestroy : MonoBehaviour
     public AudioClip _soft;
     public float timer;
     public static bool _healthOnce;
+    public float timerIFrames;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,16 @@ public class DoorDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer > 0)
+        if (timerIFrames > 0)
+        {
+            timerIFrames -= Time.deltaTime;
+            if (timerIFrames <= 0)
+            {
+                this.gameObject.layer = LayerMask.NameToLayer("Default");
+                timerIFrames = 0;
+            }
+        }
+        if (timer > 0)
         {
             timer -= Time.deltaTime;
             if (timer <= 0)
@@ -51,6 +61,8 @@ public class DoorDestroy : MonoBehaviour
             _audioSource.volume = 0.8f;
             _audioSource.PlayOneShot(_loud);
             health -= 1;
+            this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+            timerIFrames = 0.3f;
         }
         if (other.gameObject.CompareTag("Player Attack") && PlayerAttack.isLightAttacking)
         {

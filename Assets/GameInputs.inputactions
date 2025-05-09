@@ -389,17 +389,6 @@
                 },
                 {
                     "name": "",
-                    "id": "2b51d0f1-4fd9-49d8-8d92-22a343d2b18f",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8bd29c1b-0f87-4412-b51b-cce18c66efe4",
                     "path": "<Keyboard>/escape",
                     "interactions": "",

@@ -39,4 +39,8 @@ public class Reset : MonoBehaviour
         Time.timeScale = 1f;
         Pause.paused = false;
     }
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
 }

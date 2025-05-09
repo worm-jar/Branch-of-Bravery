@@ -24,7 +24,10 @@ public class PlayerMovement : MonoBehaviour
     private bool _dashAir;
     public TrailRenderer _trail;
     public float deathTimer;
-    public GameObject _interact;
+    public GameObject _interactSewer;
+    public GameObject _interactJump;
+    public GameObject _interactAttack;
+    public GameObject _interactDash;
     public TextMeshProUGUI _text;
     public static bool isInteracting;
     public static bool isRespInteracting;
@@ -33,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource _audioSource;
     public float _respTimer;
     public ParticleSystem _particleSystem;
+    public float soundTimer;
 
     public AudioClip _walk;
     public AudioClip _jump;
@@ -94,6 +98,15 @@ public class PlayerMovement : MonoBehaviour
             if (timer <= 0)
             {
                 timer = 0;
+            }
+        }
+        if (soundTimer > 0)
+        {
+            soundTimer -= Time.deltaTime;
+            if (soundTimer <= 0)
+            {
+                _audioSource.Stop();
+                soundTimer = 0;
             }
         }
         if (bridgeTimer > 0)
@@ -243,7 +256,11 @@ public class PlayerMovement : MonoBehaviour
     } 
     public void HandleMoveStop(InputAction.CallbackContext ctx)
     {
-        if (PlayerAttack.isStrongAttacking == false && PlayerAttack.isLightAttacking == false && isRespInteracting == false)
+        if (isInteracting)
+        {
+            soundTimer = 0.2f;
+        }
+        else if (PlayerAttack.isStrongAttacking == false && PlayerAttack.isLightAttacking == false && isRespInteracting == false)
         {
             _audioSource.Stop();
         }
@@ -352,29 +369,26 @@ public class PlayerMovement : MonoBehaviour
             {
                 _audioSource.PlayOneShot(_paper);
                 isInteracting = true;
-                _interact.SetActive(true);
-                _text.text = "Interact with sewers to set spawn and refill health";
+                _interactSewer.SetActive(true);
+                _text.text = "Interact with sewers to set spawn and refill health               Esc/Start to exit";
             }
             if (RespawnPoint.interactName == "Jump")
             {
                 _audioSource.PlayOneShot(_paper);
+                _interactJump.SetActive(true);
                 isInteracting = true;
-                _interact.SetActive(true);
-                _text.text = "Space or A to Jump";
             }
             if (RespawnPoint.interactName == "Attack")
             {
                 _audioSource.PlayOneShot(_paper);
+                _interactAttack.SetActive(true);
                 isInteracting = true;
-                _interact.SetActive(true);
-                _text.text = "Light Attack with left click or right bumper, and Heavy Attack with Right click or Right Trigger. Landing light attacks refills health, and heavy attacks consume health";
             }
             if (RespawnPoint.interactName == "Dash")
             {
                 _audioSource.PlayOneShot(_paper);
+                _interactDash.SetActive(true);
                 isInteracting = true;
-                _interact.SetActive(true);
-                _text.text = "Shift or Left Trigger to Dash in any direction";
             }
         }
     }

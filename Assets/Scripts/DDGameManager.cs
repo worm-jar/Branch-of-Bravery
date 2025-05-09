@@ -18,4 +18,8 @@ public class DDGameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void Update()
+    {
+        Screen.SetResolution(1920, 1080, true);
+    }
 }

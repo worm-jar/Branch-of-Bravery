@@ -45,7 +45,10 @@ public class Pause : MonoBehaviour
             }
             else if (PlayerMovement.isInteracting == true)
             {
-                PlayerMovement._interact.SetActive(false);
+                PlayerMovement._interactSewer.SetActive(false);
+                PlayerMovement._interactJump.SetActive(false);
+                PlayerMovement._interactDash.SetActive(false);
+                PlayerMovement._interactAttack.SetActive(false);
                 PlayerMovement._text.text = "";
                 PlayerMovement.isInteracting = false;
                 once = false;
