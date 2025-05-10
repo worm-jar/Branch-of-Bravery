@@ -397,6 +397,8 @@ MonoBehaviour:
   _player: {fileID: 7199960841011164563, guid: 200f1b6f8c1e65640a9baa20dd5f3eee, type: 3}
   PlayerMovement: {fileID: 0}
   once: 0
+  _paper: {fileID: 8300000, guid: 40ddaba66bce7fe41a554dcb6ab4604e, type: 3}
+  _audioSource: {fileID: 0}
 --- !u!1 &8096445111016003862
 GameObject:
   m_ObjectHideFlags: 0

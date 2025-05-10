@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _interactJump;
     public GameObject _interactAttack;
     public GameObject _interactDash;
+    public GameObject _interactAttack2;
     public TextMeshProUGUI _text;
     public static bool isInteracting;
     public static bool isRespInteracting;

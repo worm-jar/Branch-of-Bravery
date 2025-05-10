@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorDestroy : MonoBehaviour
 {
-    public int health = 4;
+    public static int health = 4;
     public AudioSource _audioSource;
     public AudioClip _loud;
     public AudioClip _soft;
