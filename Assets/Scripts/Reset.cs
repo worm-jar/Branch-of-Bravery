@@ -8,12 +8,38 @@ public class Reset : MonoBehaviour
     public GameObject _player;
     public AudioSource _audioSource;
     public AudioClip _towers;
-    public void Start()
+    public AudioClip _title;
+    public float timer;
+    public void Awake()
     {
-
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.clip = _title;
+        _audioSource.Play();
+    }
+    public void Update()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                StartGame();
+                timer = 0;
+            }
+        }
+    }
+    public void StartCutscene()
+    {
+        _audioSource.Stop();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("CutScene");
+        timer = 20f;
     }
     public void StartGame()
     {
+        _audioSource.clip = _towers;
+        _audioSource.Play();
+        timer = -1f;
         Time.timeScale = 1f;
         Pause.paused = false;
         DoorHasBeenDestroyed.destroyed = false;

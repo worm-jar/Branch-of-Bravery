@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _audioSource: {fileID: 5395037087591018101}
-  _towers: {fileID: 0}
+  _towers: {fileID: 8300000, guid: 8bc6246179d7bf04e9ae61bd191c7162, type: 3}
 --- !u!114 &1697132768020122754
 MonoBehaviour:
   m_ObjectHideFlags: 0
