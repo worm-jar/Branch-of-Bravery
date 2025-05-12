@@ -16,8 +16,8 @@ public class Pause : MonoBehaviour
     public void Start()
     {
         _player = GameObject.Find("Player");
-        _audioSource = _player.GetComponent<AudioSource>();
         PlayerMovement = _player.GetComponent<PlayerMovement>();
+        _audioSource = _player.GetComponent<AudioSource>();
         this.gameObject.SetActive(false);
     }
     private void OnEnable()

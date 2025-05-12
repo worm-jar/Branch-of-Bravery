@@ -38,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
     public float _respTimer;
     public ParticleSystem _particleSystem;
     public float soundTimer;
+    public float DownTimer;
+    public float DownJumpTimer;
+    public bool downable;
 
     public AudioClip _walk;
     public AudioClip _jump;
@@ -52,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
+        isInteracting = false;
         _particleSystem = GetComponent<ParticleSystem>();
         _audioSource = GetComponent<AudioSource>();
         _rig = this.GetComponent<Rigidbody2D>();
@@ -99,6 +103,24 @@ public class PlayerMovement : MonoBehaviour
             if (timer <= 0)
             {
                 timer = 0;
+            }
+        }
+        if (DownTimer > 0)
+        {
+            DownTimer -= Time.deltaTime;
+            if (DownTimer <= 0)
+            {
+                downable = true;
+                DownTimer = 0;
+            }
+        }
+        if (DownJumpTimer > 0)
+        {
+            DownJumpTimer -= Time.deltaTime;
+            if (DownJumpTimer <= 0)
+            {
+                _rig.AddForce(new Vector2(0f, -7f), ForceMode2D.Impulse);
+                DownJumpTimer = 0;
             }
         }
         if (soundTimer > 0)
@@ -156,7 +178,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _audioSource.PlayOneShot(_jump);
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 11.5f));
+            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 12.5f));
             timer = 0f;
         }
     }
@@ -279,10 +301,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 _landTriggered = true;
             }
+            downable = false;
             _audioSource.PlayOneShot(_jump);
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 11.5f));
+            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 12.5f));
             _grounded = false;
+            DownTimer = 0.15f;
             timer = 0f;
         }
         else if (!ctx.canceled && !_isDead && !Pause.paused)
@@ -344,13 +368,17 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleJumpDown(InputAction.CallbackContext ctx)
     {
-        if (!_hasDashed && !_grounded && !_isDead)
+        if (!_hasDashed && !_grounded && !_isDead && downable)
         {
             if (PlayerAttack.isStrongAttacking == false)
             {
                 //_animator.Play("Jump down");
             }
             _rig.AddForce(new Vector2(0f, -7f), ForceMode2D.Impulse);
+        }
+        else if (DownTimer >= 0)
+        {
+            DownJumpTimer = DownTimer;
         }
     }
     public void HandleInteract(InputAction.CallbackContext ctx)

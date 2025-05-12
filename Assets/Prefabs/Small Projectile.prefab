@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rig: {fileID: 0}
-  speed: 22
+  speed: 20
   setDir: 0
 --- !u!199 &637133086405933557
 ParticleSystemRenderer:

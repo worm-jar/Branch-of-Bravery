@@ -456,12 +456,14 @@ MonoBehaviour:
   _interactJump: {fileID: 0}
   _interactAttack: {fileID: 0}
   _interactDash: {fileID: 0}
+  _interactAttack2: {fileID: 0}
   _text: {fileID: 0}
   dashAnimated: 0
   bridgeTimer: 0
   _audioSource: {fileID: 0}
   _respTimer: 0
   _particleSystem: {fileID: 0}
+  soundTimer: 0
   _walk: {fileID: 8300000, guid: 88ba2d6a4831bfb4a82ab90d9ec9f9cd, type: 3}
   _jump: {fileID: 8300000, guid: b1c1818efb3e44641ba7373df8f9cbe2, type: 3}
   _dash: {fileID: 8300000, guid: 0cc281d8b1597d4448a367f1a4564d9c, type: 3}
@@ -657,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2cbe4d66c3b434ca1a7e8f46f765ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManager: {fileID: 0}
+  GameManager: {fileID: 6436436552620640474, guid: 9b1e97c8c695cf149880b57444b6a455, type: 3}
   SceneLoader: {fileID: 0}
 --- !u!114 &3103252606069438511
 MonoBehaviour:

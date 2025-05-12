@@ -132,6 +132,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 9118452834410173922, guid: 9b1e97c8c695cf149880b57444b6a455, type: 3}
+        m_TargetAssemblyTypeName: GMMusic, Assembly-CSharp
+        m_MethodName: ChangeToLofty
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2744740301071834434
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _asset: {fileID: -944628639613478452, guid: 985cb7d0aa9182f4b8409978e7461b9a, type: 3}
-  _player: {fileID: 7199960841011164563, guid: 200f1b6f8c1e65640a9baa20dd5f3eee, type: 3}
+  _player: {fileID: 0}
   PlayerMovement: {fileID: 0}
   once: 0
   _paper: {fileID: 8300000, guid: 40ddaba66bce7fe41a554dcb6ab4604e, type: 3}
@@ -457,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7529412}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -252,6 +252,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6645629104981478775, guid: 1d2f1ef1bf0912043b09fe5dedb9fc67, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8220868860060638460, guid: 1d2f1ef1bf0912043b09fe5dedb9fc67, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 8490871143212153769, guid: 1d2f1ef1bf0912043b09fe5dedb9fc67, type: 3}
       propertyPath: m_Pivot.x
       value: 0

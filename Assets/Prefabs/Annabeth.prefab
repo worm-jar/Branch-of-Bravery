@@ -360,6 +360,7 @@ MonoBehaviour:
   attackTimer: 0
   attackTimerBeforeMove: 0
   attackTimerSecond: 0
+  attackTimerSecond2: 0
   attackTimerBeforeDone: 0
   launchTimer: 0
   _bow: {fileID: 4869722592580231123}

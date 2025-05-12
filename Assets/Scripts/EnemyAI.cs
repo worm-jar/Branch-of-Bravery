@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     public float attackTimer;
     public float attackTimerBeforeMove;
     public float attackTimerSecond;
+    public float attackTimerSecond2;
     public float attackTimerBeforeDone;
     public float launchTimer;
     public GameObject _bow;
@@ -107,12 +108,29 @@ public class EnemyAI : MonoBehaviour
             {
                 _audioSource.clip = _swordSwing;
                 _audioSource.Play();
+                _audioSource.PlayOneShot(_bellJumpBack);
                 ProjectileSpawnSecond();
+                //randomBehavior = 0;
+                //forceOnce = false;
+                //behavioring = false;
+                isJumpBack = false;
+                attackTimerSecond2 = 0.5f;
+                attackTimerSecond = 0;
+            }
+        }
+        if (attackTimerSecond2 > 0)
+        {
+            attackTimerSecond2 -= Time.deltaTime;
+            if (attackTimerSecond2 <= 0)
+            {
+                _audioSource.clip = _swordSwing;
+                _audioSource.Play();
+                ProjectileSpawnSecond2();
                 randomBehavior = 0;
                 forceOnce = false;
                 behavioring = false;
                 isJumpBack = false;
-                attackTimerSecond = 0;
+                attackTimerSecond2 = 0;
             }
         }
         if (launchTimer > 0)
@@ -274,7 +292,7 @@ public class EnemyAI : MonoBehaviour
                 storeNormDir = normDirection;
                 _audioSource.PlayOneShot(_bellJumpBack);
                 _particleSystem.Play();
-                attackTimerSecond = 0.95f;
+                attackTimerSecond = 0.75f;
                 _rig.AddForce(new Vector2(-normDirection * 5, 3.5f), ForceMode2D.Impulse);
                 forceOnce = true;
             }
@@ -282,6 +300,11 @@ public class EnemyAI : MonoBehaviour
         }
     }
     public void ProjectileSpawnSecond()
+    {
+        //isAttacking = false;
+        Instantiate(_projectileSecond, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, -3.3f), Quaternion.identity);
+    }
+    public void ProjectileSpawnSecond2()
     {
         isAttacking = false;
         Instantiate(_projectileSecond, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, -3.3f), Quaternion.identity);
