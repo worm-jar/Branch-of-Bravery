@@ -28,4 +28,12 @@ public class FindGM : MonoBehaviour
     {
         reset.StartGame();
     }
+    public void StartCutsene0()
+    {
+        reset.StartCutscene();
+    }
+    public void Credits0()
+    {
+        reset.Credits();
+    }
 }

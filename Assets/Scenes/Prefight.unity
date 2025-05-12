@@ -1580,6 +1580,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1687315648320257709, guid: 480102da7578a7b40b751935e4dfbbff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3719165246973411370, guid: 480102da7578a7b40b751935e4dfbbff, type: 3}
       propertyPath: m_Name
       value: Fake Annabeth

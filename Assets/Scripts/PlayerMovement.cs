@@ -371,7 +371,7 @@ public class PlayerMovement : MonoBehaviour
                 _audioSource.PlayOneShot(_paper);
                 isInteracting = true;
                 _interactSewer.SetActive(true);
-                _text.text = "Interact with sewers to set spawn and refill health               Esc/Start to exit";
+                _text.text = "Interact with sewers to set spawn and refill health";
             }
             if (RespawnPoint.interactName == "Jump")
             {

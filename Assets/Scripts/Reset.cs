@@ -28,6 +28,14 @@ public class Reset : MonoBehaviour
             }
         }
     }
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+    public void BackToStart()
+    {
+        SceneManager.LoadScene("TitleMenu");
+    }
     public void StartCutscene()
     {
         _audioSource.Stop();

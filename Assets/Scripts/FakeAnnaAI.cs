@@ -19,6 +19,7 @@ public class FakeAnnaAI : MonoBehaviour
     public AudioClip _bells;
     public AudioClip _slash;
     public bool audioOnce = false;
+    public GameObject _bow;
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +100,7 @@ public class FakeAnnaAI : MonoBehaviour
     }
     public void Run()
     {
+        _bow.SetActive(false);
         attackTimer = 0f;
         runTimer = 2f;
         _sprite.flipX = false;
