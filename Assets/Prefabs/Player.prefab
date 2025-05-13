@@ -464,6 +464,10 @@ MonoBehaviour:
   _respTimer: 0
   _particleSystem: {fileID: 0}
   soundTimer: 0
+  DownTimer: 0
+  DownJumpTimer: 0
+  downable: 0
+  Camera: {fileID: 3806652017788971409}
   _walk: {fileID: 8300000, guid: 88ba2d6a4831bfb4a82ab90d9ec9f9cd, type: 3}
   _jump: {fileID: 8300000, guid: b1c1818efb3e44641ba7373df8f9cbe2, type: 3}
   _dash: {fileID: 8300000, guid: 0cc281d8b1597d4448a367f1a4564d9c, type: 3}

@@ -504,7 +504,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -517,7 +517,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &164457487
 BoxCollider2D:
@@ -551,18 +551,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00000032782555}
+  m_Offset: {x: 0, y: -0.07973064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.62819546}
+  m_Size: {x: 1, y: 0.46873486}
   m_EdgeRadius: 0
 --- !u!233 &164457488
 HingeJoint2D:
@@ -580,7 +580,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.0833325, y: 0}
+  m_ConnectedAnchor: {x: 0.98933744, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -630,7 +630,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -651,8 +651,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 12.515497, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -717,7 +717,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -738,8 +738,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.7870026, y: -1.342, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -759,7 +759,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.0833341, y: 0.014285701}
+  m_ConnectedAnchor: {x: 0.9893388, y: 0.0074174353}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -780,7 +780,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -793,7 +793,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &237648782
 BoxCollider2D:
@@ -827,18 +827,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00000025331974}
+  m_Offset: {x: 0, y: -0.06523403}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5707176}
+  m_Size: {x: 1, y: 0.44024998}
   m_EdgeRadius: 0
 --- !u!1 &243506091
 GameObject:
@@ -1052,18 +1052,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.023237616}
+  m_Offset: {x: 0, y: -0.09571973}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.67467004}
+  m_Size: {x: 1, y: 0.5297058}
   m_EdgeRadius: 0
 --- !u!233 &354876337
 HingeJoint2D:
@@ -1080,8 +1080,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.0925928, y: 0}
+  m_Anchor: {x: 0.31017303, y: -0.07628186}
+  m_ConnectedAnchor: {x: -0.68762153, y: -0.07628182}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1102,7 +1102,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1115,7 +1115,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &354876339
 SpriteRenderer:
@@ -1158,7 +1158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1179,8 +1179,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 17.920498, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1310,7 +1310,6 @@ GameObject:
   - component: {fileID: 396206962}
   - component: {fileID: 396206961}
   - component: {fileID: 396206958}
-  - component: {fileID: 396206960}
   - component: {fileID: 396206959}
   - component: {fileID: 396206963}
   m_Layer: 0
@@ -1332,7 +1331,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1345,7 +1344,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &396206959
 BoxCollider2D:
@@ -1379,44 +1378,19 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.000000014901161}
+  m_Offset: {x: 0, y: -0.057985634}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.48269406}
+  m_Size: {x: 1, y: 0.36672276}
   m_EdgeRadius: 0
---- !u!233 &396206960
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396206957}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 868676518}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_BreakAction: 3
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 13.780745, y: 11.895421}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
 --- !u!212 &396206961
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1458,7 +1432,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1479,8 +1453,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.824497, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1499,8 +1473,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.38, y: 0}
-  m_ConnectedAnchor: {x: 0.76452434, y: 0}
+  m_Anchor: {x: 0.0000001742053, y: -0.00000003655012}
+  m_ConnectedAnchor: {x: 1.0452199, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1570,7 +1544,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1591,8 +1565,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.3204975, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1612,7 +1586,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.0833325, y: 0}
+  m_ConnectedAnchor: {x: -0.98933744, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1633,7 +1607,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1646,7 +1620,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &462491982
 BoxCollider2D:
@@ -1680,18 +1654,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.007746421}
+  m_Offset: {x: 0, y: -0.042990997}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.4887448}
+  m_Size: {x: 1, y: 0.38726994}
   m_EdgeRadius: 0
 --- !u!1 &469868239
 GameObject:
@@ -1725,7 +1699,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1738,7 +1712,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &469868241
 BoxCollider2D:
@@ -1772,18 +1746,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.018475115}
+  m_Offset: {x: 0, y: -0.06125519}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.51964474}
+  m_Size: {x: 1, y: 0.36018413}
   m_EdgeRadius: 0
 --- !u!233 &469868242
 HingeJoint2D:
@@ -1801,7 +1775,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.0833341, y: 0}
+  m_ConnectedAnchor: {x: 0.9893388, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1851,7 +1825,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1872,8 +1846,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 11.169998, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1993,7 +1967,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -2006,7 +1980,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &514615063
 BoxCollider2D:
@@ -2040,18 +2014,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.023237944}
+  m_Offset: {x: 0, y: -0.12471292}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6746707}
+  m_Size: {x: 1, y: 0.47172076}
   m_EdgeRadius: 0
 --- !u!233 &514615064
 HingeJoint2D:
@@ -2069,7 +2043,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.0833325, y: 0}
+  m_ConnectedAnchor: {x: -0.98933744, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2119,7 +2093,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2140,8 +2114,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 20.622997, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2158,6 +2132,7 @@ GameObject:
   - component: {fileID: 555870792}
   - component: {fileID: 555870791}
   - component: {fileID: 555870790}
+  - component: {fileID: 555870795}
   m_Layer: 0
   m_Name: Bridge (12)
   m_TagString: Bridge
@@ -2197,18 +2172,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.046475276}
+  m_Offset: {x: 0, y: -0.054999642}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6281948}
+  m_Size: {x: 1, y: 0.42524493}
   m_EdgeRadius: 0
 --- !u!233 &555870791
 HingeJoint2D:
@@ -2247,7 +2222,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -2260,7 +2235,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &555870793
 SpriteRenderer:
@@ -2303,7 +2278,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2324,11 +2299,36 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 24.705498, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!233 &555870795
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555870789}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 1734842086}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: -0.43, y: 0}
+  m_ConnectedAnchor: {x: 0.58470607, y: 0}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359
 --- !u!1001 &607866127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2553,7 +2553,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2574,8 +2574,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.4300022, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2595,7 +2595,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.0925928, y: 0.12000016}
+  m_ConnectedAnchor: {x: 0.9977943, y: 0.062306598}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2616,7 +2616,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -2629,7 +2629,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &632967151
 BoxCollider2D:
@@ -2663,18 +2663,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.010900214}
+  m_Offset: {x: 0, y: -0.068885975}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5421914}
+  m_Size: {x: 1, y: 0.42621982}
   m_EdgeRadius: 0
 --- !u!1 &634962554
 GameObject:
@@ -3052,7 +3052,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -3065,7 +3065,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &722735429
 BoxCollider2D:
@@ -3099,18 +3099,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.023237646}
+  m_Offset: {x: 0, y: -0.06374086}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5817195}
+  m_Size: {x: 1, y: 0.40776253}
   m_EdgeRadius: 0
 --- !u!233 &722735430
 HingeJoint2D:
@@ -3128,7 +3128,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.0925928, y: 0}
+  m_ConnectedAnchor: {x: 0.9977943, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3178,7 +3178,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3199,8 +3199,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 13.872498, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3396,7 +3396,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3417,8 +3417,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.26099586, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3438,7 +3438,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.36, y: 0}
-  m_ConnectedAnchor: {x: 0.7233341, y: 0}
+  m_ConnectedAnchor: {x: 0.6293388, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3459,7 +3459,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -3472,7 +3472,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!233 &771240192
 HingeJoint2D:
@@ -3490,7 +3490,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.35, y: 0}
-  m_ConnectedAnchor: {x: -0.7425944, y: 0}
+  m_ConnectedAnchor: {x: -0.6477957, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3531,18 +3531,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.015492469}
+  m_Offset: {x: 0, y: -0.056989595}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5352225}
+  m_Size: {x: 1, y: 0.39025834}
   m_EdgeRadius: 0
 --- !u!1 &868676516
 GameObject:
@@ -3580,7 +3580,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.59047645, y: 0.000000054495672}
-  m_ConnectedAnchor: {x: 0.50679785, y: 0.567381}
+  m_ConnectedAnchor: {x: 0.49918103, y: 0.58423364}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3601,7 +3601,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -3614,7 +3614,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &868676519
 SpriteRenderer:
@@ -3657,7 +3657,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3678,8 +3678,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.121843085, w: 0.9925494}
   m_LocalPosition: {x: -7.79, y: -1.2, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.997}
@@ -3715,18 +3715,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00000011920929}
+  m_Offset: {x: 0, y: -0.066803}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.57071686}
+  m_Size: {x: 1, y: 0.4371106}
   m_EdgeRadius: 0
 --- !u!1 &909249340
 GameObject:
@@ -3789,7 +3789,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3810,8 +3810,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.0845051, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3831,7 +3831,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.083331, y: 0}
+  m_ConnectedAnchor: {x: 0.989336, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3852,7 +3852,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -3865,7 +3865,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &909249345
 BoxCollider2D:
@@ -3899,18 +3899,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.000000059604645}
+  m_Offset: {x: 0, y: -0.079730414}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5203911}
+  m_Size: {x: 1, y: 0.36093038}
   m_EdgeRadius: 0
 --- !u!1 &916693775
 GameObject:
@@ -3973,7 +3973,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3994,8 +3994,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.9749985, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4015,7 +4015,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.0833325, y: 0}
+  m_ConnectedAnchor: {x: -0.98933744, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4036,7 +4036,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -4049,7 +4049,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &916693780
 BoxCollider2D:
@@ -4083,18 +4083,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.015492462}
+  m_Offset: {x: 0, y: -0.056989655}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5042369}
+  m_Size: {x: 1, y: 0.35927263}
   m_EdgeRadius: 0
 --- !u!1 &932651157
 GameObject:
@@ -4199,7 +4199,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.4892474, y: 0.45121706}
-  m_ConnectedAnchor: {x: -0.6895566, y: -0.42969525}
+  m_ConnectedAnchor: {x: -0.62972736, y: -0.22310679}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4657,7 +4657,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4678,8 +4678,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.4780006, y: -1.355, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4699,7 +4699,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.46588418, y: 0.000000054495672}
-  m_ConnectedAnchor: {x: 0.6031291, y: 0.07709461}
+  m_ConnectedAnchor: {x: 0.5115765, y: 0.0203036}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4720,7 +4720,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -4733,7 +4733,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1148465636
 BoxCollider2D:
@@ -4767,18 +4767,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.030663088}
+  m_Offset: {x: 0, y: -0.095896974}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5707172}
+  m_Size: {x: 1, y: 0.4402494}
   m_EdgeRadius: 0
 --- !u!1 &1186449069
 GameObject:
@@ -4896,7 +4896,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -4909,7 +4909,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1236942423
 BoxCollider2D:
@@ -4943,18 +4943,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.023237623}
+  m_Offset: {x: 0, y: -0.041996285}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.48876768}
+  m_Size: {x: 1, y: 0.35829988}
   m_EdgeRadius: 0
 --- !u!233 &1236942424
 HingeJoint2D:
@@ -4972,7 +4972,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.0925928, y: 0}
+  m_ConnectedAnchor: {x: -0.9977943, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -5022,7 +5022,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5043,8 +5043,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 21.968496, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5219,18 +5219,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.023237944}
+  m_Offset: {x: 0, y: -0.110216446}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6746707}
+  m_Size: {x: 1, y: 0.5007137}
   m_EdgeRadius: 0
 --- !u!233 &1436873462
 HingeJoint2D:
@@ -5248,7 +5248,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.0833325, y: 0}
+  m_ConnectedAnchor: {x: -0.98933744, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -5269,7 +5269,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -5282,7 +5282,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &1436873464
 SpriteRenderer:
@@ -5325,7 +5325,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5346,8 +5346,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 19.277498, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5408,7 +5408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ab69b31fc06824749aa34eefedbc3ac1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 290d033a89846974eb425501af2b0675, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5487,7 +5487,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5508,8 +5508,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.6179981, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5529,7 +5529,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.0925928, y: 0}
+  m_ConnectedAnchor: {x: -0.9977943, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -5550,7 +5550,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -5563,7 +5563,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1462220338
 BoxCollider2D:
@@ -5597,18 +5597,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.015492462}
+  m_Offset: {x: 0, y: -0.056989565}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5042369}
+  m_Size: {x: 1, y: 0.3592728}
   m_EdgeRadius: 0
 --- !u!1 &1481813025
 GameObject:
@@ -5746,7 +5746,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5767,8 +5767,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.022997, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5788,7 +5788,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.111112, y: 0}
+  m_ConnectedAnchor: {x: -1.0147066, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -5809,7 +5809,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -5822,7 +5822,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1622113786
 BoxCollider2D:
@@ -5856,18 +5856,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.03695047}
+  m_Offset: {x: 0, y: -0.035531648}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.48269475}
+  m_Size: {x: 1, y: 0.33773053}
   m_EdgeRadius: 0
 --- !u!1 &1656339807
 GameObject:
@@ -5930,7 +5930,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5951,8 +5951,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.1325035, y: -1.347, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5972,7 +5972,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.083331, y: 0.02285719}
+  m_ConnectedAnchor: {x: 0.989336, y: 0.011867932}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -5993,7 +5993,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -6006,7 +6006,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1656339812
 BoxCollider2D:
@@ -6040,18 +6040,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.015331775}
+  m_Offset: {x: 0, y: -0.0788949}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.60138017}
+  m_Size: {x: 1, y: 0.41292682}
   m_EdgeRadius: 0
 --- !u!1 &1734842085
 GameObject:
@@ -6085,7 +6085,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -6098,7 +6098,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1734842087
 BoxCollider2D:
@@ -6132,18 +6132,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.023237973}
+  m_Offset: {x: 0, y: -0.09273341}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.67467076}
+  m_Size: {x: 1, y: 0.44272798}
   m_EdgeRadius: 0
 --- !u!233 &1734842088
 HingeJoint2D:
@@ -6161,7 +6161,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.111112, y: 0}
+  m_ConnectedAnchor: {x: -1.0147066, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6211,7 +6211,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6232,8 +6232,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 23.325497, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6290,18 +6290,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.02323763}
+  m_Offset: {x: 0, y: -0.08548548}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6746701}
+  m_Size: {x: 1, y: 0.45722383}
   m_EdgeRadius: 0
 --- !u!233 &1758438099
 HingeJoint2D:
@@ -6318,8 +6318,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0.35, y: 0}
-  m_ConnectedAnchor: {x: -0.7425929, y: 0}
+  m_Anchor: {x: 0.39289993, y: -0.07814652}
+  m_ConnectedAnchor: {x: -0.6048945, y: -0.07814648}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6343,8 +6343,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.36, y: 0}
-  m_ConnectedAnchor: {x: 0.7233328, y: 0}
+  m_Anchor: {x: -0.38759124, y: -0.035099998}
+  m_ConnectedAnchor: {x: 0.6017467, y: -0.03509996}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6365,7 +6365,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -6378,7 +6378,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &1758438102
 SpriteRenderer:
@@ -6421,7 +6421,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6442,8 +6442,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 16.563498, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6779,7 +6779,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -6792,7 +6792,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1889497357
 BoxCollider2D:
@@ -6826,18 +6826,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.094226785}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6281948}
+  m_Size: {x: 1, y: 0.43974125}
   m_EdgeRadius: 0
 --- !u!233 &1889497358
 HingeJoint2D:
@@ -6855,7 +6855,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.0833334, y: 0}
+  m_ConnectedAnchor: {x: 0.98933816, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6905,7 +6905,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6926,8 +6926,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 15.217998, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6992,7 +6992,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7013,8 +7013,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.6659966, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7034,7 +7034,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -1.0925928, y: 0}
+  m_ConnectedAnchor: {x: -0.9977943, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -7055,7 +7055,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -7068,7 +7068,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1902991260
 BoxCollider2D:
@@ -7102,18 +7102,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.018475473}
+  m_Offset: {x: 0, y: -0.039510168}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.4826939}
+  m_Size: {x: 1, y: 0.36672264}
   m_EdgeRadius: 0
 --- !u!1 &1908465863
 GameObject:
@@ -7685,7 +7685,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2e6b940fe592ab04eb004c4aa4cac273, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2982aba45878424ca6a0d3d18fd1d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7706,8 +7706,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.402998, y: -1.3, z: 0}
-  m_LocalScale: {x: 1.242, y: 0.35, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3600001, y: 0.6740868, z: 1.1826082}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7727,7 +7727,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.111112, y: 0}
+  m_ConnectedAnchor: {x: 1.0147066, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -7748,7 +7748,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -7761,7 +7761,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1995144863
 BoxCollider2D:
@@ -7795,18 +7795,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.018475063}
+  m_Offset: {x: 0, y: -0.039510667}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1809524, y: 0.47053573}
+    oldSize: {x: 1.4528571, y: 0.5143171}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.48269475}
+  m_Size: {x: 1, y: 0.3667233}
   m_EdgeRadius: 0
 --- !u!82 &1995144864
 AudioSource:

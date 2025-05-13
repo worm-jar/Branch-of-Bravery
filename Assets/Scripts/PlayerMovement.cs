@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     public float DownTimer;
     public float DownJumpTimer;
     public bool downable;
+    public CameraShake Camera;
 
     public AudioClip _walk;
     public AudioClip _jump;
@@ -170,6 +171,7 @@ public class PlayerMovement : MonoBehaviour
             _respTimer -= Time.deltaTime;
             if (_respTimer <= 0)
             {
+                Camera.amount = 0;
                 isRespInteracting = false;
                 _respTimer = 0;
             }
@@ -362,7 +364,6 @@ public class PlayerMovement : MonoBehaviour
     public void HandleDashCancel(InputAction.CallbackContext ctx)
     {
         dashAnimated = false;
-        _trail.enabled = false;
         _rig.velocity = new Vector2(0f,0f);
         _hasDashed = false;
     }
@@ -388,6 +389,7 @@ public class PlayerMovement : MonoBehaviour
             if (RespawnPoint.interactName == "RespawnTrigger")
             {
                 _particleSystem.Play();
+                Camera.amount = 0.15f;
                 isRespInteracting = true;
                 _respTimer = 0.35f;
                 _audioSource.PlayOneShot(_sewer);

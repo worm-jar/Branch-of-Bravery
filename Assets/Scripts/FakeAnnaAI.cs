@@ -9,7 +9,7 @@ public class FakeAnnaAI : MonoBehaviour
     public Animator _animator;
     public SpriteRenderer _sprite;
     public float attackTimer;
-    public float runTimer;
+    public bool runTimer;
     public bool waitAttack;
     public bool hasComeClose;
     public GameObject _projectile;
@@ -37,7 +37,12 @@ public class FakeAnnaAI : MonoBehaviour
     void Update()
     {
         float distance = transform.position.x - _player.transform.position.x;
-        if (FakeAnnabethGone.gone == true)
+        if (FakeAnnabethGone.gone == true && runTimer)
+        {
+            Destroy(this.gameObject, 2f);
+            runTimer = false;
+        }
+        else if (FakeAnnabethGone.gone == true && !runTimer)
         {
             Destroy(this.gameObject);
         }
@@ -61,15 +66,15 @@ public class FakeAnnaAI : MonoBehaviour
                 attackTimer = 1.47f;
             }
         }
-        if (runTimer > 0)
-        {
-            runTimer -= Time.deltaTime;
-            if (runTimer <= 0)
-            {
-                FakeAnnabethGone.gone = true;
-                runTimer = 0;
-            }
-        }
+        //if (runTimer > 0)
+        //{
+        //    runTimer -= Time.deltaTime;
+        //    if (runTimer <= 0)
+        //    {
+        //        FakeAnnabethGone.gone = true;
+        //        runTimer = 0;
+        //    }
+        //}
         if (distance <= 9.5f)
         {
             hasComeClose = true;
@@ -100,9 +105,10 @@ public class FakeAnnaAI : MonoBehaviour
     }
     public void Run()
     {
+        FakeAnnabethGone.gone = true;
         _bow.SetActive(false);
         attackTimer = 0f;
-        runTimer = 2f;
+        runTimer = true;
         _sprite.flipX = false;
         _animator.Play("WalkFakeAnna");
         _rig.velocity = new Vector2(4.5f, _rig.velocity.y);
