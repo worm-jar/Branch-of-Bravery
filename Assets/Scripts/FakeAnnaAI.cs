@@ -10,6 +10,7 @@ public class FakeAnnaAI : MonoBehaviour
     public SpriteRenderer _sprite;
     public float attackTimer;
     public bool runTimer;
+    public bool runTimerOnce;
     public bool waitAttack;
     public bool hasComeClose;
     public GameObject _projectile;
@@ -20,9 +21,11 @@ public class FakeAnnaAI : MonoBehaviour
     public AudioClip _slash;
     public bool audioOnce = false;
     public GameObject _bow;
+    public float timerBeforeDestroy;
     // Start is called before the first frame update
     void Start()
     {
+        runTimerOnce = true;
         timerStart = false;
         waitAttack = false;
         hasComeClose = false;
@@ -37,10 +40,22 @@ public class FakeAnnaAI : MonoBehaviour
     void Update()
     {
         float distance = transform.position.x - _player.transform.position.x;
-        if (FakeAnnabethGone.gone == true && runTimer)
+        if (timerBeforeDestroy > 0) 
         {
-            Destroy(this.gameObject, 2f);
-            runTimer = false;
+            timerBeforeDestroy -= Time.deltaTime;
+            if (timerBeforeDestroy <= 0)
+            {
+                runTimer = false;
+                timerBeforeDestroy = 0;
+            }
+        }
+        if (FakeAnnabethGone.gone == true && runTimer && runTimerOnce)
+        {
+            _animator.Play("WalkFakeAnna");
+            _rig.velocity = new Vector2(4.5f, _rig.velocity.y);
+            Destroy(this.gameObject, 10f);
+            timerBeforeDestroy = 5f;
+            runTimerOnce = false;
         }
         else if (FakeAnnabethGone.gone == true && !runTimer)
         {
@@ -110,8 +125,6 @@ public class FakeAnnaAI : MonoBehaviour
         attackTimer = 0f;
         runTimer = true;
         _sprite.flipX = false;
-        _animator.Play("WalkFakeAnna");
-        _rig.velocity = new Vector2(4.5f, _rig.velocity.y);
     }
     public void ProjectileSpawn()
     {

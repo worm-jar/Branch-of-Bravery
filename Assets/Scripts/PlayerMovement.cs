@@ -180,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _audioSource.PlayOneShot(_jump);
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 12.5f));
+            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 12f));
             timer = 0f;
         }
     }
@@ -306,7 +306,7 @@ public class PlayerMovement : MonoBehaviour
             downable = false;
             _audioSource.PlayOneShot(_jump);
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 12.5f));
+            _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 12f));
             _grounded = false;
             DownTimer = 0.15f;
             timer = 0f;
@@ -389,7 +389,7 @@ public class PlayerMovement : MonoBehaviour
             if (RespawnPoint.interactName == "RespawnTrigger")
             {
                 _particleSystem.Play();
-                Camera.amount = 0.15f;
+                Camera.amount = 0.05f;
                 isRespInteracting = true;
                 _respTimer = 0.35f;
                 _audioSource.PlayOneShot(_sewer);
