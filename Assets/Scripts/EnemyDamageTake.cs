@@ -46,7 +46,7 @@ public class EnemyDamageTake : MonoBehaviour
             this.gameObject.layer = LayerMask.NameToLayer("Invincible");
             if (PlayerAttack.isLightAttacking)
             {
-                PlayerHealth.health += 8;
+                PlayerHealth.health += 6.5f;
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 0, 100);
                 EnemyHealth.health -= 1f;
                 float relativePos = transform.position.x - _player.transform.position.x;

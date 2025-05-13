@@ -68,7 +68,7 @@ public class DoorDestroy : MonoBehaviour
         {
             _audioSource.volume = 1f;
             _audioSource.PlayOneShot(_soft);
-            PlayerHealth.health += 8f;
+            PlayerHealth.health += 6.5f;
             PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 0, 100);
         }
     }

@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (PlayerAttack.isLightAttacking)
         {
-            speed = 0.5f;
+            //speed = 0.5f;
         }
         else
         {
