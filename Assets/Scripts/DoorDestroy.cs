@@ -11,9 +11,11 @@ public class DoorDestroy : MonoBehaviour
     public float timer;
     public static bool _healthOnce;
     public float timerIFrames;
+    public ParticleSystem _particleSystem;
     // Start is called before the first frame update
     void Start()
     {
+        _particleSystem = GetComponent<ParticleSystem>();
         _healthOnce = true;
         _audioSource = GetComponent<AudioSource>();
         health = 4;
@@ -62,6 +64,7 @@ public class DoorDestroy : MonoBehaviour
             _audioSource.PlayOneShot(_loud);
             health -= 1;
             this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+            _particleSystem.Play();
             timerIFrames = 0.3f;
         }
         if (other.gameObject.CompareTag("Player Attack") && PlayerAttack.isLightAttacking)

@@ -332,7 +332,7 @@ public class PlayerMovement : MonoBehaviour
                 _trail.enabled = true;
                 //_animator.Play("Dash");
                 _rig.velocity = Vector2.zero;
-                _rig.AddForce(new Vector2(11f * _axisx, 7f * _axisy), ForceMode2D.Impulse);
+                _rig.AddForce(new Vector2(11f * _axisx, 5.5f * _axisy), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 9f));
                 _hasDashed = true;
             }
@@ -389,12 +389,15 @@ public class PlayerMovement : MonoBehaviour
             if (RespawnPoint.interactName == "RespawnTrigger")
             {
                 _particleSystem.Play();
-                Camera.amount = 0.05f;
                 isRespInteracting = true;
                 _respTimer = 0.35f;
                 _audioSource.PlayOneShot(_sewer);
                 PlayerHealth.health = 100f;
                 RespawnPoint.hasCheckpoint = true;
+                if (!ctx.canceled)
+                {
+                    _particleSystem.Play();
+                }
             }
             if (RespawnPoint.interactName == "RespawnText")
             {

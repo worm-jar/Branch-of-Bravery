@@ -16,9 +16,11 @@ public class PlayerAttack : MonoBehaviour
     public AudioSource _audioSource;
     public Transform _slashSound;
     public AudioSource _slashAudioSource;
+    public CameraShake Camera;
 
     public AudioClip _slash;
     public AudioClip _stab;
+    public AudioClip _no;
     // Start is called before the first frame update
     void Start()
     {
@@ -98,7 +100,7 @@ public class PlayerAttack : MonoBehaviour
     }
     public void HandleHeavyAttack(InputAction.CallbackContext ctx)
     {
-        if (PlayerHealth.health > 50 && isStrongAttacking == false)
+        if (PlayerHealth.health >= 50 && isStrongAttacking == false)
         {
             _audioSource.volume = 0.5f;
             _slashAudioSource.PlayDelayed(0.5f);
@@ -108,5 +110,18 @@ public class PlayerAttack : MonoBehaviour
             //_animator.Play("Heavy Attack");
             timerStrongAttack = 0.85f;
         }
+        else if (PlayerHealth.health < 50 && isStrongAttacking == false)
+        {
+            _audioSource.volume = 0.65f;
+            _audioSource.PlayOneShot(_no);
+            Camera.amount = 0.2f;
+            StartCoroutine(Wait2());
+        }
+    }
+    public IEnumerator Wait2()
+    {
+        yield return new WaitForSeconds(0.25f);
+        Camera.amount = 0f;
+        _audioSource.volume = 0.82f;
     }
 }

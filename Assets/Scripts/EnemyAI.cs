@@ -224,7 +224,7 @@ public class EnemyAI : MonoBehaviour
             {
                 _audioSource.clip = _swordSwing;
                 _audioSource.PlayDelayed(0.5f);
-                _rig.velocity = new Vector2(0, 0);
+                //_rig.velocity = new Vector2(0, 0);
                 isAttacking = true;
                 //_animator.Play("AttackAnna");
                 launchTimer = 0.6f;
@@ -268,11 +268,11 @@ public class EnemyAI : MonoBehaviour
                 _audioSource.Play();
                 _rig.position += new Vector2(speedSecond * normDirection * Time.deltaTime, 0f);
             }
-            if (direction < 1.1f && direction > -1.1f)
+            if (direction < 1.55f && direction > -1.55f)
             {
                 _audioSource.clip = _swordSwing;
                 _audioSource.PlayDelayed(0.3f);
-                _rig.velocity = new Vector2(0, 0);
+                //_rig.velocity = new Vector2(0, 0);
                 isAttacking = true;
                 //_animator.Play("AttackAnna");
                 launchTimer = 0.05f;

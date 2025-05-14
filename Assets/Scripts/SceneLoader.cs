@@ -8,6 +8,7 @@ public class SceneLoader : MonoBehaviour
 {
     public GameObject _player;
     public GameObject _canvas;
+    public GameObject _moonCanvas;
     public TriggerLoadScene MusicChange;
     public Transform _image;
     public TransitionFadeToBlack FadeTrans;
@@ -16,6 +17,7 @@ public class SceneLoader : MonoBehaviour
     public UnityEvent<string> _onChangeAudio;
     public void Update()
     {
+        _moonCanvas = GameObject.Find("MoonCanvas");
         _canvas = GameObject.Find("CanvasHealth");
         _player = GameObject.Find("Player");
         _image = _canvas.transform.Find("Image");
@@ -61,6 +63,14 @@ public class SceneLoader : MonoBehaviour
             FadeTrans.Fade();
             SceneManager.LoadScene("Prefight");
             _player.transform.position = new Vector2(-18.28f, -2.03f);
+        }
+        else if (TriggerLoadScene.sceneName == "EndCut")
+        {
+            FadeTrans.Fade();
+            SceneManager.LoadScene("EndCutscene");
+            Destroy(_player);
+            Destroy(_moonCanvas);
+            Destroy(_canvas);
         }
     }
 }

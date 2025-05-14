@@ -50,17 +50,19 @@ public class EnemyDamageTake : MonoBehaviour
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 0, 100);
                 EnemyHealth.health -= 1f;
                 float relativePos = transform.position.x - _player.transform.position.x;
-                _rig.AddForce(new Vector2(relativePos * knockBack, 2f), ForceMode2D.Impulse);
-                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -3.5f, 3.5f), _rig.velocity.y);
+                _rig.velocity = Vector2.zero;
+                _rig.AddForce(new Vector2(relativePos * knockBack * 1.8f, 3f), ForceMode2D.Impulse);
+                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
 
             }
             else if (PlayerAttack.isStrongAttacking)
             {
                 EnemyHealth.health -= 20;
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 32, 100);
+                _rig.velocity = Vector2.zero;
                 float relativePos = transform.position.x - _player.transform.position.x;
-                _rig.AddForce(new Vector2(relativePos * knockBack * 2.5f, 2f), ForceMode2D.Impulse);
-                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
+                _rig.AddForce(new Vector2(relativePos * knockBack * 3f, 2f), ForceMode2D.Impulse);
+                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -7f, 7f), _rig.velocity.y);
             }
             _sprite.color = Color.black;
             timerIFrames = 0.6f;
