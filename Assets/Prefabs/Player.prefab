@@ -768,7 +768,7 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _annabeth: {fileID: 0}
   _fakeAnnabeth: {fileID: 0}
-  knockBack: 1.8
+  knockBack: 3
   Camera: {fileID: 3806652017788971409}
   strongInterruptable: 0
 --- !u!114 &-1390891264793049888

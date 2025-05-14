@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.Animations;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -52,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        _axisxStore = 1;
         _isDead = false;
         _dashAir = true;
     }
@@ -281,6 +283,7 @@ public class PlayerMovement : MonoBehaviour
     } 
     public void HandleMoveStop(InputAction.CallbackContext ctx)
     {
+        _axisxStore = _axisx;
         if (isInteracting)
         {
             soundTimer = 0.2f;
@@ -324,7 +327,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void HandleDash(InputAction.CallbackContext ctx)
     {
-        if ((_axisx != 0 || _axisy != 0) && !_hasDashed && _grounded && _dashAir)
+        if (!_hasDashed && _grounded && _dashAir)
         {
             if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {
@@ -333,6 +336,10 @@ public class PlayerMovement : MonoBehaviour
                 //_animator.Play("Dash");
                 _rig.velocity = Vector2.zero;
                 _rig.AddForce(new Vector2(11f * _axisx, 5.5f * _axisy), ForceMode2D.Impulse);
+                if(_axisx == 0 && _axisy == 0)
+                {
+                    _rig.AddForce(new Vector2(11f * _axisxStore, 5.5f * _axisy), ForceMode2D.Impulse);
+                }
                 _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 9f));
                 _hasDashed = true;
             }

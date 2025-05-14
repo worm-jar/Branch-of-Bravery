@@ -53,7 +53,29 @@ public class PlayerTakeDamage : MonoBehaviour
     //}
     public void OnTriggerEnter2D(Collider2D collision2D)
     {
-        if (collision2D.gameObject.CompareTag("EnemyAttack"))
+        if(collision2D.gameObject.CompareTag("Norm Enemy Attack"))
+        {
+            PlayerHealth.health -= 8f;
+            this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+            PlayerAttack.timerLightAttackWait = 0.85f;
+            _isInvincible = true;
+            _renderer.color = Color.black;
+            float relativePos = transform.position.x - collision2D.gameObject.transform.position.x;
+            _rig.AddForce(new Vector2(relativePos * knockBack, 4.5f), ForceMode2D.Impulse);
+            _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -7f, 7f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
+            if (PlayerHealth.health <= 0)
+            {
+                _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);
+            }
+            timerIFrames = 0.25f;
+            Camera.amount = 0.5f;
+            if (strongInterruptable)
+            {
+                _animator.Play("KnockBack");
+            }
+
+        }
+        else if (collision2D.gameObject.CompareTag("EnemyAttack"))
         {
             if (EnemyAI.transitionSecondPhase == true)
             {
@@ -72,7 +94,7 @@ public class PlayerTakeDamage : MonoBehaviour
                 //_animator.Play("Invincible");
                 float relativePos = transform.position.x - _annabeth.transform.position.x;
                 _rig.AddForce(new Vector2(relativePos * knockBack, 4.5f), ForceMode2D.Impulse);
-                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
+                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -7f, 7f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
                 if(PlayerHealth.health <= 0)
                 {
                     _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);
@@ -92,7 +114,7 @@ public class PlayerTakeDamage : MonoBehaviour
                 _renderer.color = Color.black;
                 float relativePos = transform.position.x - _fakeAnnabeth.transform.position.x;
                 _rig.AddForce(new Vector2(relativePos * knockBack, 4.5f), ForceMode2D.Impulse);
-                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
+                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -7f, 7f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
                 if (PlayerHealth.health <= 0)
                 {
                     _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);

@@ -41,6 +41,6 @@ public class DoorShake : MonoBehaviour
             }
            yield return null;
         }
-        this.transform.position = new Vector2(31.91f, 1.72f);
+        this.transform.position = new Vector3(56.72f, 0.6f, 9.71f);
     }
 }

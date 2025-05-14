@@ -10,6 +10,7 @@ TagManager:
   - EnemyAttack
   - Bridge
   - Teleporter
+  - Norm Enemy Attack
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Teleport
   - DeadBlock
   - Sword
-  - 
+  - Ground
   - 
   - 
   - 

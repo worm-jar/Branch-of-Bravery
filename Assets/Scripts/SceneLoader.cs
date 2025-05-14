@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public GameObject _player;
-    public GameObject _canvas;
+    public GameObject _canvashealth;
     public GameObject _moonCanvas;
     public TriggerLoadScene MusicChange;
     public Transform _image;
@@ -18,9 +18,9 @@ public class SceneLoader : MonoBehaviour
     public void Update()
     {
         _moonCanvas = GameObject.Find("MoonCanvas");
-        _canvas = GameObject.Find("CanvasHealth");
+        _canvashealth = GameObject.Find("CanvasHealth");
         _player = GameObject.Find("Player");
-        _image = _canvas.transform.Find("Image");
+        _image = _canvashealth.transform.Find("Image");
         FadeTrans = _image.GetComponent<TransitionFadeToBlack>();
         MusicChange = _player.GetComponent<TriggerLoadScene>();
     }
@@ -52,8 +52,8 @@ public class SceneLoader : MonoBehaviour
             _onChangeAudio.Invoke(TriggerLoadScene.sceneName);
             PlayerHealth.health = 100f;
             FadeTrans.Fade();
-            SceneManager.LoadScene("Bridge");
             _player.transform.position = new Vector3(-21.78f, -0.84f, -5.81f);
+            SceneManager.LoadScene("Bridge"); 
         }
         else if (TriggerLoadScene.sceneName == "Respawn Pre Fight")
         {
@@ -70,7 +70,7 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene("EndCutscene");
             Destroy(_player);
             Destroy(_moonCanvas);
-            Destroy(_canvas);
+            Destroy(_canvashealth);
         }
     }
 }
