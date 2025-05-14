@@ -71,7 +71,7 @@ public class PlayerTakeDamage : MonoBehaviour
                 _renderer.color = Color.black;
                 //_animator.Play("Invincible");
                 float relativePos = transform.position.x - _annabeth.transform.position.x;
-                _rig.AddForce(new Vector2(relativePos * knockBack, 3.5f), ForceMode2D.Impulse);
+                _rig.AddForce(new Vector2(relativePos * knockBack, 4.5f), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
                 if(PlayerHealth.health <= 0)
                 {
@@ -91,7 +91,7 @@ public class PlayerTakeDamage : MonoBehaviour
                 _isInvincible = true;
                 _renderer.color = Color.black;
                 float relativePos = transform.position.x - _fakeAnnabeth.transform.position.x;
-                _rig.AddForce(new Vector2(relativePos * knockBack, 3.5f), ForceMode2D.Impulse);
+                _rig.AddForce(new Vector2(relativePos * knockBack, 4.5f), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
                 if (PlayerHealth.health <= 0)
                 {

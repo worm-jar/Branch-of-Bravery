@@ -14,12 +14,16 @@ public class PlayerAttack : MonoBehaviour
     public static bool isLightAttacking;
     public static bool lightAttackWait = false;
     public AudioSource _audioSource;
+    public Transform _slashSound;
+    public AudioSource _slashAudioSource;
 
     public AudioClip _slash;
     public AudioClip _stab;
     // Start is called before the first frame update
     void Start()
     {
+        _slashSound = this.gameObject.transform.Find("SlashSound");
+        _slashAudioSource = _slashSound.GetComponent<AudioSource>();
         _audioSource = GetComponent<AudioSource>();
         _animator = this.GetComponent<Animator>();
     }
@@ -81,6 +85,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (lightAttackWait == false && PlayerTakeDamage.timerIFrames == 0)
         {
+            PlayerMovement._axisxStore = PlayerMovement._axisx;
             isLightAttacking = true;
             _audioSource.volume = 0.45f;
             _audioSource.PlayOneShot(_stab);
@@ -96,8 +101,7 @@ public class PlayerAttack : MonoBehaviour
         if (PlayerHealth.health > 50 && isStrongAttacking == false)
         {
             _audioSource.volume = 0.5f;
-            _audioSource.clip = _slash;
-            _audioSource.PlayDelayed(0.5f);
+            _slashAudioSource.PlayDelayed(0.5f);
             PlayerHealth.health -= 20f;
             PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 32, 100);
             isStrongAttacking = true;

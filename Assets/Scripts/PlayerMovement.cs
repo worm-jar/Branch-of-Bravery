@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public InputActionAsset _asset;
     public Rigidbody2D _rig;
-    public float _axisx;
+    public static float _axisx;
     public float _axisy;
     public bool _grounded = false;
     public float timer = 0f;
@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     public float DownJumpTimer;
     public bool downable;
     public CameraShake Camera;
+    public static float _axisxStore;
 
     public AudioClip _walk;
     public AudioClip _jump;
@@ -78,9 +79,9 @@ public class PlayerMovement : MonoBehaviour
             _isDead = true;
             deathTimer = 0.5f;
         }
-        if (PlayerAttack.isLightAttacking)
+        if (PlayerAttack.isLightAttacking && _axisxStore == 0)
         {
-            //speed = 0.5f;
+            speed = 0.5f;
         }
         else
         {
@@ -275,7 +276,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _audioSource.clip = _walk;
             _audioSource.Play();
-        _animator.Play("Walk");
         }
         _axisx = ctx.ReadValue<float>();
     } 
