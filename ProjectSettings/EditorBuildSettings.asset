@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DashTuto.unity
     guid: 4333de8ac569c4f4ea2cf3b524114c61
+  - enabled: 1
+    path: Assets/Scenes/EnemyBattle.unity
+    guid: 24b03b748be5732469aeda60a7d66537
   m_configObjects: {}

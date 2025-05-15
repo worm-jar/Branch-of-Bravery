@@ -37,7 +37,7 @@ public class GMMusic : MonoBehaviour
             ChangeToAnna();
             PlayMusic();
         }
-        else if (name == "Respawn Pre Fight" || name == "Respawn Bridge")
+        else if (name == "Respawn Pre Fight" || name == "Respawn Bridge" || name == "Respawn Dash")
         {
             ChangeToLofty();
             PlayMusic();

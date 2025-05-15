@@ -50,6 +50,7 @@ public class Reset : MonoBehaviour
         timer = -1f;
         Time.timeScale = 1f;
         Pause.paused = false;
+        EncounterDone.doneSet = false;
         DoorHasBeenDestroyed.destroyed = false;
         FakeAnnabethGone.gone = false;
         PlayerHealth.health = 100f;
@@ -60,6 +61,7 @@ public class Reset : MonoBehaviour
         _audioSource.clip = _towers;
         _audioSource.Play();
         _player = GameObject.Find("Player");
+        EncounterDone.doneSet = false;
         _player.transform.position = new Vector3(-21.78f, -0.84f, -5.81f);
         Time.timeScale = 1f;
         Pause.paused = false;

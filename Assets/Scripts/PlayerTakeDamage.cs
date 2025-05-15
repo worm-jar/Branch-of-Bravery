@@ -6,6 +6,8 @@ public class PlayerTakeDamage : MonoBehaviour
 {
     public Rigidbody2D _rig;
     public SpriteRenderer _renderer;
+    public GameObject _slashSound;
+    public AudioSource _slashAudio;
     public Animator _animator;
     public GameObject _annabeth;
     public GameObject _fakeAnnabeth;
@@ -17,6 +19,7 @@ public class PlayerTakeDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _slashAudio = _slashSound.GetComponent<AudioSource>();
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
         _animator = this.gameObject.GetComponent<Animator>();
         _renderer = this.gameObject.GetComponent<SpriteRenderer>();
@@ -71,6 +74,7 @@ public class PlayerTakeDamage : MonoBehaviour
             Camera.amount = 0.5f;
             if (strongInterruptable)
             {
+                _slashAudio.Stop();
                 _animator.Play("KnockBack");
             }
 
@@ -103,6 +107,7 @@ public class PlayerTakeDamage : MonoBehaviour
                 Camera.amount = 0.5f;
                 if(strongInterruptable)
                 {
+                    _slashAudio.Stop();
                     _animator.Play("KnockBack");
                 }
             }
@@ -123,6 +128,7 @@ public class PlayerTakeDamage : MonoBehaviour
                 Camera.amount = 0.5f;
                 if (strongInterruptable)
                 {
+                    _slashAudio.Stop();
                     _animator.Play("KnockBack");
                 }
             }

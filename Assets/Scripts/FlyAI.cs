@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Pathfinding;
+using Unity.VisualScripting;
 
 public class FlyAI : MonoBehaviour
 {
+    public AIPath _AIPath;
     public AudioSource _audioSource;
     public AIDestinationSetter _destination;
     public Animator _animator;
@@ -13,16 +15,20 @@ public class FlyAI : MonoBehaviour
     public GameObject _player;
     public float distanceX;
     public float distanceY;
+    public float timer;
+    public bool waitingDamage;
 
     public AudioClip _flap;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Sound());
+        _AIPath = GetComponent<AIPath>();
+        _audioSource = GetComponent<AudioSource>();
+        _player = GameObject.Find("Player");
         _destination = GetComponent<AIDestinationSetter>();
         _animator = GetComponent<Animator>();
         _rig = GetComponent<Rigidbody2D>();
-        _player = GameObject.Find("Player");
+        StartCoroutine(Sound());
     }
 
     // Update is called once per frame
@@ -30,7 +36,7 @@ public class FlyAI : MonoBehaviour
     {
         distanceX = _player.transform.position.x - transform.position.x;
         distanceY = _player.transform.position.y - transform.position.y;
-        if(distanceX < 6f &&  distanceX > -6 && distanceY < 6f && distanceY > -6 && NonBossDamageTake.isInv == false)
+        if(distanceX < 6f &&  distanceX > -6 && distanceY < 6f && distanceY > -6 && !waitingDamage)
         {
             _destination.target = _player.transform;
         }
@@ -42,6 +48,15 @@ public class FlyAI : MonoBehaviour
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            if(timer <= 0)
+            {
+                waitingDamage = false;
+                timer = 0;
+            }
+        }
     }
     public IEnumerator Sound()
     {
@@ -49,6 +64,15 @@ public class FlyAI : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
             _audioSource.PlayOneShot(_flap);
+        }
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            waitingDamage = true;
+            _AIPath.Move(new Vector3(-distanceX, 0, 0));
+            timer = 0.01f;
         }
     }
 }

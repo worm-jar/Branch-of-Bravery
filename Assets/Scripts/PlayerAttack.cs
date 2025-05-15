@@ -112,7 +112,7 @@ public class PlayerAttack : MonoBehaviour
         }
         else if (PlayerHealth.health < 50 && isStrongAttacking == false)
         {
-            _audioSource.volume = 0.65f;
+            _audioSource.volume = 0.5f;
             _audioSource.PlayOneShot(_no);
             Camera.amount = 0.2f;
             StartCoroutine(Wait2());

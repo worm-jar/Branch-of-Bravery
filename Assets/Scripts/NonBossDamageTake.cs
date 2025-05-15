@@ -7,25 +7,29 @@ using Pathfinding;
 public class NonBossDamageTake : MonoBehaviour
 {
     public AIDestinationSetter _destination;
-    public AIPath AIPath;
+    public AIPath _AIPath;
     public float enemyHealth;
     public float maxHealth;
     public float knockBack;
     public Rigidbody2D _rig;
     public GameObject _player;
     public float timerIFrames;
+    public float timerMovement;
     public SpriteRenderer _sprite;
     public AudioSource _audioSource;
     public Slider _slider;
     public Canvas _canvas;
     public GameObject dead;
     public static bool isInv;
+    public float relativePos;
+    public float relativePosNorm;
 
     public AudioClip hit;
     // Start is called before the first frame update
     void Start()
     {
         enemyHealth = maxHealth;
+        _AIPath = GetComponent<AIPath>();
         _destination = GetComponent<AIDestinationSetter>();
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
@@ -36,8 +40,8 @@ public class NonBossDamageTake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _canvas.transform.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
-        _slider.transform.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
+        _canvas.transform.position = new Vector2(transform.position.x, transform.position.y + 1.25f);
+        _slider.transform.position = new Vector2(transform.position.x, transform.position.y + 1.25f);
         _slider.maxValue = maxHealth;
         _slider.value = enemyHealth;
         if (enemyHealth <= 0)
@@ -50,12 +54,19 @@ public class NonBossDamageTake : MonoBehaviour
             timerIFrames -= Time.deltaTime;
             if (timerIFrames <= 0)
             {
-                isInv = false;
-                AIPath.enabled = true;
-                _destination.target = _player.transform;
+                _audioSource.volume = 1.0f;
                 _sprite.color = Color.white;
                 this.gameObject.layer = LayerMask.NameToLayer("Enemy");
                 timerIFrames = 0;
+            }
+        }
+        if (timerMovement > 0)
+        {
+            _AIPath.Move(Vector3.Lerp(new Vector3(0, 0, 0), new Vector3(750f * relativePosNorm, 0, 0) * Time.deltaTime, 0.3f));
+            timerMovement -= Time.deltaTime;
+            if (timerMovement <= 0)
+            {
+                timerMovement = 0;
             }
         }
     }
@@ -63,31 +74,53 @@ public class NonBossDamageTake : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player Attack"))
         {
-            isInv = true;
-            AIPath.enabled = false;
             Debug.Log(enemyHealth + "before hit");
+            _audioSource.volume = 0.7f;
             _audioSource.PlayOneShot(hit);
             if (PlayerAttack.isLightAttacking)
             {
-                _destination.target = null;
                 Debug.Log(enemyHealth);
                 PlayerHealth.health += 6.5f;
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 0, 100);
                 enemyHealth -= 1f;
-                float relativePos = transform.position.x - _player.transform.position.x;
+                relativePos = transform.position.x - _player.transform.position.x;
+                if (relativePos < 0)
+                {
+                    relativePosNorm = -1;
+                }
+                else if (relativePos > 0)
+                {
+                    relativePosNorm = 1;
+                }
                 _rig.velocity = Vector2.zero;
                 _rig.AddForce(new Vector2(relativePos * knockBack * 1.8f, 3f), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
-
+                if (this.gameObject.name == "Fly")
+                {
+                    timerMovement = 0.01f;
+                }
             }
             else if (PlayerAttack.isStrongAttacking && this.gameObject.layer != LayerMask.NameToLayer("Invincible"))
             {
-                _destination.target = null;
                 enemyHealth -= 20;
                 _rig.velocity = Vector2.zero;
-                float relativePos = transform.position.x - _player.transform.position.x;
+                _audioSource.volume = 0.7f;
+                _audioSource.PlayOneShot(hit);
+                relativePos = transform.position.x - _player.transform.position.x;
+                if (relativePos < 0)
+                {
+                    relativePosNorm = -1;
+                }
+                else if (relativePos > 0)
+                {
+                    relativePosNorm = 1;
+                }
                 _rig.AddForce(new Vector2(relativePos * knockBack * 3f, 2f), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -7f, 7f), _rig.velocity.y);
+                if (this.gameObject.name == "Fly")
+                {
+                    timerMovement = 0.015f;
+                }
                 Debug.Log(enemyHealth + "after hit");
             }
             this.gameObject.layer = LayerMask.NameToLayer("Invincible");

@@ -32,11 +32,17 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene("DashTuto");
             _player.transform.position = new Vector2(-10.5f, 0f);
         }
-        else if (TriggerLoadScene.sceneName == "Pre Fight Left")
+        else if (TriggerLoadScene.sceneName == "EnemyLeft")
         {
             FadeTrans.Fade();
             SceneManager.LoadScene("DashTuto");
-            _player.transform.position = new Vector2(50.24f, 11.44f);
+            _player.transform.position = new Vector2(50.88f, 11.44f);
+        }
+        else if (TriggerLoadScene.sceneName == "EnemyRight")
+        {
+            FadeTrans.Fade();
+            SceneManager.LoadScene("Prefight");
+            _player.transform.position = new Vector2(-24f, -1.588789f);
         }
         else if (TriggerLoadScene.sceneName == "Pre Fight Right")
         {
@@ -46,20 +52,24 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene("Fight");
             _player.transform.position = new Vector2(-9.4f, -4.48f);
         }
+        else if (TriggerLoadScene.sceneName == "Pre Fight Left")
+        {
+            FadeTrans.Fade();
+            SceneManager.LoadScene("EnemyBattle");
+            _player.transform.position = new Vector2(9.94f, -1.39f);
+        }
         else if (TriggerLoadScene.sceneName == "Dash Left")
         {
-            _onChangeAudio.Invoke(TriggerLoadScene.sceneName);
             FadeTrans.Fade();
             SceneManager.LoadScene("Bridge");
-            _player.transform.position = new Vector2(53.47f, -1.39f);
+            _player.transform.position = new Vector2(55f, -1.39f);
         }
         else if (TriggerLoadScene.sceneName == "Dash Right")
         {
             Debug.Log("Will load scene: Fight");
-            _onChangeAudio.Invoke(TriggerLoadScene.sceneName);
             FadeTrans.Fade();
-            SceneManager.LoadScene("Prefight");
-            _player.transform.position = new Vector2(-25f, -2.78f);
+            SceneManager.LoadScene("EnemyBattle");
+            _player.transform.position = new Vector2(-10.29f, -1.43f);
         }
         else if (TriggerLoadScene.sceneName == "Respawn Bridge")
         {

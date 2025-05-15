@@ -2734,8 +2734,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 0}
-  _loud: {fileID: 8300000, guid: 7acb4bd62562ca94cb761d7116219021, type: 3}
-  _soft: {fileID: 8300000, guid: a76d7a803193e3344bb2859096e50f37, type: 3}
+  _loud: {fileID: 8300000, guid: 66a3e77c17dca3541b118648c491d36d, type: 3}
+  _soft: {fileID: 8300000, guid: 66a3e77c17dca3541b118648c491d36d, type: 3}
   timer: 0
   timerIFrames: 0
   _particleSystem: {fileID: 0}

@@ -60,7 +60,7 @@ public class DoorDestroy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player Attack") && PlayerAttack.isStrongAttacking)
         {
-            _audioSource.volume = 0.8f;
+            _audioSource.volume = 0.7f;
             _audioSource.PlayOneShot(_loud);
             health -= 1;
             this.gameObject.layer = LayerMask.NameToLayer("Invincible");
@@ -69,7 +69,7 @@ public class DoorDestroy : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Player Attack") && PlayerAttack.isLightAttacking)
         {
-            _audioSource.volume = 1f;
+            _audioSource.volume = 0.4f;
             _audioSource.PlayOneShot(_soft);
             PlayerHealth.health += 6.5f;
             PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 0, 100);

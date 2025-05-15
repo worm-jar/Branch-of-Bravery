@@ -21,6 +21,15 @@ public class PlayerDead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerHealth.health <= 0 && deadOnce == true)
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("Dead");
+            _animator.SetBool("IsDead", true);
+            FakeAnnaAI.autoRunTimer = 9999f;
+            FakeAnnaAI.timerStart = false;
+            respawnTimer = 2f;
+            deadOnce = false;
+        }
         if (respawnTimer > 0)
         {
             respawnTimer -= Time.deltaTime;
@@ -48,15 +57,6 @@ public class PlayerDead : MonoBehaviour
                 deadOnce = true;
                 respawnTimer = 0;
             }
-        }
-        if (PlayerHealth.health <= 0 && deadOnce == true) 
-        {
-            _animator.SetBool("IsDead", true);
-            FakeAnnaAI.autoRunTimer = 9999f;
-            FakeAnnaAI.timerStart = false;
-            this.gameObject.layer = LayerMask.NameToLayer("Dead");
-            respawnTimer = 2f;
-            deadOnce = false;
         }
     }
 }

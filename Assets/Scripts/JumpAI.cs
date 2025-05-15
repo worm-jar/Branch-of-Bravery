@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,9 +15,11 @@ public class JumpAI : MonoBehaviour
     public float wait;
     public bool detected;
     public AudioSource _audioSource;
+    public bool jumpedBack;
 
     public AudioClip _attack;
     public AudioClip _dodge;
+    public bool isAttacking;
     // Start is called before the first frame update
     public void Start()
     {
@@ -34,11 +37,11 @@ public class JumpAI : MonoBehaviour
     {
         distanceX = _player.transform.position.x - transform.position.x;
         distanceY = _player.transform.position.y - transform.position.y;
-        if (distanceX > 0)
+        if (distanceX > 0 && !isAttacking)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
-        if (distanceX < 0)
+        if (distanceX < 0 && !isAttacking)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
@@ -55,9 +58,8 @@ public class JumpAI : MonoBehaviour
             wait -= Time.deltaTime;
             if (wait <= 0)
             {
-                Debug.Log("yay");
                 Attack();
-                wait = 1;
+                wait = Random.Range(0.25f, 3.5f);
             }  
         }
     }
@@ -68,14 +70,6 @@ public class JumpAI : MonoBehaviour
             detected = true;
         }
     }
-    
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            detected = false;
-        }
-    }
     public void Attack()
     {
         if ((distanceX < -5f || distanceX > 5f) && (distanceY < 1.25f && distanceY > -1.25f) && detected)
@@ -83,17 +77,22 @@ public class JumpAI : MonoBehaviour
             _audioSource.PlayOneShot(_attack);
             _rig.AddForce(new Vector2(distanceX * 0.8f, 10f), ForceMode2D.Impulse);
             _animator.SetTrigger("Jump");
+            jumpedBack = false;
         }
-        else if ((distanceX > -3f || distanceX < 3f) && (distanceX < 1 || distanceX > -1) && (distanceY < 1.25f && distanceY > -1.25f) && detected)
+        else if ((distanceX > -3f || distanceX < 3f) && (distanceX < 1 || distanceX > -1) && (distanceY < 1.25f && distanceY > -1.25f) && detected && jumpedBack == false)
         {
             _audioSource.PlayOneShot(_dodge);
             distanceX = _player.transform.position.x - transform.position.x;
-            _rig.AddForce(new Vector2(-normDistance * 15f, 1f), ForceMode2D.Impulse);
+            _rig.AddForce(new Vector2(-normDistance * Random.Range(7, 18), 1f), ForceMode2D.Impulse);
             _animator.SetTrigger("JumpBack");
+            jumpedBack = true;
         }
-        else
+        else if (jumpedBack) 
         {
-            return;
+            _audioSource.PlayOneShot(_attack);
+            _rig.AddForce(new Vector2(distanceX * 0.8f, 10f), ForceMode2D.Impulse);
+            _animator.SetTrigger("Jump");
+            jumpedBack = false;
         }
     }
 }
