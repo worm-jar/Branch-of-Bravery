@@ -29,14 +29,14 @@ public class SceneLoader : MonoBehaviour
         if (TriggerLoadScene.sceneName == "Bridge Right")
         {
             FadeTrans.Fade();
-            SceneManager.LoadScene("Prefight");
-            _player.transform.position = new Vector2(-25f, -2.78f);
+            SceneManager.LoadScene("DashTuto");
+            _player.transform.position = new Vector2(-10.5f, 0f);
         }
         else if (TriggerLoadScene.sceneName == "Pre Fight Left")
         {
             FadeTrans.Fade();
-            SceneManager.LoadScene("Bridge");
-            _player.transform.position = new Vector2(29.5f, 1.72f);
+            SceneManager.LoadScene("DashTuto");
+            _player.transform.position = new Vector2(50.24f, 11.44f);
         }
         else if (TriggerLoadScene.sceneName == "Pre Fight Right")
         {
@@ -45,6 +45,21 @@ public class SceneLoader : MonoBehaviour
             FadeTrans.Fade();
             SceneManager.LoadScene("Fight");
             _player.transform.position = new Vector2(-9.4f, -4.48f);
+        }
+        else if (TriggerLoadScene.sceneName == "Dash Left")
+        {
+            _onChangeAudio.Invoke(TriggerLoadScene.sceneName);
+            FadeTrans.Fade();
+            SceneManager.LoadScene("Bridge");
+            _player.transform.position = new Vector2(53.47f, -1.39f);
+        }
+        else if (TriggerLoadScene.sceneName == "Dash Right")
+        {
+            Debug.Log("Will load scene: Fight");
+            _onChangeAudio.Invoke(TriggerLoadScene.sceneName);
+            FadeTrans.Fade();
+            SceneManager.LoadScene("Prefight");
+            _player.transform.position = new Vector2(-25f, -2.78f);
         }
         else if (TriggerLoadScene.sceneName == "Respawn Bridge")
         {
@@ -63,6 +78,14 @@ public class SceneLoader : MonoBehaviour
             FadeTrans.Fade();
             SceneManager.LoadScene("Prefight");
             _player.transform.position = new Vector2(-18.28f, -2.03f);
+        }
+        else if (TriggerLoadScene.sceneName == "Respawn Dash")
+        {
+            _onChangeAudio.Invoke(TriggerLoadScene.sceneName);
+            PlayerHealth.health = 100f;
+            FadeTrans.Fade();
+            SceneManager.LoadScene("DashTuto");
+            _player.transform.position = new Vector2(-2.59f, -0.85f);
         }
         else if (TriggerLoadScene.sceneName == "EndCut")
         {

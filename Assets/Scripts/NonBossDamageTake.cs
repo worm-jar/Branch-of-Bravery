@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Pathfinding;
 
 public class NonBossDamageTake : MonoBehaviour
 {
+    public AIDestinationSetter _destination;
+    public AIPath AIPath;
     public float enemyHealth;
     public float maxHealth;
     public float knockBack;
@@ -13,13 +16,17 @@ public class NonBossDamageTake : MonoBehaviour
     public float timerIFrames;
     public SpriteRenderer _sprite;
     public AudioSource _audioSource;
-    public AudioClip _hurt;
     public Slider _slider;
     public Canvas _canvas;
+    public GameObject dead;
+    public static bool isInv;
+
+    public AudioClip hit;
     // Start is called before the first frame update
     void Start()
     {
         enemyHealth = maxHealth;
+        _destination = GetComponent<AIDestinationSetter>();
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
         _sprite = this.gameObject.GetComponent<SpriteRenderer>();
@@ -35,6 +42,7 @@ public class NonBossDamageTake : MonoBehaviour
         _slider.value = enemyHealth;
         if (enemyHealth <= 0)
         {
+            Instantiate(dead, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
         if (timerIFrames > 0)
@@ -42,6 +50,9 @@ public class NonBossDamageTake : MonoBehaviour
             timerIFrames -= Time.deltaTime;
             if (timerIFrames <= 0)
             {
+                isInv = false;
+                AIPath.enabled = true;
+                _destination.target = _player.transform;
                 _sprite.color = Color.white;
                 this.gameObject.layer = LayerMask.NameToLayer("Enemy");
                 timerIFrames = 0;
@@ -52,12 +63,14 @@ public class NonBossDamageTake : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player Attack"))
         {
-            _audioSource.PlayOneShot(_hurt);
-            this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+            isInv = true;
+            AIPath.enabled = false;
+            Debug.Log(enemyHealth + "before hit");
+            _audioSource.PlayOneShot(hit);
             if (PlayerAttack.isLightAttacking)
             {
+                _destination.target = null;
                 Debug.Log(enemyHealth);
-                timerIFrames = 0.6f;
                 PlayerHealth.health += 6.5f;
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 0, 100);
                 enemyHealth -= 1f;
@@ -67,16 +80,18 @@ public class NonBossDamageTake : MonoBehaviour
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
 
             }
-            else if (PlayerAttack.isStrongAttacking)
+            else if (PlayerAttack.isStrongAttacking && this.gameObject.layer != LayerMask.NameToLayer("Invincible"))
             {
-                Debug.Log(enemyHealth);
-                timerIFrames = 0.6f;
+                _destination.target = null;
                 enemyHealth -= 20;
                 _rig.velocity = Vector2.zero;
                 float relativePos = transform.position.x - _player.transform.position.x;
                 _rig.AddForce(new Vector2(relativePos * knockBack * 3f, 2f), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -7f, 7f), _rig.velocity.y);
+                Debug.Log(enemyHealth + "after hit");
             }
+            this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+            timerIFrames = 0.6f;
             _sprite.color = Color.black;
         }
     }

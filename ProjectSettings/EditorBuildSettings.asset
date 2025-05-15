@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndCutscene.unity
     guid: 2fc8fd5b726d105469929a3fba852fba
+  - enabled: 1
+    path: Assets/Scenes/DashTuto.unity
+    guid: 4333de8ac569c4f4ea2cf3b524114c61
   m_configObjects: {}

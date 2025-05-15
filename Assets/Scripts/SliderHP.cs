@@ -28,7 +28,7 @@ public class SliderHP : MonoBehaviour
     void Update()
     {
         _canvas2.worldCamera = _cam2;
-        transform.position = new Vector2(_door.transform.position.x + 0.2f, _door.transform.position.y +1.5f);
+        transform.position = new Vector2(_door.transform.position.x - 2f, _door.transform.position.y +1.8f);
         _slider.value = DoorDestroy.health;
     }
 }

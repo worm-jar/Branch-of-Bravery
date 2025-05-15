@@ -6,15 +6,19 @@ using Pathfinding;
 
 public class FlyAI : MonoBehaviour
 {
+    public AudioSource _audioSource;
     public AIDestinationSetter _destination;
     public Animator _animator;
     public Rigidbody2D _rig;
     public GameObject _player;
     public float distanceX;
     public float distanceY;
+
+    public AudioClip _flap;
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(Sound());
         _destination = GetComponent<AIDestinationSetter>();
         _animator = GetComponent<Animator>();
         _rig = GetComponent<Rigidbody2D>();
@@ -26,9 +30,8 @@ public class FlyAI : MonoBehaviour
     {
         distanceX = _player.transform.position.x - transform.position.x;
         distanceY = _player.transform.position.y - transform.position.y;
-        if(distanceX < 9f &&  distanceX > -9 && distanceY < 9f && distanceY > -9f)
+        if(distanceX < 6f &&  distanceX > -6 && distanceY < 6f && distanceY > -6 && NonBossDamageTake.isInv == false)
         {
-            //_destination.target.transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, 0f);
             _destination.target = _player.transform;
         }
         if(distanceX > 0)
@@ -38,6 +41,14 @@ public class FlyAI : MonoBehaviour
         if(distanceX < 0)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+    }
+    public IEnumerator Sound()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            _audioSource.PlayOneShot(_flap);
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class RespawnPoint : MonoBehaviour
 {
     public static bool hasCheckpoint;
+    public static bool hasCheckpoint2;
     public static bool touchingInteract;
     public static string interactName;
     public GameObject interactAbovePlayer;
@@ -13,6 +14,7 @@ public class RespawnPoint : MonoBehaviour
     void Start()
     {
         hasCheckpoint = false;
+        hasCheckpoint2 = false;
         touchingInteract = false;
     }
 

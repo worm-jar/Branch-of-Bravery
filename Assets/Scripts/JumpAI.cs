@@ -12,9 +12,17 @@ public class JumpAI : MonoBehaviour
     public float distanceY;
     public float normDistance;
     public float wait;
+    public bool detected;
+    public AudioSource _audioSource;
+
+    public AudioClip _attack;
+    public AudioClip _dodge;
     // Start is called before the first frame update
     public void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
+        _animator = GetComponent<Animator>();
+        detected = false;
         wait = 1.6f;
         _animator = GetComponent<Animator>();
         _rig = GetComponent<Rigidbody2D>();
@@ -49,20 +57,39 @@ public class JumpAI : MonoBehaviour
             {
                 Debug.Log("yay");
                 Attack();
-                wait = 2;
+                wait = 1;
             }  
+        }
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            detected = true;
+        }
+    }
+    
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            detected = false;
         }
     }
     public void Attack()
     {
-        if ((distanceX < -6f || distanceX > 6f) && (distanceY < 2.5f || distanceY > -2.5f))
+        if ((distanceX < -5f || distanceX > 5f) && (distanceY < 1.25f && distanceY > -1.25f) && detected)
         {
-            _rig.AddForce(new Vector2(distanceX * 0.6f, 7f), ForceMode2D.Impulse);
+            _audioSource.PlayOneShot(_attack);
+            _rig.AddForce(new Vector2(distanceX * 0.8f, 10f), ForceMode2D.Impulse);
+            _animator.SetTrigger("Jump");
         }
-        else if ((distanceX > -1f || distanceX < 1f) && (distanceX < 1 || distanceX > -1) && (distanceY < 2.5f || distanceY > -2.5f))
+        else if ((distanceX > -3f || distanceX < 3f) && (distanceX < 1 || distanceX > -1) && (distanceY < 1.25f && distanceY > -1.25f) && detected)
         {
+            _audioSource.PlayOneShot(_dodge);
             distanceX = _player.transform.position.x - transform.position.x;
             _rig.AddForce(new Vector2(-normDistance * 15f, 1f), ForceMode2D.Impulse);
+            _animator.SetTrigger("JumpBack");
         }
         else
         {

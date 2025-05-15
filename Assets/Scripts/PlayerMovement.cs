@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _interactAttack;
     public GameObject _interactDash;
     public GameObject _interactAttack2;
+    public GameObject _interactAttack3;
+    public GameObject _interactAttack4;
     public TextMeshProUGUI _text;
     public static bool isInteracting;
     public static bool isRespInteracting;
@@ -406,6 +408,20 @@ public class PlayerMovement : MonoBehaviour
                     _particleSystem.Play();
                 }
             }
+            
+            if (RespawnPoint.interactName == "RespawnTrigger2")
+            {
+                _particleSystem.Play();
+                isRespInteracting = true;
+                _respTimer = 0.35f;
+                _audioSource.PlayOneShot(_sewer);
+                PlayerHealth.health = 100f;
+                RespawnPoint.hasCheckpoint2 = true;
+                if (!ctx.canceled)
+                {
+                    _particleSystem.Play();
+                }
+            }
             if (RespawnPoint.interactName == "RespawnText")
             {
                 _audioSource.PlayOneShot(_paper);
@@ -419,10 +435,16 @@ public class PlayerMovement : MonoBehaviour
                 _interactJump.SetActive(true);
                 isInteracting = true;
             }
-            if (RespawnPoint.interactName == "Attack")
+            if (RespawnPoint.interactName == "Attack1")
             {
                 _audioSource.PlayOneShot(_paper);
                 _interactAttack.SetActive(true);
+                isInteracting = true;
+            }
+            if (RespawnPoint.interactName == "Attack3")
+            {
+                _audioSource.PlayOneShot(_paper);
+                _interactAttack3.SetActive(true);
                 isInteracting = true;
             }
             if (RespawnPoint.interactName == "Dash")

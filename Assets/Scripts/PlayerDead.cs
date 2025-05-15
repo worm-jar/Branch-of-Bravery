@@ -33,6 +33,12 @@ public class PlayerDead : MonoBehaviour
                     SceneLoader.Load();
                     this.gameObject.layer = LayerMask.NameToLayer("Player");
                 }
+                else if (RespawnPoint.hasCheckpoint2)
+                {
+                    TriggerLoadScene.sceneName = "Respawn Dash";
+                    SceneLoader.Load();
+                    this.gameObject.layer = LayerMask.NameToLayer("Player");
+                }
                 else
                 {
                     this.gameObject.layer = LayerMask.NameToLayer("Player");

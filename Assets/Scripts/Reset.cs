@@ -70,6 +70,7 @@ public class Reset : MonoBehaviour
     }
     public void UnpauseButton()
     {
+        Debug.Log("yay");
         Time.timeScale = 1f;
         Pause.paused = false;
     }

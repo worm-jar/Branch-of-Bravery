@@ -23,7 +23,6 @@ public class Pause : MonoBehaviour
     private void OnEnable()
     {
         _asset.Enable();
-        once = true;
         _asset.FindAction("Player/Pause").started += HandlePause;
         _asset.FindAction("Player/Pause").performed += HandlePause;
         _asset.FindAction("Player/Pause").canceled += HandlePause;
@@ -41,6 +40,32 @@ public class Pause : MonoBehaviour
                 PlayerMovement._interactAttack2.SetActive(false);
                 PlayerMovement.isInteracting = false;
             }
+            else if (PlayerMovement._interactAttack4.activeInHierarchy == true)
+            {
+                PlayerMovement._interactAttack4.SetActive(false);
+                PlayerMovement.isInteracting = false;
+            }
+            else if (PlayerMovement.isInteracting == true && PlayerMovement._interactAttack.activeInHierarchy == true && PlayerMovement._interactAttack2.activeInHierarchy == false)
+            {
+                Debug.Log("this");
+                _audioSource.PlayOneShot(_paper);
+                PlayerMovement._interactAttack2.SetActive(true);
+                PlayerMovement._interactAttack.SetActive(false);
+            }
+            else if (PlayerMovement.isInteracting == true && PlayerMovement._interactAttack3.activeInHierarchy == true && PlayerMovement._interactAttack4.activeInHierarchy == false)
+            {
+                _audioSource.PlayOneShot(_paper);
+                PlayerMovement._interactAttack4.SetActive(true);
+                PlayerMovement._interactAttack3.SetActive(false);
+            }
+            else if (PlayerMovement.isInteracting == true && (PlayerMovement._interactAttack.activeInHierarchy == false && PlayerMovement._interactAttack3.activeInHierarchy == false))
+            {
+                PlayerMovement._interactSewer.SetActive(false);
+                PlayerMovement._interactJump.SetActive(false);
+                PlayerMovement._interactDash.SetActive(false);
+                PlayerMovement._text.text = "";
+                PlayerMovement.isInteracting = false;
+            }
             else if (this.gameObject.activeInHierarchy == true && PlayerMovement.isInteracting == false)
             {
                 Time.timeScale = 1f;
@@ -52,21 +77,6 @@ public class Pause : MonoBehaviour
                 Time.timeScale = 0f;
                 paused = true;
                 this.gameObject.SetActive(true);
-            }
-            else if (PlayerMovement.isInteracting == true && PlayerMovement._interactAttack.activeInHierarchy == false)
-            {
-                PlayerMovement._interactSewer.SetActive(false);
-                PlayerMovement._interactJump.SetActive(false);
-                PlayerMovement._interactAttack.SetActive(false);
-                PlayerMovement._interactDash.SetActive(false);
-                PlayerMovement._text.text = "";
-                PlayerMovement.isInteracting = false;
-            }
-            else if (PlayerMovement.isInteracting == true && PlayerMovement._interactAttack.activeInHierarchy == true && PlayerMovement._interactAttack2.activeInHierarchy == false)
-            {
-                _audioSource.PlayOneShot(_paper);
-                PlayerMovement._interactAttack.SetActive(false);
-                PlayerMovement._interactAttack2.SetActive(true);
             }
         }
     }
