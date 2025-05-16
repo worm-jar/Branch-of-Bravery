@@ -169,6 +169,8 @@ MonoBehaviour:
   timer: 0
   BLB0: {fileID: 1874747121}
   BLB1: {fileID: 1973996482}
+  BLB0HB: {fileID: 0}
+  BLB1HB: {fileID: 0}
   _animator0: {fileID: 0}
   _animator1: {fileID: 0}
   _gameManager: {fileID: 0}
@@ -668,11 +670,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4662876310261527450, guid: ad4bed17127f6bb41a00f904c6f7ae99, type: 3}
       propertyPath: m_Size.x
-      value: 20.358303
+      value: 20.216377
       objectReference: {fileID: 0}
     - target: {fileID: 4662876310261527450, guid: ad4bed17127f6bb41a00f904c6f7ae99, type: 3}
       propertyPath: m_Offset.x
-      value: -1.4132695
+      value: -1.3423066
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380719152331677552, guid: ad4bed17127f6bb41a00f904c6f7ae99, type: 3}
+      propertyPath: phase
+      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 6928941625579079324, guid: ad4bed17127f6bb41a00f904c6f7ae99, type: 3}
       propertyPath: m_Name

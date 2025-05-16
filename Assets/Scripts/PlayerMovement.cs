@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     public bool downable;
     public CameraShake Camera;
     public static float _axisxStore;
+    public PlayerTakeDamage PlayerTakeDamage;
 
     public AudioClip _walk;
     public AudioClip _jump;
@@ -62,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         isInteracting = false;
+        PlayerTakeDamage = GetComponent<PlayerTakeDamage>();
         _particleSystem = GetComponent<ParticleSystem>();
         _audioSource = GetComponent<AudioSource>();
         _rig = this.GetComponent<Rigidbody2D>();
@@ -95,13 +97,27 @@ public class PlayerMovement : MonoBehaviour
         {
             _rig.position += new Vector2(_axisx * speed * Time.deltaTime, 0f);
         }
-        if (PlayerAttack.isLightAttacking == false && _axisx < 0 && !_isDead && !Pause.paused)
+        if (PlayerAttack.isStrongAttacking == false && PlayerAttack.isLightAttacking == false && _axisx < 0 && !_isDead && !Pause.paused)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
-        else if (PlayerAttack.isLightAttacking == false && _axisx > 0 && !_isDead && !Pause.paused)
+        else if (PlayerAttack.isStrongAttacking == false && PlayerAttack.isLightAttacking == false && _axisx > 0 && !_isDead && !Pause.paused)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (PlayerAttack.isStrongAttacking == true && PlayerTakeDamage.strongInterruptable == true && _axisx > 0 && !_isDead && !Pause.paused)
+        {
+            Debug.Log("EnteredSwitch");
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (PlayerAttack.isStrongAttacking == true && PlayerTakeDamage.strongInterruptable == true && _axisx < 0 && !_isDead && !Pause.paused)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            Debug.Log("Attack: " + PlayerAttack.isStrongAttacking);
+            Debug.Log("Interrupt: " + PlayerTakeDamage.strongInterruptable);
         }
         if (timer > 0)
         {

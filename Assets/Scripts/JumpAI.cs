@@ -16,6 +16,7 @@ public class JumpAI : MonoBehaviour
     public bool detected;
     public AudioSource _audioSource;
     public bool jumpedBack;
+    public float phase;
 
     public AudioClip _attack;
     public AudioClip _dodge;
@@ -26,7 +27,7 @@ public class JumpAI : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
         detected = false;
-        wait = 1.6f;
+        wait = 1 + phase;
         _animator = GetComponent<Animator>();
         _rig = GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
@@ -59,7 +60,7 @@ public class JumpAI : MonoBehaviour
             if (wait <= 0)
             {
                 Attack();
-                wait = Random.Range(0.35f, 2.8f);
+                wait = Random.Range(0.35f, 1.5f);
             }  
         }
     }
@@ -75,7 +76,7 @@ public class JumpAI : MonoBehaviour
         if ((distanceX < -5f || distanceX > 5f) && (distanceY < 1.25f && distanceY > -1.25f) && detected)
         {
             _audioSource.PlayOneShot(_attack);
-            _rig.AddForce(new Vector2(distanceX * 0.7f, 10f), ForceMode2D.Impulse);
+            _rig.AddForce(new Vector2(distanceX * 0.7f, 16.5f), ForceMode2D.Impulse);
             _animator.SetTrigger("Jump");
             jumpedBack = false;
         }
@@ -90,7 +91,7 @@ public class JumpAI : MonoBehaviour
         else if (jumpedBack) 
         {
             _audioSource.PlayOneShot(_attack);
-            _rig.AddForce(new Vector2(distanceX * 0.8f, 10f), ForceMode2D.Impulse);
+            _rig.AddForce(new Vector2(distanceX * 0.7f, 16.5f), ForceMode2D.Impulse);
             _animator.SetTrigger("Jump");
             jumpedBack = false;
         }

@@ -78,7 +78,7 @@ public class FakeAnnaAI : MonoBehaviour
                 _audioSource.clip = _bells;
                 _audioSource.PlayDelayed(0.7f);
                 ProjectileSpawn();
-                attackTimer = 1.47f;
+                attackTimer = 2.94f;
             }
         }
         //if (runTimer > 0)
@@ -108,7 +108,7 @@ public class FakeAnnaAI : MonoBehaviour
     {
         if(timerStart == false)
         {
-            autoRunTimer = 5f;
+            autoRunTimer = 10f;
             timerStart = true;
         }
         if (waitAttack == false)

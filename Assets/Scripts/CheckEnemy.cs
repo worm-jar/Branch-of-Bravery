@@ -7,6 +7,8 @@ public class CheckEnemy : MonoBehaviour
     public float timer;
     public GameObject BLB0;
     public GameObject BLB1;
+    public BoxCollider2D BLB0HB;
+    public BoxCollider2D BLB1HB;
     public Animator _animator0;
     public Animator _animator1;
     public GameObject _gameManager;
@@ -27,6 +29,8 @@ public class CheckEnemy : MonoBehaviour
         _audioSource = _gameManager.GetComponent<AudioSource>();
         _animator0 = BLB0.GetComponent<Animator>();
         _animator1 = BLB1.GetComponent<Animator>();
+        BLB0HB = BLB0.GetComponent<BoxCollider2D>();
+        BLB1HB = BLB1.GetComponent<BoxCollider2D>();
         if (!EncounterDone.doneSet)
         {
             _audioSource.clip = _fight;
@@ -53,6 +57,8 @@ public class CheckEnemy : MonoBehaviour
             timer = 3f;
             _audioSource.clip = _towers;
             _audioSource.Play();
+            BLB0HB.enabled = false;
+            BLB1HB.enabled = false;
             _animator0.Play("FadeBLB");
             _animator1.Play("FadeBLB");
             done = true;

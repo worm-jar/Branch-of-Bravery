@@ -33,7 +33,7 @@ public class DoorShake : MonoBehaviour
     {
         while (shakeTimer > 0)
         {
-            transform.position = new Vector3(transform.position.x + Mathf.Sin(Time.time*speed)/50, transform.position.y + Mathf.Sin(Time.time*speed)/150, transform.position.z);
+            transform.position = new Vector3(transform.position.x + Mathf.Sin(Time.time*speed)/250, transform.position.y + Mathf.Sin(Time.time*speed)/350, transform.position.z);
             shakeTimer -= Time.deltaTime;
             if (shakeTimer <= 0)
             {

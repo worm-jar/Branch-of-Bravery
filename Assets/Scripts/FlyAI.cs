@@ -64,7 +64,7 @@ public class FlyAI : MonoBehaviour
     }
     public void Rando()
     {
-        transform.position = new Vector2((transform.position.x + Mathf.Sin(Time.time) / 500), (transform.position.y + Mathf.Cos(Time.time*2) / 350));
+        transform.position = new Vector2((transform.position.x + Mathf.Sin(Time.time) / 700), (transform.position.y + Mathf.Cos(Time.time*2) / 500));
     }
     public IEnumerator Sound()
     {
