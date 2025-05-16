@@ -75,7 +75,7 @@ public class JumpAI : MonoBehaviour
         if ((distanceX < -5f || distanceX > 5f) && (distanceY < 1.25f && distanceY > -1.25f) && detected)
         {
             _audioSource.PlayOneShot(_attack);
-            _rig.AddForce(new Vector2(distanceX * 0.8f, 10f), ForceMode2D.Impulse);
+            _rig.AddForce(new Vector2(distanceX * 0.7f, 10f), ForceMode2D.Impulse);
             _animator.SetTrigger("Jump");
             jumpedBack = false;
         }
