@@ -9,6 +9,7 @@ public class PlayerDead : MonoBehaviour
     public SceneLoader SceneLoader;
     public bool deadOnce;
     public Animator _animator;
+    public Rigidbody2D _rigidbody;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class PlayerDead : MonoBehaviour
         GameManager = GameObject.Find("GameManager");
         SceneLoader = GameManager.GetComponent<SceneLoader>();
         _animator = GetComponent<Animator>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class PlayerDead : MonoBehaviour
         }
         if (respawnTimer > 0)
         {
+            _rigidbody.velocity = Vector3.zero;
             respawnTimer -= Time.deltaTime;
             if (respawnTimer <= 0)
             {

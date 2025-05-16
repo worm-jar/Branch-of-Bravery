@@ -150,7 +150,14 @@ public class EnemyAI : MonoBehaviour
                 _rig.velocity = new Vector2(0, 0);
                 isAttacking = false;
                 behavioring = false;
-                randomBehavior = Random.Range(0, 2);
+                if(secondPhase == false)
+                {
+                    randomBehavior = Random.Range(0, 2);
+                }
+                else if(secondPhase == true)
+                {
+                    randomBehavior = Random.Range(0, 3);
+                }
                 attackTimerBeforeDone = 0;
             }
         }
@@ -199,6 +206,10 @@ public class EnemyAI : MonoBehaviour
         else if (secondPhase == true && transitionSecondPhase == false)
         {
             if (randomBehavior == 0)
+            {
+                MeleeAttackSecond();
+            }
+            if (randomBehavior == 2)
             {
                 MeleeAttackSecond();
             }

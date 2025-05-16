@@ -28,7 +28,6 @@ public class NonBossDamageTake : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyHealth = maxHealth;
         _AIPath = GetComponent<AIPath>();
         _destination = GetComponent<AIDestinationSetter>();
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
@@ -97,7 +96,8 @@ public class NonBossDamageTake : MonoBehaviour
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
                 if (this.gameObject.name == "Fly")
                 {
-                    timerMovement = 0.01f;
+                    //timerMovement = 0.01f;
+                    _AIPath.Move(new Vector3(0.75f * relativePosNorm, 0, 0));
                 }
             }
             else if (PlayerAttack.isStrongAttacking && this.gameObject.layer != LayerMask.NameToLayer("Invincible"))
@@ -119,7 +119,8 @@ public class NonBossDamageTake : MonoBehaviour
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -7f, 7f), _rig.velocity.y);
                 if (this.gameObject.name == "Fly")
                 {
-                    timerMovement = 0.015f;
+                    //timerMovement = 0.015f;
+                    _AIPath.Move(new Vector3(1.5f * relativePosNorm, 0, 0));
                 }
                 Debug.Log(enemyHealth + "after hit");
             }

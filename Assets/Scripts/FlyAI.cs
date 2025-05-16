@@ -40,6 +40,10 @@ public class FlyAI : MonoBehaviour
         {
             _destination.target = _player.transform;
         }
+        else
+        {
+            Rando();
+        }
         if(distanceX > 0)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
@@ -58,6 +62,10 @@ public class FlyAI : MonoBehaviour
             }
         }
     }
+    public void Rando()
+    {
+        transform.position = new Vector2((transform.position.x + Mathf.Sin(Time.time) / 500), (transform.position.y + Mathf.Cos(Time.time*2) / 350));
+    }
     public IEnumerator Sound()
     {
         while (true)
@@ -71,7 +79,7 @@ public class FlyAI : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             waitingDamage = true;
-            _AIPath.Move(new Vector3(-distanceX, 0, 0));
+            _AIPath.Move(new Vector3(-distanceX * 2, 0, 0));
             timer = 0.01f;
         }
     }

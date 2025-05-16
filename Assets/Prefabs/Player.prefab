@@ -126,7 +126,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0aa1a2c8d885d444882c0b8d04d675d0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.565
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -768,6 +768,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rig: {fileID: 0}
   _renderer: {fileID: 0}
+  _slashSound: {fileID: 3603339088921991354}
+  _slashAudio: {fileID: 0}
   _animator: {fileID: 0}
   _annabeth: {fileID: 0}
   _fakeAnnabeth: {fileID: 0}

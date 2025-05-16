@@ -59,7 +59,7 @@ public class JumpAI : MonoBehaviour
             if (wait <= 0)
             {
                 Attack();
-                wait = Random.Range(0.25f, 3.5f);
+                wait = Random.Range(0.35f, 2.8f);
             }  
         }
     }

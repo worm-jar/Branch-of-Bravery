@@ -43,8 +43,7 @@ public class EnemyDamageTake : MonoBehaviour
         if (collision.gameObject.CompareTag("Player Attack"))
         {
             _audioSource.PlayOneShot(_hurt);
-            this.gameObject.layer = LayerMask.NameToLayer("Invincible");
-            if (PlayerAttack.isLightAttacking)
+            if (PlayerAttack.isLightAttacking && this.gameObject.layer != LayerMask.NameToLayer("Invincible"))
             {
                 timerIFrames = 0.6f;
                 PlayerHealth.health += 6.5f;
@@ -54,9 +53,9 @@ public class EnemyDamageTake : MonoBehaviour
                 _rig.velocity = Vector2.zero;
                 _rig.AddForce(new Vector2(relativePos * knockBack * 1.8f, 3f), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
-
+                this.gameObject.layer = LayerMask.NameToLayer("Invincible");
             }
-            else if (PlayerAttack.isStrongAttacking)
+            else if (PlayerAttack.isStrongAttacking && this.gameObject.layer != LayerMask.NameToLayer("Invincible"))
             {
                 timerIFrames = 0.6f;
                 EnemyHealth.health -= 20;
@@ -65,6 +64,7 @@ public class EnemyDamageTake : MonoBehaviour
                 float relativePos = transform.position.x - _player.transform.position.x;
                 _rig.AddForce(new Vector2(relativePos * knockBack * 3f, 2f), ForceMode2D.Impulse);
                 _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -7f, 7f), _rig.velocity.y);
+                this.gameObject.layer = LayerMask.NameToLayer("Invincible");
             }
             _sprite.color = Color.black;
         }

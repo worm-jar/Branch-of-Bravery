@@ -21,13 +21,13 @@ public class PlayerTakeDamage : MonoBehaviour
     {
         _slashAudio = _slashSound.GetComponent<AudioSource>();
         _rig = this.gameObject.GetComponent<Rigidbody2D>();
-        _animator = this.gameObject.GetComponent<Animator>();
         _renderer = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        _animator = this.gameObject.GetComponent<Animator>();
         _annabeth = GameObject.Find("Annabeth");
         _fakeAnnabeth = GameObject.Find("Fake Annabeth");
         _animator.SetBool("IsInvincible", _isInvincible);
@@ -58,7 +58,14 @@ public class PlayerTakeDamage : MonoBehaviour
     {
         if(collision2D.gameObject.CompareTag("Norm Enemy Attack"))
         {
-            PlayerHealth.health -= 8f;
+            if(collision2D.gameObject.name == "FlyHB")
+            {
+                PlayerHealth.health -= 8f;
+            }
+            else if(collision2D.gameObject.name == "JumpManHB")
+            {
+                PlayerHealth.health -= 11f;
+            }
             this.gameObject.layer = LayerMask.NameToLayer("Invincible");
             PlayerAttack.timerLightAttackWait = 0.85f;
             _isInvincible = true;
@@ -70,7 +77,7 @@ public class PlayerTakeDamage : MonoBehaviour
             {
                 _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);
             }
-            timerIFrames = 0.25f;
+            timerIFrames = 0.55f;
             Camera.amount = 0.5f;
             if (strongInterruptable)
             {
@@ -103,7 +110,7 @@ public class PlayerTakeDamage : MonoBehaviour
                 {
                     _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);
                 }
-                timerIFrames = 0.25f;
+                timerIFrames = 0.55f;
                 Camera.amount = 0.5f;
                 if(strongInterruptable)
                 {
@@ -124,7 +131,7 @@ public class PlayerTakeDamage : MonoBehaviour
                 {
                     _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);
                 }
-                timerIFrames = 0.25f;
+                timerIFrames = 0.55f;
                 Camera.amount = 0.5f;
                 if (strongInterruptable)
                 {

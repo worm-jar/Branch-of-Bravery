@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     {
         dieOnce = true;
         _animator = GetComponent<Animator>();
-        health = 100;
+        health = 70;
     }
 
     // Update is called once per frame
