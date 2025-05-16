@@ -1141,6 +1141,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5083307745261538525, guid: ad4bed17127f6bb41a00f904c6f7ae99, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 001383f7b46528048a40e184d05a316f, type: 3}
     - target: {fileID: 6928941625579079324, guid: ad4bed17127f6bb41a00f904c6f7ae99, type: 3}
       propertyPath: m_Name
       value: JumpMan
