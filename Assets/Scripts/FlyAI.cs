@@ -42,6 +42,7 @@ public class FlyAI : MonoBehaviour
         }
         else
         {
+            _destination.target = null;
             Rando();
         }
         if(distanceX > 0)
@@ -64,7 +65,7 @@ public class FlyAI : MonoBehaviour
     }
     public void Rando()
     {
-        transform.position = new Vector2((transform.position.x + Mathf.Sin(Time.time) / 700), (transform.position.y + Mathf.Cos(Time.time*2) / 500));
+        transform.position = new Vector2((transform.position.x + Mathf.Sin(Time.time) / 1100), (transform.position.y + Mathf.Cos(Time.time*2) / 750));
     }
     public IEnumerator Sound()
     {

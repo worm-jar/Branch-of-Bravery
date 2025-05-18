@@ -107,17 +107,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (PlayerAttack.isStrongAttacking == true && PlayerTakeDamage.strongInterruptable == true && _axisx > 0 && !_isDead && !Pause.paused)
         {
-            Debug.Log("EnteredSwitch");
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
         else if (PlayerAttack.isStrongAttacking == true && PlayerTakeDamage.strongInterruptable == true && _axisx < 0 && !_isDead && !Pause.paused)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else
-        {
-            Debug.Log("Attack: " + PlayerAttack.isStrongAttacking);
-            Debug.Log("Interrupt: " + PlayerTakeDamage.strongInterruptable);
         }
         if (timer > 0)
         {
@@ -230,6 +224,11 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") && _rig.velocity.y == 0)
+        {
+            _grounded = true;
+            _dashAir = true;
+        }
+        if (collision.gameObject.CompareTag("Bridge") && _rig.velocity.y == 0)
         {
             _grounded = true;
             _dashAir = true;

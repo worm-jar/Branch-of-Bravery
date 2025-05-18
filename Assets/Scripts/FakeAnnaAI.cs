@@ -49,11 +49,12 @@ public class FakeAnnaAI : MonoBehaviour
                 timerBeforeDestroy = 0;
             }
         }
-        if (FakeAnnabethGone.gone == true && runTimer && runTimerOnce)
+        if (runTimer && runTimerOnce)
         {
             _animator.Play("WalkFakeAnna");
             _rig.velocity = new Vector2(4.5f, _rig.velocity.y);
             Destroy(this.gameObject, 10f);
+            FakeAnnabethGone.gone = true;
             timerBeforeDestroy = 5f;
             runTimerOnce = false;
         }
@@ -76,7 +77,7 @@ public class FakeAnnaAI : MonoBehaviour
             if (attackTimer <= 0)
             {
                 _audioSource.clip = _bells;
-                _audioSource.PlayDelayed(0.7f);
+                _audioSource.PlayDelayed(1.4f);
                 ProjectileSpawn();
                 attackTimer = 2.94f;
             }
@@ -120,7 +121,6 @@ public class FakeAnnaAI : MonoBehaviour
     }
     public void Run()
     {
-        FakeAnnabethGone.gone = true;
         _bow.SetActive(false);
         attackTimer = 0f;
         runTimer = true;

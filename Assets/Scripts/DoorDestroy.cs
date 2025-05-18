@@ -12,9 +12,16 @@ public class DoorDestroy : MonoBehaviour
     public static bool _healthOnce;
     public float timerIFrames;
     public ParticleSystem _particleSystem;
+    public SpriteRenderer _spriteRenderer;
+
+    public Sprite _door;
+    public Sprite _door0;
+    public Sprite _door1;
+    public Sprite _door2;
     // Start is called before the first frame update
     void Start()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _particleSystem = GetComponent<ParticleSystem>();
         _healthOnce = true;
         _audioSource = GetComponent<AudioSource>();
@@ -43,7 +50,23 @@ public class DoorDestroy : MonoBehaviour
                 timer = 0;
             }
         }
-        if (health == 0)
+        if (health == 4)
+        {
+            _spriteRenderer.sprite = _door;
+        }
+        else if (health == 3)
+        {
+            _spriteRenderer.sprite = _door0;
+        }
+        else if(health == 2)
+        {
+            _spriteRenderer.sprite = _door1;
+        }
+        else if(health == 1)
+        {
+            _spriteRenderer.sprite = _door2;
+        }
+        else if(health == 0)
         {
             if(_healthOnce)
             {

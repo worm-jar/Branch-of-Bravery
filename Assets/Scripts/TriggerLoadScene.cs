@@ -19,6 +19,7 @@ public class TriggerLoadScene : MonoBehaviour
     {
         if (other.CompareTag("Teleporter"))
         {
+            FakeAnnaAI.autoRunTimer = 9999;
             sceneName = other.name;
             SceneLoader.Load();
         }

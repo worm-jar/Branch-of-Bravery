@@ -84,7 +84,7 @@ public class JumpAI : MonoBehaviour
         {
             _audioSource.PlayOneShot(_dodge);
             distanceX = _player.transform.position.x - transform.position.x;
-            _rig.AddForce(new Vector2(-normDistance * Random.Range(7, 18), 1f), ForceMode2D.Impulse);
+            _rig.AddForce(new Vector2(-normDistance * Random.Range(15f, 18), 1f), ForceMode2D.Impulse);
             _animator.SetTrigger("JumpBack");
             jumpedBack = true;
         }

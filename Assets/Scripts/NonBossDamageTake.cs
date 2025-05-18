@@ -100,7 +100,7 @@ public class NonBossDamageTake : MonoBehaviour
                     _AIPath.Move(new Vector3(0.75f * relativePosNorm, 0, 0));
                 }
             }
-            else if (PlayerAttack.isStrongAttacking && this.gameObject.layer != LayerMask.NameToLayer("Invincible"))
+            else if (PlayerAttack.isStrongAttacking && this.gameObject.layer != LayerMask.NameToLayer("JumpManInvincible"))
             {
                 enemyHealth -= 20;
                 _rig.velocity = Vector2.zero;
@@ -124,7 +124,7 @@ public class NonBossDamageTake : MonoBehaviour
                 }
                 Debug.Log(enemyHealth + "after hit");
             }
-            this.gameObject.layer = LayerMask.NameToLayer("Invincible");
+            this.gameObject.layer = LayerMask.NameToLayer("JumpManInvincible");
             timerIFrames = 0.6f;
             _sprite.color = Color.black;
         }
