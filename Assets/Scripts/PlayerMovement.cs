@@ -8,6 +8,8 @@ using UnityEngine.Animations;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public TextMeshProUGUI textMeshProUGUI;
+    public GameObject _canvasHeath;
     public Animator _animator;
     public float speed;
     public InputActionAsset _asset;
@@ -32,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
     public GameObject _interactAttack2;
     public GameObject _interactAttack3;
     public GameObject _interactAttack4;
-    public TextMeshProUGUI _text;
     public static bool isInteracting;
     public static bool isRespInteracting;
     public bool dashAnimated;
@@ -75,6 +76,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _canvasHeath = GameObject.Find("CanvasHealth");
+        _interactSewer = _canvasHeath.transform.Find("Sewer").gameObject;
+        _interactJump = _canvasHeath.transform.Find("Jump").gameObject;
+        _interactAttack = _canvasHeath.transform.Find("Attack").gameObject;
+        _interactAttack2 = _canvasHeath.transform.Find("Attack2").gameObject;
+        _interactAttack3 = _canvasHeath.transform.Find("Attack3").gameObject;
+        _interactAttack4 = _canvasHeath.transform.Find("Attack4").gameObject;
+        _interactDash = _canvasHeath.transform.Find("Dash").gameObject;
+        textMeshProUGUI = _interactSewer.transform.Find("ActualText").gameObject.GetComponent<TextMeshProUGUI>();
         _animator.SetFloat("Walking", _axisx);
         _animator.SetBool("Grounded", _grounded);
         _animator.SetBool("IsDashing", _hasDashed && !dashAnimated);
@@ -448,7 +458,7 @@ public class PlayerMovement : MonoBehaviour
                 _audioSource.PlayOneShot(_paper);
                 isInteracting = true;
                 _interactSewer.SetActive(true);
-                _text.text = "Interact with sewers to set spawn and refill health";
+                textMeshProUGUI.text = "Interact with sewers to set spawn and refill health";
             }
             if (RespawnPoint.interactName == "Jump")
             {

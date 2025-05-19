@@ -63,7 +63,7 @@ public class Pause : MonoBehaviour
                 PlayerMovement._interactSewer.SetActive(false);
                 PlayerMovement._interactJump.SetActive(false);
                 PlayerMovement._interactDash.SetActive(false);
-                PlayerMovement._text.text = "";
+                PlayerMovement.textMeshProUGUI.text = "";
                 PlayerMovement.isInteracting = false;
             }
             else if (this.gameObject.activeInHierarchy == true && PlayerMovement.isInteracting == false)
