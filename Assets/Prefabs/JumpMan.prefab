@@ -554,6 +554,7 @@ GameObject:
   - component: {fileID: 5020128440886535336}
   - component: {fileID: -124732844584352181}
   - component: {fileID: 3508197078753511338}
+  - component: {fileID: 3474191510070220640}
   m_Layer: 8
   m_Name: JumpMan
   m_TagString: Enemy
@@ -867,6 +868,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.53684235}
   m_Size: {x: 1, y: 2.0736847}
   m_Direction: 0
+--- !u!114 &3474191510070220640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928941625579079324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce881dd20f529342a0026b2570e3132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  JumpMan: {fileID: 0}
+  _rig: {fileID: 0}
+  distanceX: 0
+  normDistance: 0
 --- !u!1 &7356924553416523011
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,7 +970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3569735592982621721}
   - component: {fileID: 1065389152860553261}
-  - component: {fileID: 8567739440586733260}
+  - component: {fileID: 3479154922231650307}
   m_Layer: 9
   m_Name: JumpManBelow
   m_TagString: Norm Enemy Attack
@@ -1020,7 +1038,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.1501007, y: 0.081964016}
   m_EdgeRadius: 0
---- !u!114 &8567739440586733260
+--- !u!114 &3479154922231650307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1029,11 +1047,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8234445556186410576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b532245f3598b5b4a8100a85918d9d1f, type: 3}
+  m_Script: {fileID: 11500000, guid: dce881dd20f529342a0026b2570e3132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  JumpMan: {fileID: 6928941625579079324}
+  JumpMan: {fileID: 0}
   _rig: {fileID: 0}
   distanceX: 0
   normDistance: 0

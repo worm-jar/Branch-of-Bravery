@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47408096e5cd50245bcd9fee9b1931ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 7199960841011164563, guid: 200f1b6f8c1e65640a9baa20dd5f3eee, type: 3}
   _canvashealth: {fileID: 0}
   _moonCanvas: {fileID: 0}
   MusicChange: {fileID: 0}

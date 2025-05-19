@@ -17,11 +17,13 @@ public class FlyAI : MonoBehaviour
     public float distanceY;
     public float timer;
     public bool waitingDamage;
+    public bool detected;
 
     public AudioClip _flap;
     // Start is called before the first frame update
     void Start()
     {
+        detected = false;
         _AIPath = GetComponent<AIPath>();
         _audioSource = GetComponent<AudioSource>();
         _player = GameObject.Find("Player");
@@ -36,13 +38,13 @@ public class FlyAI : MonoBehaviour
     {
         distanceX = _player.transform.position.x - transform.position.x;
         distanceY = _player.transform.position.y - transform.position.y;
-        if(distanceX < 6f &&  distanceX > -6 && distanceY < 6f && distanceY > -6 && !waitingDamage)
+        if((distanceX < 6f &&  distanceX > -6 && distanceY < 6f && distanceY > -6 && !waitingDamage) || detected)
         {
             _destination.target = _player.transform;
+            detected = true;
         }
-        else
+        else if (detected == false)
         {
-            _destination.target = null;
             Rando();
         }
         if(distanceX > 0)

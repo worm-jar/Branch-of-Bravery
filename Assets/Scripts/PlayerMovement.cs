@@ -270,28 +270,28 @@ public class PlayerMovement : MonoBehaviour
         _asset.FindAction("Player/Interact").started += HandleInteract;
         _asset.FindAction("Player/Interact").performed += HandleInteract;
     }
-    //private void OnDisable()
-    //{
-    //    _asset.Disable();
-    //    _asset.FindAction("Player/Move").started -= HandleMove;
-    //    _asset.FindAction("Player/Move").performed -= HandleMove;
-    //    _asset.FindAction("Player/Move").canceled -= HandleMoveStop;
+    private void OnDisable()
+    {
+        _asset.Disable();
+        _asset.FindAction("Player/Move").started -= HandleMove;
+        _asset.FindAction("Player/Move").performed -= HandleMove;
+        _asset.FindAction("Player/Move").canceled -= HandleMoveStop;
 
-    //    _asset.FindAction("Player/Jump").started -= HandleJump;
-    //    _asset.FindAction("Player/Jump").performed -= HandleJump;
-    //    _asset.FindAction("Player/Jump").canceled -= HandleJumpDown;
+        _asset.FindAction("Player/Jump").started -= HandleJump;
+        _asset.FindAction("Player/Jump").performed -= HandleJump;
+        _asset.FindAction("Player/Jump").canceled -= HandleJumpDown;
 
-    //    _asset.FindAction("Player/Dash").started -= HandleDash;
-    //    _asset.FindAction("Player/Dash").performed -= HandleDash;
-    //    _asset.FindAction("Player/Dash").canceled -= HandleDashCancel;
+        _asset.FindAction("Player/Dash").started -= HandleDash;
+        _asset.FindAction("Player/Dash").performed -= HandleDash;
+        _asset.FindAction("Player/Dash").canceled -= HandleDashCancel;
 
-    //    _asset.FindAction("Player/Vertical").started -= HandleUp;
-    //    _asset.FindAction("Player/Vertical").performed -= HandleUp;
-    //    _asset.FindAction("Player/Vertical").canceled -= HandleUp;
+        _asset.FindAction("Player/Vertical").started -= HandleUp;
+        _asset.FindAction("Player/Vertical").performed -= HandleUp;
+        _asset.FindAction("Player/Vertical").canceled -= HandleUp;
 
-    //    _asset.FindAction("Player/Interact").started -= HandleInteract;
-    //    _asset.FindAction("Player/Interact").performed -= HandleInteract;
-    //}
+        _asset.FindAction("Player/Interact").started -= HandleInteract;
+        _asset.FindAction("Player/Interact").performed -= HandleInteract;
+    }
     public void HandleMove(InputAction.CallbackContext ctx)
     {
         if (PlayerAttack.isStrongAttacking == false && !_isDead && !AnnaDeath.dead)

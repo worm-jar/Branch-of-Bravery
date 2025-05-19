@@ -9,8 +9,9 @@ public class PlayerHealth : MonoBehaviour
     public Slider _healthSlider;
     public Animator _animator;
     private bool dieOnce = true;
+    public GameObject _canvas;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         dieOnce = true;
         _animator = GetComponent<Animator>();
@@ -20,6 +21,8 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _canvas = GameObject.Find("CanvasHealth");
+        _healthSlider = _canvas.transform.Find("Health").gameObject.GetComponent<Slider>();
         _healthSlider.value = health;
         if (health <= 0 && dieOnce == true)
         {

@@ -91,9 +91,9 @@ public class NonBossDamageTake : MonoBehaviour
                 {
                     relativePosNorm = 1;
                 }
-                _rig.velocity = Vector2.zero;
+                _rig.velocity = new Vector2(0, _rig.velocity.y);
                 _rig.AddForce(new Vector2(relativePos * knockBack * 1.8f, 3f), ForceMode2D.Impulse);
-                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), _rig.velocity.y);
+                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5f, 5f), Mathf.Clamp(_rig.velocity.y, -16.5f, 5f));
                 if (this.gameObject.name == "Fly")
                 {
                     //timerMovement = 0.01f;

@@ -45,6 +45,7 @@ public class Reset : MonoBehaviour
     }
     public void StartGame()
     {
+        SceneManager.LoadScene("Bridge");
         _audioSource.clip = _towers;
         _audioSource.Play();
         timer = -1f;
@@ -54,7 +55,7 @@ public class Reset : MonoBehaviour
         DoorHasBeenDestroyed.destroyed = false;
         FakeAnnabethGone.gone = false;
         PlayerHealth.health = 100f;
-        SceneManager.LoadScene("Bridge");
+        Instantiate(_player, new Vector3(-21.78f, -0.84f, -5.81f), Quaternion.identity);
     }
     public void ResetNow()
     {
