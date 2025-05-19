@@ -16,6 +16,8 @@ public class PlayerTakeDamage : MonoBehaviour
     public CameraShake Camera;
     public static bool _isInvincible = false;
     public bool strongInterruptable;
+    public GameObject _hurtSource;
+    public AudioSource _hurtAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class PlayerTakeDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _hurtAudio = _hurtSource.GetComponent<AudioSource>();
         _animator = this.gameObject.GetComponent<Animator>();
         _annabeth = GameObject.Find("Annabeth");
         _fakeAnnabeth = GameObject.Find("Fake Annabeth");
@@ -58,7 +61,9 @@ public class PlayerTakeDamage : MonoBehaviour
     {
         if(collision2D.gameObject.CompareTag("Norm Enemy Attack"))
         {
-            if(collision2D.gameObject.name == "FlyHB")
+            _hurtAudio.Play();
+            StartCoroutine(ScreenStop());
+            if (collision2D.gameObject.name == "FlyHB")
             {
                 PlayerHealth.health -= 8f;
             }
@@ -72,7 +77,7 @@ public class PlayerTakeDamage : MonoBehaviour
             _renderer.color = Color.black;
             float relativePos = transform.position.x - collision2D.gameObject.transform.position.x;
             _rig.AddForce(new Vector2(relativePos * knockBack, 4.5f), ForceMode2D.Impulse);
-            _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -7f, 7f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
+            _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -8f, 8f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
             if (PlayerHealth.health <= 0)
             {
                 _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);
@@ -88,6 +93,8 @@ public class PlayerTakeDamage : MonoBehaviour
         }
         else if (collision2D.gameObject.CompareTag("EnemyAttack"))
         {
+            _hurtAudio.Play();
+            StartCoroutine(ScreenStop());
             if (EnemyAI.transitionSecondPhase == true)
             {
                 PlayerHealth.health -= 13.5f;
@@ -105,7 +112,7 @@ public class PlayerTakeDamage : MonoBehaviour
                 //_animator.Play("Invincible");
                 float relativePos = transform.position.x - _annabeth.transform.position.x;
                 _rig.AddForce(new Vector2(relativePos * knockBack, 4.5f), ForceMode2D.Impulse);
-                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -14f, 14f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
+                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -8f, 8f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
                 if(PlayerHealth.health <= 0)
                 {
                     _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);
@@ -126,7 +133,7 @@ public class PlayerTakeDamage : MonoBehaviour
                 _renderer.color = Color.black;
                 float relativePos = transform.position.x - _fakeAnnabeth.transform.position.x;
                 _rig.AddForce(new Vector2(relativePos * knockBack, 4.5f), ForceMode2D.Impulse);
-                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -14f, 14f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
+                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -8f, 8f), Mathf.Clamp(_rig.velocity.y, 0f, 3.5f));
                 if (PlayerHealth.health <= 0)
                 {
                     _rig.AddForce(new Vector2(relativePos * knockBack * 1.3f, 5.5f), ForceMode2D.Impulse);
@@ -140,5 +147,11 @@ public class PlayerTakeDamage : MonoBehaviour
                 }
             }
         }
+    }
+    public IEnumerator ScreenStop()
+    {
+        Time.timeScale = 0.1f;
+        yield return new WaitForSeconds(0.01f);
+        Time.timeScale = 1f;
     }
 }

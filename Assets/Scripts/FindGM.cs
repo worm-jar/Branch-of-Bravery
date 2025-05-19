@@ -36,4 +36,8 @@ public class FindGM : MonoBehaviour
     {
         reset.Credits();
     }
+    public void Quit0()
+    {
+        reset.QuitApp();
+    }
 }

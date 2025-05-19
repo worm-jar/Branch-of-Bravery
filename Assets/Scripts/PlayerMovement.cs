@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     public CameraShake Camera;
     public static float _axisxStore;
     public PlayerTakeDamage PlayerTakeDamage;
+    public ParticleSystem _dust;
+    public ParticleSystem _dust0;
 
     public AudioClip _walk;
     public AudioClip _jump;
@@ -194,6 +196,7 @@ public class PlayerMovement : MonoBehaviour
         if (timer > 0 && _grounded == true)
         {
             _audioSource.PlayOneShot(_jump);
+            _dust.Play();
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             _rig.velocity = new Vector2(_rig.velocity.x, Mathf.Clamp(_rig.velocity.y, -9f, 12f));
             timer = 0f;
@@ -267,31 +270,31 @@ public class PlayerMovement : MonoBehaviour
         _asset.FindAction("Player/Interact").started += HandleInteract;
         _asset.FindAction("Player/Interact").performed += HandleInteract;
     }
-    private void OnDisable()
-    {
-        _asset.Disable();
-        _asset.FindAction("Player/Move").started -= HandleMove;
-        _asset.FindAction("Player/Move").performed -= HandleMove;
-        _asset.FindAction("Player/Move").canceled -= HandleMoveStop;
+    //private void OnDisable()
+    //{
+    //    _asset.Disable();
+    //    _asset.FindAction("Player/Move").started -= HandleMove;
+    //    _asset.FindAction("Player/Move").performed -= HandleMove;
+    //    _asset.FindAction("Player/Move").canceled -= HandleMoveStop;
 
-        _asset.FindAction("Player/Jump").started -= HandleJump;
-        _asset.FindAction("Player/Jump").performed -= HandleJump;
-        _asset.FindAction("Player/Jump").canceled -= HandleJumpDown;
+    //    _asset.FindAction("Player/Jump").started -= HandleJump;
+    //    _asset.FindAction("Player/Jump").performed -= HandleJump;
+    //    _asset.FindAction("Player/Jump").canceled -= HandleJumpDown;
 
-        _asset.FindAction("Player/Dash").started -= HandleDash;
-        _asset.FindAction("Player/Dash").performed -= HandleDash;
-        _asset.FindAction("Player/Dash").canceled -= HandleDashCancel;
+    //    _asset.FindAction("Player/Dash").started -= HandleDash;
+    //    _asset.FindAction("Player/Dash").performed -= HandleDash;
+    //    _asset.FindAction("Player/Dash").canceled -= HandleDashCancel;
 
-        _asset.FindAction("Player/Vertical").started -= HandleUp;
-        _asset.FindAction("Player/Vertical").performed -= HandleUp;
-        _asset.FindAction("Player/Vertical").canceled -= HandleUp;
+    //    _asset.FindAction("Player/Vertical").started -= HandleUp;
+    //    _asset.FindAction("Player/Vertical").performed -= HandleUp;
+    //    _asset.FindAction("Player/Vertical").canceled -= HandleUp;
 
-        _asset.FindAction("Player/Interact").started -= HandleInteract;
-        _asset.FindAction("Player/Interact").performed -= HandleInteract;
-    }
+    //    _asset.FindAction("Player/Interact").started -= HandleInteract;
+    //    _asset.FindAction("Player/Interact").performed -= HandleInteract;
+    //}
     public void HandleMove(InputAction.CallbackContext ctx)
     {
-        if (PlayerAttack.isStrongAttacking == false && !_isDead)
+        if (PlayerAttack.isStrongAttacking == false && !_isDead && !AnnaDeath.dead)
         {
             _audioSource.clip = _walk;
             _audioSource.Play();
@@ -323,6 +326,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 _landTriggered = true;
             }
+            _dust.Play();
             downable = false;
             _audioSource.PlayOneShot(_jump);
             _rig.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -348,6 +352,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {
+                _dust0.Play();
                 _audioSource.PlayOneShot(_dash);
                 _trail.enabled = true;
                 //_animator.Play("Dash");
@@ -370,6 +375,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (PlayerAttack.isStrongAttacking == false && !_isDead)
             {
+                _dust0.Play();
                 _audioSource.PlayOneShot(_dash);
                 _trail.enabled = true;
                 //_animator.Play("Dash");

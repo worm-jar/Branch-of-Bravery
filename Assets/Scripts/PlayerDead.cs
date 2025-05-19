@@ -34,7 +34,7 @@ public class PlayerDead : MonoBehaviour
         }
         if (respawnTimer > 0)
         {
-            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.velocity = new Vector3(0, _rigidbody.velocity.y, 0);
             respawnTimer -= Time.deltaTime;
             if (respawnTimer <= 0)
             {
