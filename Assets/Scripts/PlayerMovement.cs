@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -50,6 +51,17 @@ public class PlayerMovement : MonoBehaviour
     public PlayerTakeDamage PlayerTakeDamage;
     public ParticleSystem _dust;
     public ParticleSystem _dust0;
+    public GameObject CanvasFade;
+    public Image _grayImage;
+    public Animator _grayAnim;
+    public GameObject particleInteract;
+    //public GameObject _respTr;
+    //public GameObject _respTr0;
+    //public GameObject _whiteImage;
+    //public GameObject _whiteImage0;
+    //public Image _whiteImageReal;
+    //public Image _whiteImageReal0;
+    //public Animator _whiteAnim;
 
     public AudioClip _walk;
     public AudioClip _jump;
@@ -66,16 +78,41 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         isInteracting = false;
+        _dust = gameObject.transform.Find("Dust").gameObject.GetComponent<ParticleSystem>();
+        _dust0 = gameObject.transform.Find("Dust (1)").gameObject.GetComponent<ParticleSystem>();
         PlayerTakeDamage = GetComponent<PlayerTakeDamage>();
-        _particleSystem = GetComponent<ParticleSystem>();
+        _particleSystem = this.gameObject.GetComponent<ParticleSystem>();
         _audioSource = GetComponent<AudioSource>();
         _rig = this.GetComponent<Rigidbody2D>();
         _animator = this.GetComponent<Animator>();
         _trail = this.GetComponent<TrailRenderer>();
+        //CanvasFade = this.gameObject.transform.Find("GrayCanvas").gameObject;
+        //_grayImage = CanvasFade.transform.Find("Image").gameObject.GetComponent<Image>();
+        //_grayAnim = _grayImage.GetComponent<Animator>();
+        //_respTr = GameObject.Find("RespawnTrigger");
+        //_whiteImage = _respTr.transform.Find("WhiteCanvas").gameObject.transform.Find("Image").gameObject;
+        //_whiteImageReal = _whiteImage0.GetComponent<Image>();
+        //if (_whiteImage == null)
+        //{
+        //    _respTr0 = GameObject.Find("RespawnTrigger2");
+        //    _whiteImage0 = _respTr.transform.Find("WhiteCanvas").gameObject.transform.Find("Image").gameObject;
+        //    _whiteImageReal0 = _whiteImage0.GetComponent<Image>();
+        //}
+        //else if (_whiteImage0 == null)
+        //{
+        //    return;
+        //}
+        //_whiteAnim = _whiteImage.GetComponent<Animator>();
+        //if (_whiteAnim == null)
+        //{
+        //    _whiteAnim = _whiteImage0.GetComponent<Animator>();
+        //} 
     }
     // Update is called once per frame
     void Update()
     {
+        particleInteract = this.gameObject.transform.Find("SewerParticle").gameObject;
+        _particleSystem = particleInteract.GetComponent<ParticleSystem>();
         _canvasHeath = GameObject.Find("CanvasHealth");
         _interactSewer = _canvasHeath.transform.Find("Sewer").gameObject;
         _interactJump = _canvasHeath.transform.Find("Jump").gameObject;
@@ -428,6 +465,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (RespawnPoint.interactName == "RespawnTrigger")
             {
+                //if(_grayAnim !=  null)
+                //{
+                //    _grayAnim.Play("white flash");
+                //} 
                 _particleSystem.Play();
                 isRespInteracting = true;
                 _respTimer = 0.35f;
@@ -442,6 +483,10 @@ public class PlayerMovement : MonoBehaviour
             
             if (RespawnPoint.interactName == "RespawnTrigger2")
             {
+                //if (_grayAnim != null)
+                //{
+                //    _grayAnim.Play("white flash");
+                //}
                 _particleSystem.Play();
                 isRespInteracting = true;
                 _respTimer = 0.35f;
