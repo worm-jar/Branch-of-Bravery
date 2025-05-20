@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61.15, y: 196.3}
+  m_AnchoredPosition: {x: -61.15, y: 439}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &869564721
@@ -181,7 +181,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Game By Worm Jar (Anthony Marchal)
 
-    Art help from Ulgorok (Zeynep)'
+
+    Art help from Ulgorok (Zeynep)
+
+
+    Many
+    thanks to the administrative team of ESMA Games'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 850e7546e37528c4a9bc942e8046cab3, type: 2}
   m_sharedMaterial: {fileID: 3195786648299306617, guid: 850e7546e37528c4a9bc942e8046cab3, type: 2}
@@ -632,7 +637,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -173.69}
+  m_AnchoredPosition: {x: 0, y: -403}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2056773729
