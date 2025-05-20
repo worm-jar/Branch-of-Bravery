@@ -11,16 +11,21 @@ public class JumpOff : MonoBehaviour
     public Rigidbody2D _rig;
     public float distanceX;
     public float normDistance;
+    public JumpAI JumpAI;
     // Start is called before the first frame update
     void Start()
     {
-        _player = GameObject.Find("Player");
-        _rig = JumpMan.GetComponent<Rigidbody2D>();
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        JumpMan = this.gameObject.transform.parent.gameObject;
+        JumpAI = JumpMan.GetComponent<JumpAI>();
+        _player = GameObject.Find("Player");
+        _rig = JumpMan.GetComponent<Rigidbody2D>();
         distanceX = _player.transform.position.x - transform.position.x;
         if (distanceX < 0)
         {
@@ -36,6 +41,8 @@ public class JumpOff : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             _rig.AddForce(new Vector2(-normDistance * Random.Range(15f, 18), 1f), ForceMode2D.Impulse);
+            JumpAI._audioSource.clip = JumpAI._dodge;
+            JumpAI._audioSource.Play();
         }
     }
 }
