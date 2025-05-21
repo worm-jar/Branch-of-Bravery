@@ -85,7 +85,7 @@ public class PlayerAttack : MonoBehaviour
     }
     public void HandleLightAttack(InputAction.CallbackContext ctx)
     {
-        if (lightAttackWait == false && PlayerTakeDamage.timerIFrames == 0)
+        if (lightAttackWait == false && PlayerTakeDamage.timerIFrames == 0 && !Pause.paused)
         {
             PlayerMovement._axisxStore = PlayerMovement._axisx;
             isLightAttacking = true;
@@ -100,7 +100,7 @@ public class PlayerAttack : MonoBehaviour
     }
     public void HandleHeavyAttack(InputAction.CallbackContext ctx)
     {
-        if (PlayerHealth.health >= 50 && isStrongAttacking == false)
+        if (PlayerHealth.health >= 50 && isStrongAttacking == false && !Pause.paused)
         {
             _audioSource.volume = 0.5f;
             _slashAudioSource.PlayDelayed(0.5f);
@@ -110,7 +110,7 @@ public class PlayerAttack : MonoBehaviour
             //_animator.Play("Heavy Attack");
             timerStrongAttack = 0.85f;
         }
-        else if (PlayerHealth.health < 50 && isStrongAttacking == false)
+        else if (PlayerHealth.health < 50 && isStrongAttacking == false && !Pause.paused)
         {
             _audioSource.volume = 0.5f;
             _audioSource.PlayOneShot(_no);

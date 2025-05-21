@@ -23,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
     {
         _canvas = GameObject.Find("CanvasHealth");
         _healthSlider = _canvas.transform.Find("Health").gameObject.GetComponent<Slider>();
+        if (_healthSlider == null)
+            return;
         _healthSlider.value = health;
         if (health <= 0 && dieOnce == true)
         {

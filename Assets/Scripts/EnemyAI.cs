@@ -138,7 +138,7 @@ public class EnemyAI : MonoBehaviour
             launchTimer -= Time.deltaTime;
             if (launchTimer <= 0)
             {
-                _rig.AddForce(new Vector2(normDirectionStore*4f, 0f), ForceMode2D.Impulse);
+                _rig.velocity = new Vector2(normDirectionStore * 3f, 0f);
                 launchTimer = 0;
             }
         }

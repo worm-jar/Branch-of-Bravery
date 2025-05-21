@@ -21,6 +21,8 @@ public class SceneLoader : MonoBehaviour
         _canvashealth = GameObject.Find("CanvasHealth");
         _player = GameObject.Find("Player");
         _image = _canvashealth.transform.Find("Image");
+        if (_image == null)
+            return;
         FadeTrans = _image.GetComponent<TransitionFadeToBlack>();
         MusicChange = _player.GetComponent<TriggerLoadScene>();
     }

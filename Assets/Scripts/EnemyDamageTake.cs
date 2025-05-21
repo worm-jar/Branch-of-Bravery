@@ -62,8 +62,8 @@ public class EnemyDamageTake : MonoBehaviour
                 PlayerHealth.health = Mathf.Clamp(PlayerHealth.health, 32, 100);
                 _rig.velocity = Vector2.zero;
                 float relativePos = transform.position.x - _player.transform.position.x;
-                _rig.AddForce(new Vector2(relativePos * knockBack * 3f, 2f), ForceMode2D.Impulse);
-                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -7f, 7f), _rig.velocity.y);
+                _rig.AddForce(new Vector2(relativePos * knockBack * 2.2f, 2f), ForceMode2D.Impulse);
+                _rig.velocity = new Vector2(Mathf.Clamp(_rig.velocity.x, -5.8f, 5.8f), _rig.velocity.y);
                 this.gameObject.layer = LayerMask.NameToLayer("Invincible");
             }
             _sprite.color = Color.black;

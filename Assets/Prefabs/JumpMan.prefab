@@ -177,6 +177,7 @@ MonoBehaviour:
   _rig: {fileID: 0}
   distanceX: 0
   normDistance: 0
+  JumpAI: {fileID: 0}
 --- !u!1 &2848463637552909713
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +720,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 856c0fedd32a38c44b9f92d14005e0da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3bd1f758f3421174583e60a2b01f5e34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -981,6 +982,7 @@ MonoBehaviour:
   _rig: {fileID: 0}
   distanceX: 0
   normDistance: 0
+  JumpAI: {fileID: 0}
 --- !u!1 &7356924553416523011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,3 +1153,4 @@ MonoBehaviour:
   _rig: {fileID: 0}
   distanceX: 0
   normDistance: 0
+  JumpAI: {fileID: 0}

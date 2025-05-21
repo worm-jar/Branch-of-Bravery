@@ -86,6 +86,23 @@ public class PlayerMovement : MonoBehaviour
         _rig = this.GetComponent<Rigidbody2D>();
         _animator = this.GetComponent<Animator>();
         _trail = this.GetComponent<TrailRenderer>();
+
+        particleInteract = this.gameObject.transform.Find("SewerParticle").gameObject;
+        if (particleInteract == null)
+            return;
+
+        _particleSystem = particleInteract.GetComponent<ParticleSystem>();
+        _canvasHeath = GameObject.Find("CanvasHealth");
+        if (_canvasHeath == null)
+            return;
+        _interactSewer = _canvasHeath.transform.Find("Sewer").gameObject;
+        _interactJump = _canvasHeath.transform.Find("Jump").gameObject;
+        _interactAttack = _canvasHeath.transform.Find("Attack").gameObject;
+        _interactAttack2 = _canvasHeath.transform.Find("Attack2").gameObject;
+        _interactAttack3 = _canvasHeath.transform.Find("Attack3").gameObject;
+        _interactAttack4 = _canvasHeath.transform.Find("Attack4").gameObject;
+        _interactDash = _canvasHeath.transform.Find("Dash").gameObject;
+        textMeshProUGUI = _interactSewer.transform.Find("ActualText").gameObject.GetComponent<TextMeshProUGUI>();
         //CanvasFade = this.gameObject.transform.Find("GrayCanvas").gameObject;
         //_grayImage = CanvasFade.transform.Find("Image").gameObject.GetComponent<Image>();
         //_grayAnim = _grayImage.GetComponent<Animator>();
@@ -111,17 +128,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        particleInteract = this.gameObject.transform.Find("SewerParticle").gameObject;
-        _particleSystem = particleInteract.GetComponent<ParticleSystem>();
-        _canvasHeath = GameObject.Find("CanvasHealth");
-        _interactSewer = _canvasHeath.transform.Find("Sewer").gameObject;
-        _interactJump = _canvasHeath.transform.Find("Jump").gameObject;
-        _interactAttack = _canvasHeath.transform.Find("Attack").gameObject;
-        _interactAttack2 = _canvasHeath.transform.Find("Attack2").gameObject;
-        _interactAttack3 = _canvasHeath.transform.Find("Attack3").gameObject;
-        _interactAttack4 = _canvasHeath.transform.Find("Attack4").gameObject;
-        _interactDash = _canvasHeath.transform.Find("Dash").gameObject;
-        textMeshProUGUI = _interactSewer.transform.Find("ActualText").gameObject.GetComponent<TextMeshProUGUI>();
         _animator.SetFloat("Walking", _axisx);
         _animator.SetBool("Grounded", _grounded);
         _animator.SetBool("IsDashing", _hasDashed && !dashAnimated);

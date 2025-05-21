@@ -18,4 +18,12 @@ public class TransitionFadeToBlack : MonoBehaviour
     {
         _animator.Play("Fade");
     }
+    public void FadeIn()
+    {
+        _animator.Play("FadeIn");
+    }
+    public void FadeOut()
+    {
+        _animator.Play("FadeOut");
+    }
 }
