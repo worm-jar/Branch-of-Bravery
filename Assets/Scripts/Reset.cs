@@ -9,6 +9,7 @@ public class Reset : MonoBehaviour
     public GameObject healthSlider;
     public GameObject midSlider;
     public GameObject _healthCanvas;
+    public GameObject _skipCanvas;
     public GameObject _player;
     public AudioSource _audioSource;
     public AudioClip _towers;
@@ -57,6 +58,7 @@ public class Reset : MonoBehaviour
     public void StartGame()
     {
         funcName = "start";
+        Destroy(_skipCanvas);
         StartCoroutine(FadeAction());
         _audioSource.clip = _towers;
         _audioSource.Play();

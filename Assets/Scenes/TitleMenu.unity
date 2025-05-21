@@ -179,6 +179,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1410121806}
     - target: {fileID: 1672310889375898376, guid: 9b1e97c8c695cf149880b57444b6a455, type: 3}
+      propertyPath: _skipCanvas
+      value: 
+      objectReference: {fileID: 1386275803}
+    - target: {fileID: 1672310889375898376, guid: 9b1e97c8c695cf149880b57444b6a455, type: 3}
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1190305151}
@@ -722,7 +726,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1386275807
 RectTransform:
@@ -828,7 +832,7 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
+  m_CursorLockBehavior: 1
 --- !u!1 &1688867859
 GameObject:
   m_ObjectHideFlags: 0
