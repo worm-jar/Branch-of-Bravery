@@ -24,6 +24,10 @@ public class FindGM : MonoBehaviour
     //{
     //    button.onClick.RemoveListener(StartGame0);
     //}
+    public void Reset0()
+    {
+        reset.ResetNow();
+    }
     public void StartGame0()
     {
         reset.StartGame();

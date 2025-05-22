@@ -8,6 +8,7 @@ public class DDGameManager : MonoBehaviour
     public static DDGameManager instance = null;
     private void Awake()
     {
+        Screen.SetResolution(1920, 1080, true);
         if (instance == null)
         {
             instance = this;
@@ -20,6 +21,6 @@ public class DDGameManager : MonoBehaviour
     }
     public void Update()
     {
-        Screen.SetResolution(1920, 1080, true);
+
     }
 }

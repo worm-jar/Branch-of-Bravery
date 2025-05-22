@@ -32,7 +32,7 @@ public class SceneLoader : MonoBehaviour
         {
             FadeTrans.Fade();
             SceneManager.LoadScene("DashTuto");
-            _player.transform.position = new Vector2(-10.5f, 0f);
+            _player.transform.position = new Vector2(-10f, 0f);
         }
         else if (TriggerLoadScene.sceneName == "EnemyLeft")
         {

@@ -133,7 +133,7 @@ public class Reset : MonoBehaviour
         //   _canvas.SetActive(true);
         //}
         _healthCanvas.SetActive(true);
-
+        Destroy(_skipCanvas);
         TransitionFadeToBlack FadeToBlackTransition = FindTransition(_healthCanvas);
         if (FadeToBlackTransition != null)
         {
