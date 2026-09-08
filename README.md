@@ -39,7 +39,7 @@ Given the short amount of time, there are elements that need more polish and cou
 - > Some of the platforming was not calibrated properly
 - > Some found the game to be overly difficult and frustrating
 - > The tutorial can be confusing to some
-- > Other small details
+- > Other less important details
 
 Overall though, I am quite happy with how it all turned out.
 
