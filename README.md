@@ -48,7 +48,7 @@ Overall though, I am quite happy with how it all turned out.
 This was my 3rd ever game on Unity game engine. I was able to master what I already knew, and learn more about the software. I also had to learn how to use GitHub as versionning for the first time.
 ### ART
 I learnt that the purely artistic side, such as drawing, was not my strong suite. This is part of why I am persuing a more technical field.
-### GENERAL SKILLS
+### SOFT SKILLS
 I learnt to organize, plan, and be autonomous.
 
 ## PLAY THE GAME
