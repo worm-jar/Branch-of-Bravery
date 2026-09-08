@@ -1,3 +1,8 @@
+
+
+
+##LORE
+
 Branch of Bravery is an Action 2D Sidescroller where you play as a villain, sent as an envoy of a god to kill an anomaly located at the top of Mount Lunaria. This anomaly took part of this god's consciousness and built a sort of resistance against this selfish god and a refuge for those who were meant to die without a trace.
 
 At the base of the mountain, blocking the path to the peak, is Brave Little Annabeth; A little girl, who can barely carry a sword, and who wants nothing but to protect her family. Branch of Bravery is then a small part of this full game, where you reach and defeat Brave Little Annabeth.
